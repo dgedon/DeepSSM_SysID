@@ -1,0 +1,15 @@
+,train_dict,options_dict,test_dict
+best_epoch,195.0,,
+total_epoch,229.0,,
+train_time,155.89517879486084,,
+h_dim,,40.0,
+z_dim,,2.0,
+n_layers,,5.0,
+seq_len_train,,128.0,
+batch_size,,8.0,
+lr_scheduler_nepochs,,30.0,
+lr_scheduler_factor,,10.0,
+model_param,,66530.0,
+marginal_likeli,,,-2245.1213
+vaf,,,-4.565548896789551
+rmse,,,[2.14920211]

@@ -1,0 +1,97 @@
+import csv
+import matplotlib.pyplot as plt
+import torch
+import numpy as np
+from data.base import IODataset
+
+
+def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_len_test=None, **kwargs):
+    # which data set to use
+    if bool(kwargs):
+        test_set = kwargs['test_set']
+    else:
+        # Default option
+        test_set = 'multisine'
+
+    if test_set == 'multisine':
+        test_idx = [2, 4]
+    elif test_set == 'sweptsine':
+        test_idx = [3, 5]
+
+    # data file direction and name
+    file_name_train = 'data/WienerHammersteinFiles/WH_SineSweepInput_meas.csv'
+    file_name_test = 'data/WienerHammersteinFiles/WH_TestDataset.csv'
+
+    # initialization
+    u = []
+    y = []
+    u_val = []
+    y_val = []
+    u_test = []
+    y_test = []
+
+    # read the file into variable
+    with open(file_name_train, 'r') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        line_count = 0
+        for row in csv_reader:
+            # ignore header line
+            if line_count == 0:
+                line_count += 1
+            else:
+                # Extract combination of training / validation data
+                if file_name_train == 'data/WienerHammersteinFiles/WH_SineSweepInput_meas.csv':
+                    idx = 100
+                elif file_name_train == 'data/WH_MultisineFadeOut':
+                    idx = 2
+                u.append(float(row[idx]))
+                y.append(float(row[2*idx]))
+                u_val.append(float(row[idx+1]))
+                y_val.append(float(row[2*idx+1]))
+
+    # read the file into variable
+    with open(file_name_test, 'r') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        line_count = 0
+        for row in csv_reader:
+            # ignore header line
+            if line_count == 0:
+                line_count += 1
+            else:
+                # Extract combination of training / validation data
+                u_test.append(float(row[test_idx[0]]))    # use 2,4 for multisine
+                y_test.append(float(row[test_idx[1]]))    # use 3,5 for swept sine
+
+
+    # convert from list to numpy array
+    u_train = np.asarray(u)
+    y_train = np.asarray(y)
+    u_val = np.asarray(u_val)
+    y_val = np.asarray(y_val)
+    u_test = np.asarray(u_test)
+    y_test = np.asarray(y_test)
+
+    """# number of test data points
+    p = 28*256  # 8192 - 4 * 256 (28 batches of training and 4 batch of validation)
+
+    # Extract training data
+    u_train = u[0:p]
+    y_train = y[0:p]
+
+    # Extract validation data
+    u_val = u[p:]
+    y_val = y[p:]"""
+
+    # get correct dimensions
+    u_test = u_test[..., None]
+    y_test = y_test[..., None]
+    u_train = u_train[..., None]
+    y_train = y_train[..., None]
+    u_val = u_val[..., None]
+    y_val = y_val[..., None]
+
+    dataset_train = IODataset(u_train, y_train, seq_len_train)
+    dataset_val = IODataset(u_val, y_val, seq_len_val)
+    dataset_test = IODataset(u_test, y_test, seq_len_test)
+
+    return dataset_train, dataset_val, dataset_test

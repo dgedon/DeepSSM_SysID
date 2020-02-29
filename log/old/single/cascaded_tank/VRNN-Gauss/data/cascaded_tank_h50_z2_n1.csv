@@ -1,0 +1,2 @@
+,h_dim,z_dim,n_layers,seq_len_train,batch_size,lr_scheduler_nepochs,lr_scheduler_factor,model_param,marginal_likeli,vaf,rmse
+0,50,2,1,128,128,50,10,43660,-42.34170744249456,93.60907971858978,1.544255256652832

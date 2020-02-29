@@ -1,0 +1,2 @@
+,best_epoch,total_epoch,train_time,h_dim,z_dim,n_layers,seq_len_train,batch_size,lr_scheduler_nepochs,lr_scheduler_factor,model_param,marginal_likeli,vaf,rmse
+0,274,400,215.53681421279907,30,2,1,128,128,50,10,16930,-20.760878949394495,83.63910168409348,2.4708189964294434
