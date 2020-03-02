@@ -6,7 +6,14 @@ close all
 folder = fileparts(which('final_toy_lgssm_comparison.m'));
 addpath(genpath(folder));
 
-    
+%% True states
+
+% state space matrices
+A = [0.7, 0.8;
+    0, 0.1];
+B = [-1; 0.1];
+C = [1 0];
+
 %% Init
 
 % number of data points 
@@ -14,7 +21,7 @@ k_max_test = 5000;
 k_max_train = 2000;
 
 % Monte Carlo iterations
-MC_iter = 50;
+MC_iter = 500;
 
 % state size of N4SID method (selected in file:
 % 'final_toy_lgssm_comparison_statesize.m' with best RMSE in open loop)
@@ -44,6 +51,8 @@ y_test = y_test(1:k_max_test);  %run_toy_lgssm(u_test')';
 % allocation
 rmse_OL_true = zeros(1,MC_iter);
 rmse_OL_id = zeros(1,MC_iter);
+std_id = zeros(1,MC_iter);
+loglikeli = zeros(1,MC_iter);
 
 % loop over everything
 for i = 1:MC_iter
@@ -52,7 +61,7 @@ for i = 1:MC_iter
 
     % get new data
     u_train = (rand(1, k_max_train) - 0.5) * 5;
-    y_train = run_toy_lgssm(u_train);
+    y_train = run_toy_lgssm(u_train,A,B,C,0.5,1);
     % get correct sizes
     u_train = u_train';
     y_train = y_train';
@@ -62,28 +71,26 @@ for i = 1:MC_iter
     opt = n4sidOptions('Focus','simulation');
     init_sys = n4sid(data, nx, opt);
     sys = pem(data,init_sys);
+    std_id(i) = sqrt(sys.NoiseVariance);
 
     % test identified model in open loop
     y_test_OL_id = sim(sys, u_test);
     rmse_OL_id(i) = sqrt(mean((y_test-y_test_OL_id).^2));
+    loglikeli(i) = get_LL(y_test,y_test_OL_id, std_id(i));
     
-    y_test_OL_true = run_toy_lgssm_nonoise(u_test')';
+    y_test_OL_true = run_toy_lgssm(u_test',A,B,C,0,0)';
     rmse_OL_true(i) = sqrt(mean((y_test-y_test_OL_true).^2));
 end
 
 fprintf('\nmean RMSE OL identified: %2.4f\n',mean(rmse_OL_id))
 fprintf('std RMSE OL identified: %2.4f\n',sqrt(var(rmse_OL_id)))
+fprintf('LL OL identified: %2.4f\n',mean(loglikeli))
 
 fprintf('\nmean RMSE OL true: %2.4f\n',mean(rmse_OL_true))
 fprintf('std RMSE OL true: %2.4f\n',sqrt(var(rmse_OL_true)))
 
 %% function to get new data
-
-function [y] = run_toy_lgssm(u)
-
-    % define process noise
-    sigma_state = sqrt(0.25);
-    sigma_out = 1;
+function [y] = run_toy_lgssm(u,A,B,C,sigma_state,sigma_out)
 
     % get length of input
     k_max = size(u,2);
@@ -92,12 +99,6 @@ function [y] = run_toy_lgssm(u)
     n_u = 1;
     n_y = 1;
     n_x = 2;
-
-    % state space matrices
-    A = [0.7, 0.8;
-         0, 0.1];
-    B = [-1; 0.1];
-    C = [1 0];
 
     % allocation
     x = zeros(n_x, k_max + 1);
@@ -111,34 +112,17 @@ function [y] = run_toy_lgssm(u)
 
 end
 
-function [y] = run_toy_lgssm_nonoise(u)
+%% 
 
-    % define process noise
-    sigma_state = sqrt(0);
-    sigma_out = 0;
+function [LL] = get_LL(y_test,mu, std)
 
-    % get length of input
-    k_max = size(u,2);
-
-    % size of variables
-    n_u = 1;
-    n_y = 1;
-    n_x = 2;
-
-    % state space matrices
-    A = [0.7, 0.8;
-         0, 0.1];
-    B = [-1; 0.1];
-    C = [1 0];
-
-    % allocation
-    x = zeros(n_x, k_max + 1);
-    y =zeros(n_y, k_max);
-
-    % run over all time steps
-    for k = 1:k_max
-        x(:, k + 1) = A * x(:, k) + B * u(:, k) + sigma_state * randn(n_x,1);
-        y(:, k) = C*x(:, k) + sigma_out * randn(n_y,1);
-    end
+    % number of data points
+    k_max = size(y_test,1);
+    
+    % total LL
+    LL_tot = sum(-1/2 * log(2*pi*std^2) - 1/2 *1/std^2 * (y_test-mu).^2);
+    
+    % LL per point
+    LL = LL_tot / k_max;
 
 end

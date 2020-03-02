@@ -26,21 +26,21 @@ from models.model_state import ModelState
 options = {
     'dataset': 'toy_lgssm',
     'model': 'STORN',
-    'do_train': True,
+    'do_train': False,
     'do_test': True,  # ALWAYS
     'logdir': 'final',
     'normalize': True,
     'seed': 1234,
     'optim': 'Adam',
     'showfig': True,
-    'savefig': True,
+    'savefig': False,
     'MCsamples': 50,
 }
 
 # get saving path
-path_general = os.getcwd() + '/log/{}/{}/{}/'.format(options['logdir'],
-                                                     options['dataset'],
-                                                     options['model'], )
+path_general = os.getcwd() + '/log_Server/{}/{}/{}/'.format(options['logdir'],
+                                                           options['dataset'],
+                                                           options['model'], )
 
 # %%
 if __name__ == "__main__":
@@ -104,13 +104,6 @@ if __name__ == "__main__":
         options['device'] = device
 
         file_name_general_it = file_name_general + '_MC{}'.format(mcIter)
-
-        """path = path_general + 'data/'
-        # check if path exists and create otherwise
-        if not os.path.exists(path):
-            os.makedirs(path)
-        # set logger
-        set_redirects(path, file_name_general)"""
 
         # select parameters for toy lgssm
         kwargs = {"k_max_train": 2000,
@@ -176,12 +169,6 @@ if __name__ == "__main__":
             file_name = file_name_general_it + '_bestModel.ckpt'
             modelstate.load_model(path, file_name)
             modelstate.model.to(options['device'])
-
-            """# load model
-            path = path_general + 'model/'
-            file_name = file_name_general_it + '_bestModel.ckpt'
-            modelstate.load_model(path, file_name)
-            modelstate.model.to(options['device'])"""
 
             # plot and save the loss curve
             dv.plot_losscurve(df, options, path_general, file_name_general_it, removedata=False)

@@ -43,7 +43,7 @@ def print_best_values(all_rmse, all_vaf, all_likelihood, h_values, z_values, n_v
 # set (high level) options dictionary
 options = {
     'dataset': 'wiener_hammerstein',
-    'model': 'STORN',
+    'model': 'VRNN-Gauss',
     'do_train': True,
     'do_test': True,
     'logdir': 'final',
@@ -57,7 +57,7 @@ options = {
 # values for grid search
 gridvalues = {
     'h_values': [30, 40, 50, 60],  # [10, 20, 30, 40, 50, 60, 70, 80],
-    'z_values': [15],
+    'z_values': [10],
     'n_values': [1],
 }
 
@@ -179,9 +179,9 @@ if __name__ == "__main__":
                 if options['do_test']:
                     # test the model
                     kwargs = {'file_name_add': 'Multisine_'}
-                    df_multisine = test.run_test(options, loaders_multisine, {}, path_general, file_name, **kwargs)
+                    df_multisine = test.run_test(options, loaders_multisine, df, path_general, file_name, **kwargs)
                     kwargs = {'file_name_add': 'Sweptsine_'}
-                    df_sweptsine = test.run_test(options, loaders_sweptsine, {}, path_general, file_name, **kwargs)
+                    df_sweptsine = test.run_test(options, loaders_sweptsine, df, path_general, file_name, **kwargs)
 
                 # save performance values
                 all_vaf_multisine[i1, i2, i3] = df_multisine['vaf']

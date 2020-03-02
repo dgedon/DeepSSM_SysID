@@ -42,7 +42,7 @@ def create_narendra_li_datasets(seq_len_train=None, seq_len_val=None, seq_len_te
         k_max_test = kwargs['k_max_test']
     else:
         # Default option
-        k_max_train = 50000  # 5000
+        k_max_train = 50000  # 50000
         k_max_val = 5000  # 5000
         k_max_test = 5000  # 5000
 

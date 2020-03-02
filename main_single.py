@@ -118,12 +118,12 @@ def run_main_single(options, path_general, file_name_general):
 if __name__ == "__main__":
     # set (high level) options dictionary
     options = {
-        'dataset': 'toy_lgssm',  # 'f16gvt', 'cascaded_tank', 'narendra_li', 'toy_lgssm', 'wiener_hammerstein'
-        'model': 'VRNN-Gauss',
+        'dataset': 'narendra_li',  # 'f16gvt', 'cascaded_tank', 'narendra_li', 'toy_lgssm', 'wiener_hammerstein'
+        'model': 'STORN-narli',
         'do_train': True,
         'do_test': True,
         'logdir': 'single',
-        'normalize': True,
+        'normalize': False,
         'seed': 1234,
         'optim': 'Adam',
         'showfig': True,

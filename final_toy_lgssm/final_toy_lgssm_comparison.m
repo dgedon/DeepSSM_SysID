@@ -57,11 +57,11 @@ rmse_KF = zeros(1,MC_iter);
 % loop over everything
 for i = 1:MC_iter
     
-    fprintf('MC_Iter=%i\n',i)
+%     fprintf('MC_Iter=%i\n',i)
 
     % get new data
     u_train = (rand(1, k_max_train) - 0.5) * 5;
-    y_train = run_toy_lgssm(u_train);
+    y_train = run_toy_lgssm(u_train,A,B,C,0.5,1);
     % get correct sizes
     u_train = u_train';
     y_train = y_train';
@@ -75,38 +75,36 @@ for i = 1:MC_iter
     % test identified model in open loop
     y_test_OL = sim(sys, u_test);
     rmse_OL(i) = sqrt(mean((y_test-y_test_OL).^2));
-    rmseOL = sqrt(mean((y_test-y_test_OL).^2))
+    rmseOLidentified = sqrt(mean((y_test-y_test_OL).^2))
     
-    y_test_OL_true = run_toy_lgssm_nonoise(u_test')';
+    y_test_OL_true = run_toy_lgssm(u_test',A,B,C,0,0)';
     rmse_OL_true(i) = sqrt(mean((y_test-y_test_OL_true).^2));
     rmseOLtrue = sqrt(mean((y_test-y_test_OL_true).^2)) 
 
     % test KF with identified model
     Q = 0.5 * eye(2);
     R = 1;
+    y_test_KF_sys = run_kalman_filter(sys.A, sys.B, sys.C, Q, R, u_test', y_test');
+    y_test_KF_sys = y_test_KF_sys';
+    rmseKFidentified = sqrt(mean((y_test-y_test_KF_sys).^2))
+    
     y_test_KF = run_kalman_filter(A, B, C, Q, R, u_test', y_test');
     y_test_KF = y_test_KF';
     %rmse_KF(i) = 
     rmseKFtrue = sqrt(mean((y_test-y_test_KF).^2))
     
-    y_test_KF_sys = run_kalman_filter(sys.A, sys.B, sys.C, Q, R, u_test', y_test');
-    y_test_KF_sys = y_test_KF_sys';
-    rmseKF = sqrt(mean((y_test-y_test_KF_sys).^2))
+    
 
     
     stopvar = 1;
 end
 
-fprintf('\nmean RMSE OL: %2.4f\n',mean(rmse_OL))
-fprintf('std RMSE OL: %2.4f\n',sqrt(var(rmse_OL)))
+% fprintf('\nmean RMSE OL: %2.4f\n',mean(rmse_OL))
+% fprintf('std RMSE OL: %2.4f\n',sqrt(var(rmse_OL)))
 
 %% function to get new data
 
-function [y] = run_toy_lgssm(u)
-
-    % define process noise
-    sigma_state = sqrt(0.25);
-    sigma_out = 1;
+function [y] = run_toy_lgssm(u,A,B,C,sigma_state,sigma_out)
 
     % get length of input
     k_max = size(u,2);
@@ -115,44 +113,6 @@ function [y] = run_toy_lgssm(u)
     n_u = 1;
     n_y = 1;
     n_x = 2;
-
-    % state space matrices
-    A = [0.7, 0.8;
-         0, 0.1];
-    B = [-1; 0.1];
-    C = [1 0];
-
-    % allocation
-    x = zeros(n_x, k_max + 1);
-    y =zeros(n_y, k_max);
-
-    % run over all time steps
-    for k = 1:k_max
-        x(:, k + 1) = A * x(:, k) + B * u(:, k) + sigma_state * randn(n_x,1);
-        y(:, k) = C*x(:, k) + sigma_out * randn(n_y,1);
-    end
-
-end
-
-function [y] = run_toy_lgssm_nonoise(u)
-
-    % define process noise
-    sigma_state = sqrt(0);
-    sigma_out = 0;
-
-    % get length of input
-    k_max = size(u,2);
-
-    % size of variables
-    n_u = 1;
-    n_y = 1;
-    n_x = 2;
-
-    % state space matrices
-    A = [0.7, 0.8;
-         0, 0.1];
-    B = [-1; 0.1];
-    C = [1 0];
 
     % allocation
     x = zeros(n_x, k_max + 1);

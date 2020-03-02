@@ -3,14 +3,11 @@ import numpy as np
 from data.base import IODataset
 
 
-def run_toy_lgssm_sim(u):
+def run_toy_lgssm_sim(u, A, B, C, sigma_state, sigma_out):
     # just a standard linear gaussian state space model. Measurement Noise is considered outside
     # same system as in toy examples of "Learning of state-space models with highly informative observations: a tempered
     # Sequential Monte Carlo solution", chapter 5.1
     # additionally measurement noise considered
-
-    # define process noise
-    sigma_state = np.sqrt(0.25)
 
     # get length of input
     k_max = u.shape[-1]
@@ -19,11 +16,6 @@ def run_toy_lgssm_sim(u):
     n_u = 1
     n_y = 1
     n_x = 2
-
-    # state space matrices
-    A = np.array([[0.7, 0.8], [0, 0.1]])
-    B = np.array([[-1], [0.1]])
-    C = np.array([[1], [0]]).transpose()
 
     # allocation
     x = np.zeros([n_x, k_max + 1])
@@ -38,7 +30,12 @@ def run_toy_lgssm_sim(u):
 
 
 def create_toy_lgssm_datasets(seq_len_train=None, seq_len_val=None, seq_len_test=None, **kwargs):
-    # define output noise
+    # state space matrices
+    A = np.array([[0.7, 0.8], [0, 0.1]])
+    B = np.array([[-1], [0.1]])
+    C = np.array([[1], [0]]).transpose()
+    # define noise
+    sigma_state = np.sqrt(0.25)
     sigma_out = np.sqrt(1)
 
     # length of all data sets
@@ -70,8 +67,8 @@ def create_toy_lgssm_datasets(seq_len_train=None, seq_len_val=None, seq_len_test
     y_test = y_test.transpose(1, 0)"""
 
     # get the outputs
-    y_train = run_toy_lgssm_sim(u_train) + sigma_out * np.random.randn(1, k_max_train)
-    y_val = run_toy_lgssm_sim(u_val) + sigma_out * np.random.randn(1, k_max_val)
+    y_train = run_toy_lgssm_sim(u_train, A, B, C, sigma_state, 0) + sigma_out * np.random.randn(1, k_max_train)
+    y_val = run_toy_lgssm_sim(u_val, A, B, C, sigma_state, 0) + sigma_out * np.random.randn(1, k_max_val)
 
     # get correct dimensions
 
