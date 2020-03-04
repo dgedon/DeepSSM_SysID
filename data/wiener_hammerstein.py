@@ -8,10 +8,12 @@ from data.base import IODataset
 def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_len_test=None, **kwargs):
     # which data set to use
     if bool(kwargs):
-        test_set = kwargs['test_set']
+        test_set = kwargs['test_set']   # which test set to use
+        MCiter = kwargs['MCiter']       # which MC iteration are we in
     else:
         # Default option
         test_set = 'multisine'
+        MCiter = 0
 
     if test_set == 'multisine':
         test_idx = [2, 4]
@@ -41,13 +43,13 @@ def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_
             else:
                 # Extract combination of training / validation data
                 if file_name_train == 'data/WienerHammersteinFiles/WH_SineSweepInput_meas.csv':
-                    idx = 100
+                    idx = 100 + MCiter
                 elif file_name_train == 'data/WH_MultisineFadeOut':
                     idx = 2
                 u.append(float(row[idx]))
-                y.append(float(row[2*idx]))
-                u_val.append(float(row[idx+1]))
-                y_val.append(float(row[2*idx+1]))
+                y.append(float(row[2 * idx]))
+                u_val.append(float(row[idx + 1]))
+                y_val.append(float(row[2 * idx + 1]))
 
     # read the file into variable
     with open(file_name_test, 'r') as csv_file:
@@ -59,9 +61,8 @@ def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_
                 line_count += 1
             else:
                 # Extract combination of training / validation data
-                u_test.append(float(row[test_idx[0]]))    # use 2,4 for multisine
-                y_test.append(float(row[test_idx[1]]))    # use 3,5 for swept sine
-
+                u_test.append(float(row[test_idx[0]]))  # use 2,4 for multisine
+                y_test.append(float(row[test_idx[1]]))  # use 3,5 for swept sine
 
     # convert from list to numpy array
     u_train = np.asarray(u)

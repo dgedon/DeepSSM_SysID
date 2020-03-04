@@ -31,29 +31,32 @@ if __name__ == "__main__":
     # set (high level) options dictionary
     options = {
         'dataset': 'narendra_li',  # only use this dynamic system here!
-        'model': 'STORN',
+        'model': 'VAE-RNN',
         'do_train': True,
         'do_test': True,
         'logdir': 'final',
         'normalize': False,
         'seed': 1234,
         'optim': 'Adam',
-        'showfig': True,
+        'showfig': False,
         'savefig': True,
         'MCsamples': 10,
     }
 
     # values of evaluation # , 10000, 20000, 30000, 40000, 50000, 75000
     vary_data = {
-        'k_max_train_values': np.array([2000, 5000]),
-        'k_max_val_values': (5000. * np.ones(2)).astype(int),
-        'k_max_test_values': (5000. * np.ones(2)).astype(int),
+        'k_max_train_values': np.array([2000, 5000, 10000, 20000, 30000, 40000, 50000, 75000]),
+        'k_max_val_values': (5000. * np.ones(8)).astype(int),
+        'k_max_test_values': (5000. * np.ones(8)).astype(int),
     }
 
+    addpath = 'run_0303'
+
     # get saving path
-    path_general = os.getcwd() + '/log/{}/{}/{}/'.format(options['logdir'],
-                                                         options['dataset'],
-                                                         options['model'], )
+    path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
+                                                            options['dataset'],
+                                                            addpath,
+                                                            options['model'], )
     # get saving file names
     file_name_general = options['dataset']
 
@@ -80,7 +83,7 @@ if __name__ == "__main__":
 
     # optimal model parameters
     h_opt = 60  # 60
-    z_opt = 20  # 5
+    z_opt = 10  # 5
     n_opt = 1
     options['model_options'].h_dim = h_opt
     options['model_options'].z_dim = z_opt
@@ -188,16 +191,18 @@ if __name__ == "__main__":
         os.makedirs(path)
 
     # filename
-    file_name = file_name_general + '_gridsearch.csv'
+    file_name = file_name_general + '.pt'
 
     # save data
     datasaver = {'df_all': df_all,
                  'vaf_all': vaf_all,
                  'rmse_all': rmse_all,
                  'likelihood_all': likelihood_all}
+    # save data
+    torch.save(datasaver, path + file_name)
 
     # plot performance % TODO IMPROVE this plotting function (see final figure script)
-    dv.plot_perf_varynumdata(k_max_train_values, vaf_all.mean(0), rmse_all.mean(0), likelihood_all.mean(0), options,
+    dv.plot_perf_varynumdata(k_max_train_values, vaf_all, rmse_all, likelihood_all, options,
                              path_general)
 
     # time output

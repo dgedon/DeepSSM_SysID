@@ -99,7 +99,7 @@ def run_test(options, loaders, df, path_general, file_name_general, **kwargs):
     if options['dataset'] == 'cascaded_tank':
         temp = 1024
     elif options['dataset'] == 'wiener_hammerstein':
-        temp = 4000
+        temp = 2000
     else:
         temp = 200
     dv.plot_time_sequence_uncertainty(data_y_true,

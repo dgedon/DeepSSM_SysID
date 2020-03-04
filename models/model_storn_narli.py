@@ -23,43 +23,79 @@ class STORN_narli(nn.Module):
         # feature-extracting transformations (phi_y, phi_u and phi_z)
         self.phi_y = nn.Sequential(
             nn.Linear(self.y_dim, self.h_dim),
-            nn.ReLU(),)
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(), )
         self.phi_u = nn.Sequential(
             nn.Linear(self.u_dim, self.h_dim),
-            nn.ReLU(),)
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(), )
         self.phi_z = nn.Sequential(
             nn.Linear(self.z_dim, self.h_dim),
-            nn.ReLU(),)
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(), )
 
         # encoder function (phi_enc) -> Inference
         self.enc = nn.Sequential(
             nn.Linear(self.d_dim, self.d_dim),
-            nn.ReLU(),)
+            nn.ReLU(),
+            nn.Linear(self.d_dim, self.d_dim),
+            nn.ReLU(),
+            nn.Linear(self.d_dim, self.d_dim),
+            nn.ReLU(),
+            nn.Linear(self.d_dim, self.d_dim),
+            nn.ReLU())
         self.enc_mean = nn.Sequential(
-            nn.Linear(self.d_dim, self.z_dim),)
+            nn.Linear(self.d_dim, self.z_dim), )
         self.enc_logvar = nn.Sequential(
             nn.Linear(self.d_dim, self.z_dim),
-            nn.ReLU(),)
+            nn.ReLU(), )
 
         # prior function (phi_prior) -> Prior
         self.prior = nn.Sequential(
             nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),)
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(), )
         self.prior_mean = nn.Sequential(
-            nn.Linear(self.h_dim, self.z_dim),)
+            nn.Linear(self.h_dim, self.z_dim), )
         self.prior_logvar = nn.Sequential(
             nn.Linear(self.h_dim, self.z_dim),
-            nn.ReLU(),)
+            nn.ReLU(), )
 
         # decoder function (phi_dec) -> Generation
         self.dec = nn.Sequential(
             nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),)
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU(),
+            nn.Linear(self.h_dim, self.h_dim),
+            nn.ReLU())
         self.dec_mean = nn.Sequential(
-            nn.Linear(self.h_dim, self.y_dim),)
+            nn.Linear(self.h_dim, self.y_dim), )
         self.dec_logvar = nn.Sequential(
             nn.Linear(self.h_dim, self.y_dim),
-            nn.ReLU(),)
+            nn.ReLU(), )
 
         # generation recurrence function (f_theta) -> Recurrence of h
         self.rnn_gen = nn.GRU(self.h_dim + self.h_dim, self.h_dim, self.n_layers, bias)
@@ -314,79 +350,3 @@ class STORN_narli(nn.Module):
         self.rnn_inf = nn.GRU(self.d_dim, self.d_dim, self.n_layers, bias)"""
 
 
-"""        # feature-extracting transformations (phi_y, phi_u and phi_z)
-        self.phi_y = nn.Sequential(
-            nn.Linear(self.y_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),)
-        self.phi_u = nn.Sequential(
-            nn.Linear(self.u_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),)
-        self.phi_z = nn.Sequential(
-            nn.Linear(self.z_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),)
-
-        # encoder function (phi_enc) -> Inference
-        self.enc = nn.Sequential(
-            nn.Linear(self.d_dim, self.d_dim),
-            nn.ReLU(),
-            nn.Linear(self.d_dim, self.d_dim),
-            nn.ReLU(),
-            nn.Linear(self.d_dim, self.d_dim),
-            nn.ReLU(),
-            nn.Linear(self.d_dim, self.d_dim),
-            nn.ReLU())
-        self.enc_mean = nn.Sequential(
-            nn.Linear(self.d_dim, self.z_dim),)
-        self.enc_logvar = nn.Sequential(
-            nn.Linear(self.d_dim, self.z_dim),
-            nn.ReLU(),)
-
-        # prior function (phi_prior) -> Prior
-        self.prior = nn.Sequential(
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),)
-        self.prior_mean = nn.Sequential(
-            nn.Linear(self.h_dim, self.z_dim),)
-        self.prior_logvar = nn.Sequential(
-            nn.Linear(self.h_dim, self.z_dim),
-            nn.ReLU(),)
-
-        # decoder function (phi_dec) -> Generation
-        self.dec = nn.Sequential(
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU())
-        self.dec_mean = nn.Sequential(
-            nn.Linear(self.h_dim, self.y_dim),)
-        self.dec_logvar = nn.Sequential(
-            nn.Linear(self.h_dim, self.y_dim),
-            nn.ReLU(),)"""

@@ -119,7 +119,7 @@ if __name__ == "__main__":
     # set (high level) options dictionary
     options = {
         'dataset': 'narendra_li',  # 'f16gvt', 'cascaded_tank', 'narendra_li', 'toy_lgssm', 'wiener_hammerstein'
-        'model': 'STORN-narli',
+        'model': 'VAE-RNN',
         'do_train': True,
         'do_test': True,
         'logdir': 'single',
