@@ -16,7 +16,7 @@ def get_model_options(model_type, dataset_name, dataset_options):
         model_parser.add_argument('--z_dim', type=int, default=2, help='dimension of stoch. latent variable')  # 16, 25
         model_parser.add_argument('--n_layers', type=int, default=1, help='number of RNN layers (GRU)')  # 1, 3
     elif dataset_name == 'narendra_li': # 40,2,1
-        model_parser.add_argument('--h_dim', type=int, default=60, help='dimension of det. latent variable h')
+        model_parser.add_argument('--h_dim', type=int, default=70, help='dimension of det. latent variable h')
         model_parser.add_argument('--z_dim', type=int, default=10, help='dimension of stoch. latent variable')  # 16, 25
         model_parser.add_argument('--n_layers', type=int, default=1, help='number of RNN layers (GRU)')  # 1, 3
     elif dataset_name == 'f16gvt':

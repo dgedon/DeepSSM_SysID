@@ -7,12 +7,14 @@ from data.base import IODataset
 
 def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_len_test=None, **kwargs):
     # which data set to use
-    if bool(kwargs):
-        test_set = kwargs['test_set']   # which test set to use
-        MCiter = kwargs['MCiter']       # which MC iteration are we in
+    if 'test_set' in kwargs:
+        test_set = kwargs['test_set']
     else:
-        # Default option
         test_set = 'multisine'
+
+    if 'MCiter' in kwargs:
+        MCiter = kwargs['MCiter']
+    else:
         MCiter = 0
 
     if test_set == 'multisine':

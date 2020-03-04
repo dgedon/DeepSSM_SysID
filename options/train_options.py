@@ -1,4 +1,5 @@
 import argparse
+import torch
 
 
 def get_train_options(dataset_name):
@@ -47,6 +48,10 @@ def get_train_options(dataset_name):
         train_parser.add_argument('--min_lr', type=float, default=1e-6, help='minimal learning rate')
         train_parser.add_argument('--lr_scheduler_nepochs', type=float, default=10/2, help='check learning rater after')
         train_parser.add_argument('--lr_scheduler_factor', type=float, default=10, help='adapt learning rate by')
+
+    # change batch size to higher value if trained on cuda device
+    if torch.cuda.is_available():
+        train_parser.add_argument('--batch_size', type=int, default=1024, help='batch size')
 
     train_options = train_parser.parse_args()
 

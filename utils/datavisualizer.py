@@ -18,7 +18,7 @@ def plot_time_sequence_uncertainty(data_y_true, data_y_sample, label_y, options,
     num_cols = 1
 
     # initialize figure
-    plt.figure(figsize=(5 * num_cols, 5 * num_outputs))
+    plt.figure(1, figsize=(5 * num_cols, 5 * num_outputs))
 
     # plot outputs
     for j in range(0, num_outputs):
@@ -69,6 +69,7 @@ def plot_time_sequence_uncertainty(data_y_true, data_y_sample, label_y, options,
     # plot model
     if options['showfig']:
         plt.show()
+    plt.close(1)
 
 
 # plot and save the loss curve
@@ -85,7 +86,7 @@ def plot_losscurve(df, options, path_general, file_name_general, removedata=True
         time_el = df['train_time']
 
         # plot loss curve
-        plt.figure(figsize=(5, 5))
+        plt.figure(1, figsize=(5, 5))
         xval = np.linspace(0, options['train_options'].test_every * (len(all_losses) - 1), len(all_losses))
         plt.plot(xval, all_losses, label='Training set')
         plt.plot(xval, all_vlosses, label='Validation set')  # loss_test_store_idx,
@@ -97,6 +98,7 @@ def plot_losscurve(df, options, path_general, file_name_general, removedata=True
                                                               options['model_options'].z_dim,
                                                               options['model_options'].n_layers))
         plt.legend()
+        plt.yscale('log')
         # save model
         if options['savefig']:
             # check if path exists and create otherwise
@@ -106,6 +108,7 @@ def plot_losscurve(df, options, path_general, file_name_general, removedata=True
         # show the model
         if options['showfig']:
             plt.show()
+        plt.close(1)
 
         # delete loss value matrices from dictionary
         if removedata:
@@ -118,7 +121,7 @@ def plot_losscurve(df, options, path_general, file_name_general, removedata=True
 # plot performance over number of training points
 def plot_perf_varynumdata(k_max_train_values, all_vaf, all_rmse, all_likelihood, options, path_general):
     # plot the stuff
-    plt.figure(figsize=(5 * 1, 5 * 3))
+    plt.figure(1, figsize=(5 * 1, 5 * 3))
     x = k_max_train_values
 
     # vaf
@@ -178,10 +181,11 @@ def plot_perf_varynumdata(k_max_train_values, all_vaf, all_rmse, all_likelihood,
     # show figure
     if options['showfig']:
         plt.show()
+    plt.close(1)
 
 
 def plot_perf_gridsearch(all_vaf, all_rmse, all_likelihood, z_values, h_values, path_general, options):
-    plt.figure(figsize=(5 * 3, 5 * 1))
+    plt.figure(1, figsize=(5 * 3, 5 * 1))
 
     # plot VAF
     plt.subplot(1, 3, 1)
@@ -229,3 +233,4 @@ def plot_perf_gridsearch(all_vaf, all_rmse, all_likelihood, z_values, h_values, 
     # plot model
     if options['showfig']:
         plt.show()
+    plt.close(1)
