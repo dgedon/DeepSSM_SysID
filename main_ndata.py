@@ -24,7 +24,7 @@ from models.model_state import ModelState
 # %%####################################################################################################################
 # Main function
 ########################################################################################################################
-def run_main_varynumdata(options, vary_data, path_general, file_name_general, params):
+def run_main_ndata(options, vary_data, path_general, file_name_general, params):
     print('Run file: main_ndata.py')
     start_time = time.time()
     # get correct computing device
@@ -200,4 +200,4 @@ if __name__ == "__main__":
         'n_best': 1,
     }
 
-    run_main_varynumdata(options, vary_data, path_general, file_name_general, params)
+    run_main_ndata(options, vary_data, path_general, file_name_general, params)

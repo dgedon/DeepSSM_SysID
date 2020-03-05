@@ -148,8 +148,8 @@ class STORN(nn.Module):
             phi_u_t = self.phi_u(u[:, :, t])
 
             # prior: z_t ~ N(0,1)
-            prior_mean_t = torch.zeros([batch_size, self.z_dim])
-            prior_logvar_t = torch.zeros([batch_size, self.z_dim])
+            prior_mean_t = torch.zeros([batch_size, self.z_dim], device=self.device)
+            prior_logvar_t = torch.zeros([batch_size, self.z_dim], device=self.device)
 
             # sampling and reparameterization: get new z_t
             temp = tdist.Normal(prior_mean_t, prior_logvar_t.exp().sqrt())

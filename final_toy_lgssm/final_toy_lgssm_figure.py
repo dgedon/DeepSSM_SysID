@@ -1,46 +1,45 @@
-#### TODO: Currently this fails probably since the available data for the narendra-li was computed using no
-# TODO: normalization yet so the model cannot be loaded anymore. But I need to re-compute it anyways..
-
 # import generic libraries
 import pandas as pd
 import os
 import torch
 import matplotlib.pyplot as plt
-
 import numpy as np
+import sys
+os.chdir('../')
+sys.path.append(os.getcwd())
 # import user-written files
 import data.loader as loader
 import utils.dataevaluater as de
-from utils.kalman_filter import run_kalman_filter
+# from utils.kalman_filter import run_kalman_filter
 from utils.utils import compute_normalizer
+from models.model_state import ModelState
+from data.toy_lgssm import run_toy_lgssm_sim
 # import options files
 import options.model_options as model_params
 import options.dataset_options as dynsys_params
 import options.train_options as train_params
-from models.model_state import ModelState
-from data.toy_lgssm import run_toy_lgssm_sim
 
 import scipy.io
 import matplotlib.style
 
 # set (high level) options dictionary
 options = {
-    'dataset': 'narendra_li',
+    'dataset': 'toy_lgssm',
     'model': 'STORN',
     'do_train': False,
     'do_test': True,  # ALWAYS
-    'logdir': 'ndata',
+    'logdir': 'final',
     'normalize': True,
     'seed': 1234,
     'optim': 'Adam',
     'showfig': True,
-    'savefig': False,
+    'savefig': True,
 }
 
 # get saving path
-path_general = os.getcwd() + '/log/{}/{}/run200223/{}/'.format(options['logdir'],
-                                                               options['dataset'],
-                                                               options['model'], )
+path_general = os.getcwd() + '/log_Server/{}/{}/{}/'.format(options['logdir'],
+                                                            options['dataset'],
+                                                            options['model'], )
 
 # %%
 if __name__ == "__main__":
@@ -63,19 +62,19 @@ if __name__ == "__main__":
 
     # optimal model parameters
     h_opt = 60  # 60
-    z_opt = 20  # 5
+    z_opt = 5  # 5
     n_opt = 1
     options['model_options'].h_dim = h_opt
     options['model_options'].z_dim = z_opt
     options['model_options'].n_layers = n_opt
 
     path = path_general + 'data/'
-    k_max_chosen = 50000
-    file_name_general = 'narendra_li_kmaxtrain_{}'.format(k_max_chosen)
+    it_chosen = 17
+    file_name_general = 'toy_lgssm_h60_z5_n1_MC{}'.format(it_chosen)
 
     # select parameters for toy lgssm
-    kwargs = {"k_max_train": 50000,
-              "k_max_val": 5000,
+    kwargs = {"k_max_train": 2000,
+              "k_max_val": 2000,
               "k_max_test": 5000}
 
     # Specifying datasets
@@ -130,35 +129,50 @@ if __name__ == "__main__":
         yshape = y_test.shape
         y_test_noisy = y_test + np.sqrt(1) * np.random.randn(yshape[0], yshape[1], yshape[2])
 
+        # run identified model in OL
+        mat = scipy.io.loadmat('final_toy_lgssm/toy_identifiedsystem.mat')
+        Aid = mat['A']
+        Bid = mat['B']
+        Cid = mat['C']
+        std_id = mat['std']
+        temp = u_test.numpy().squeeze(0)
+        y_id = run_toy_lgssm_sim(temp, Aid, Bid, Cid, 0, 0)
+
         # %% plot time evaluation with uncertainty
 
         # plot resulting prediction
         data_y_true = [y_test, np.sqrt(1) * np.ones_like(y_test)]
         data_y_sample = [y_sample_mu, y_sample_sigma]
 
-        plt.figure(figsize=(6, 5))
+        plt.figure(1, figsize=(6, 5))
         length = y_test.shape[-1]
         x = np.linspace(0, length - 1, length)
         # ####### plot true output with uncertainty
         mean = y_test.squeeze()
         std = np.sqrt(1) * np.ones_like(mean)
         # plot mean
-        plt.plot(mean, label='{}'.format('Test Data, $\mu\pm3\sigma$'))
+        plt.plot(mean, label='{}'.format('Test Data, $\mu\pm3\sigma$'), color='mediumblue')
         # plot 3std around
         plt.fill_between(x, mean, mean + 3 * std, alpha=0.3, facecolor='b')
         plt.fill_between(x, mean, mean - 3 * std, alpha=0.3, facecolor='b')
+
+        # ####### plot identified system output
+        #plt.plot(x, y_id.squeeze(), label='PEM', linestyle='dashed', color='k')
+        mean = y_id.squeeze()
+        # plot mean
+        plt.plot(mean, label='PEM', color='k', linestyle='dashed')
 
         # ####### plot samples output with uncertainty
         mean = y_sample_mu.squeeze()
         std = y_sample_sigma.squeeze()
         # plot mean
-        plt.plot(mean, label='STORN, $\mu\pm3\sigma$')  # , color='r')
+        plt.plot(mean, label='STORN, $\mu\pm3\sigma$', color='tomato')
         # plot 3std around
         plt.fill_between(x, mean, mean + 3 * std, alpha=0.3, facecolor='r')
         plt.fill_between(x, mean, mean - 3 * std, alpha=0.3, facecolor='r')
 
         # #### plot settings
-        plt.title('Output of Toy LGSSM')
+        plt.title('Toy LGSSM Problem')
         plt.ylabel('$y(k)$')
         plt.xlabel('time steps $k$')
         plt.legend()
@@ -177,23 +191,58 @@ if __name__ == "__main__":
         # plot model
         if options['showfig']:
             plt.show()
+        plt.close(1)
 
-        # %% plot errors
+        # %% plot Comparison STORN with PEM
 
-        plt.figure(figsize=(6, 5))
-        # plot error of PEM
-        plt.plot(y_id.squeeze() - y_test.squeeze(), color='k')
-        # plot error of STORN
-        plt.plot(y_sample_mu.squeeze() - y_test.squeeze(), color='r')
+        # plot resulting prediction
+        data_y_true = [y_test, np.sqrt(1) * np.ones_like(y_test)]
+        data_y_sample = [y_sample_mu, y_sample_sigma]
 
-        # editiing
-        plt.title('Error to test data')
+        plt.figure(1, figsize=(6, 5))
+        length = y_test.shape[-1]
+        x = np.linspace(0, length - 1, length)
+
+        # ####### plot identified system output
+        mean = y_id.squeeze()
+        std = std_id.squeeze() * np.ones_like(mean)
+        # plot mean
+        plt.plot(mean, label='PEM, $\mu\pm3\sigma$', color='k', linestyle='dashed')
+        # plot 3std around
+        plt.fill_between(x, mean, mean + 3 * std, alpha=0.3, facecolor='k')
+        plt.fill_between(x, mean, mean - 3 * std, alpha=0.3, facecolor='k')
+
+
+        # ####### plot samples output with uncertainty
+        mean = y_sample_mu.squeeze()
+        std = y_sample_sigma.squeeze()
+        # plot mean
+        plt.plot(mean, label='STORN, $\mu\pm3\sigma$', color='tomato')
+        # plot 3std around
+        plt.fill_between(x, mean, mean + 3 * std, alpha=0.3, facecolor='r')
+        plt.fill_between(x, mean, mean - 3 * std, alpha=0.3, facecolor='r')
+
+        # #### plot settings
+        plt.title('Toy LGSSM Problem')
         plt.ylabel('$y(k)$')
         plt.xlabel('time steps $k$')
         plt.legend()
         plt.xlim([300, 450])
+        plt.ylim([-9, 9])
 
-        plt.show()
+        # storage path
+        file_name = 'APP_lgssm_results_STORN_PEMcomparison'
+        path = path_general + 'timeEval/'
+        if options['savefig']:
+            # save figure
+            # check if path exists and create otherwise
+            if not os.path.exists(path):
+                os.makedirs(path)
+            plt.savefig(path + file_name + '.pdf', format='pdf')
+        # plot model
+        if options['showfig']:
+            plt.show()
+        plt.close(1)
 
         # %% test parameter
 
@@ -212,3 +261,32 @@ if __name__ == "__main__":
         vaf_id = de.compute_vaf(y_test_noisy, np.expand_dims(y_id, 0), doprint=True)
         # compute RMSE
         rmse_id = de.compute_rmse(y_test_noisy, np.expand_dims(y_id, 0), doprint=True)
+
+        # %% store simulation data in csv file
+        n = 500
+        muTest = y_test.squeeze()[:n]
+        p3sigmaTest = muTest + 3 * np.sqrt(1) * np.ones_like(muTest)
+        m3sigmaTest = muTest - 3 * np.sqrt(1) * np.ones_like(muTest)
+        muPEM = y_id.squeeze()[:n]
+        p3sigmaPEM = muPEM + 3 * std_id.squeeze() * np.ones_like(muPEM)
+        m3sigmaPEM = muPEM - 3 * std_id.squeeze() * np.ones_like(muPEM)
+        muModel = y_sample_mu.squeeze()[:n]
+        p3sigmaModel = muModel + 3 * y_sample_sigma.squeeze()[:n]
+        m3sigmaModel = muModel - 3 * y_sample_sigma.squeeze()[:n]
+
+        data = {
+            'x': x[:n],
+            'muTest': muTest,
+            'p3sigmaTest': p3sigmaTest,
+            'm3sigmaTest': m3sigmaTest,
+            'muPEM': muPEM,
+            'p3sigmaPEM': p3sigmaPEM,
+            'm3sigmaPEM': m3sigmaPEM,
+            'muModel': muModel,
+            'p3sigmaModel': p3sigmaModel,
+            'm3sigmaModel': m3sigmaModel,
+        }
+        df = pd.DataFrame(data) # , columns=['muTest', 'sigmaTest'])
+
+        path = os.getcwd() + '/final_toy_lgssm/' + 'toy_lgssm_data_timeeval.csv'
+        df.to_csv(path, index=False)

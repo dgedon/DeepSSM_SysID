@@ -4,7 +4,9 @@ import torch.utils.data
 import os
 import numpy as np
 import time
-import utils.datavisualizer as dv
+import sys
+os.chdir('../')
+sys.path.append(os.getcwd())
 # import user-written files
 import data.loader as loader
 from models.model_state import ModelState
@@ -56,8 +58,8 @@ options = {
 
 # values for grid search
 gridvalues = {
-    'h_values': [60],  # [10, 20, 30, 40, 50, 60, 70, 80],
-    'z_values': [60],
+    'h_values': [40],  # [10, 20, 30, 40, 50, 60, 70, 80],
+    'z_values': [20],
     'n_values': [1],
 }
 

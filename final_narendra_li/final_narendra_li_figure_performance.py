@@ -4,6 +4,9 @@ import torch
 import numpy as np
 import csv
 import pandas as pd
+import sys
+os.chdir('../')
+sys.path.append(os.getcwd())
 
 # %%
 # set (high level) options dictionary

@@ -11,7 +11,7 @@ from utils.utils import compute_normalizer
 
 def run_test(options, loaders, df, path_general, file_name_general, **kwargs):
     # switch to cpu computations for testing
-    options['device'] = 'cpu'
+    # options['device'] = 'cpu'
 
     # %% load model
 

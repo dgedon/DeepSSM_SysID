@@ -1,6 +1,6 @@
 import os
 import numpy as np
-from main_ndata import run_main_varynumdata
+from main_ndata import run_main_ndata
 
 # %%####################################################################################################################
 # Main function
@@ -48,4 +48,4 @@ if __name__ == "__main__":
         'n_best': 1,
     }
 
-    run_main_varynumdata(options, vary_data, path_general, file_name_general, params)
+    run_main_ndata(options, vary_data, path_general, file_name_general, params)

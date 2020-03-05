@@ -36242,3 +36242,29 @@ Train Epoch: [  110/  500], Batch [     9/    10 ( 90%)]	Learning rate: 1.00e-04
 Train Epoch: [  110/  500], Batch [    10/    10 (100%)]	Learning rate: 1.00e-04	Loss: 1.611
 Train Epoch: [  110/  500], Batch [    10/    10 (100%)]	Learning rate: 1.00e-04	Loss: 1.612	Val Loss: 1.667
 Model parameters: 61602
+Traceback (most recent call last):
+  File "/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/final_narendra_li/final_narendra_li.py", line 165, in <module>
+    df = train.run_train(modelstate=modelstate,
+KeyboardInterrupt
+Total number of data point sets: 8
+
+#####################
+MC ITERATION: 0
+#####################
+
+
+Current run: k_max_train=2000
+
+Traceback (most recent call last):
+  File "/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/final_narendra_li/final_narendra_li.py", line 165, in <module>
+    df = train.run_train(modelstate=modelstate,
+KeyboardInterrupt
+Total number of data point sets: 8
+
+#####################
+MC ITERATION: 0
+#####################
+
+
+Current run: k_max_train=2000
+

@@ -5,6 +5,9 @@ import pandas as pd
 import os
 import numpy as np
 import time
+import sys
+os.chdir('../')
+sys.path.append(os.getcwd())
 # import user-written files
 import utils.datavisualizer as dv
 import data.loader as loader

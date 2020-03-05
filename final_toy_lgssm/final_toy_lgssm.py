@@ -4,8 +4,10 @@ import os
 import torch
 import time
 import matplotlib.pyplot as plt
-
 import numpy as np
+import sys
+os.chdir('../')
+sys.path.append(os.getcwd())
 # import user-written files
 import data.loader as loader
 import models.model_state

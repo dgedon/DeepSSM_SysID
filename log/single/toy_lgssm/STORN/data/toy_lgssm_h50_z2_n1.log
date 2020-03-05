@@ -1,0 +1,110 @@
+Traceback (most recent call last):
+  File "/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/models/model_state.py", line 27, in load_model
+    ckpt = torch.load(file, map_location=lambda storage, loc: storage)
+  File "/home/daniel/anaconda3/envs/DeepSSM_SysID/lib/python3.7/site-packages/torch/serialization.py", line 419, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/log/single/toy_lgssm/STORN/model/toy_lgssm_h50_z2_n1_bestModel.ckpt'
+Train Epoch: [    0/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 37.766
+Train Epoch: [    0/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 34.699	Val Loss: 34.805
+Train Epoch: [    1/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 34.696
+Train Epoch: [    2/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 32.053
+Train Epoch: [    3/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 29.481
+Train Epoch: [    4/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 26.975
+Train Epoch: [    5/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 24.530
+Train Epoch: [    5/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 22.167	Val Loss: 22.195
+Train Epoch: [    6/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 22.172
+Train Epoch: [    7/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 19.921
+Train Epoch: [    8/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 17.795
+Train Epoch: [    9/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 15.811
+Train Epoch: [   10/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 13.976
+Train Epoch: [   10/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 12.299	Val Loss: 12.251
+Train Epoch: [   11/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 12.297
+
+
+-----------------------------------------------------------------------------------------
+Exiting from training early
+-----------------------------------------------------------------------------------------
+Model parameters: 61310
+Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
+[GCC 7.3.0] on linux
+device(type='cpu')
+Traceback (most recent call last):
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/_pydevd_bundle/pydevd_exec2.py", line 3, in Exec
+    exec(exp, global_vars, local_vars)
+  File "<input>", line 1, in <module>
+  File "/home/daniel/anaconda3/envs/DeepSSM_SysID/lib/python3.7/site-packages/torch/nn/modules/module.py", line 305, in cuda
+    return self._apply(lambda t: t.cuda(device))
+  File "/home/daniel/anaconda3/envs/DeepSSM_SysID/lib/python3.7/site-packages/torch/nn/modules/module.py", line 202, in _apply
+    module._apply(fn)
+  File "/home/daniel/anaconda3/envs/DeepSSM_SysID/lib/python3.7/site-packages/torch/nn/modules/module.py", line 245, in _apply
+    self._buffers[key] = fn(buf)
+  File "/home/daniel/anaconda3/envs/DeepSSM_SysID/lib/python3.7/site-packages/torch/nn/modules/module.py", line 305, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+  File "/home/daniel/anaconda3/envs/DeepSSM_SysID/lib/python3.7/site-packages/torch/cuda/__init__.py", line 192, in _lazy_init
+    _check_driver()
+  File "/home/daniel/anaconda3/envs/DeepSSM_SysID/lib/python3.7/site-packages/torch/cuda/__init__.py", line 102, in _check_driver
+    http://www.nvidia.com/Download/index.aspx""")
+AssertionError: 
+Found no NVIDIA driver on your system. Please check that you
+have an NVIDIA GPU and installed a driver from
+http://www.nvidia.com/Download/index.aspx
+DynamicModel(
+  (normalizer_input): Normalizer1D()
+  (normalizer_output): Normalizer1D()
+  (m): STORN(
+    (phi_y): Sequential(
+      (0): Linear(in_features=1, out_features=50, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=50, out_features=50, bias=True)
+    )
+    (phi_u): Sequential(
+      (0): Linear(in_features=1, out_features=50, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=50, out_features=50, bias=True)
+    )
+    (phi_z): Sequential(
+      (0): Linear(in_features=2, out_features=50, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=50, out_features=50, bias=True)
+    )
+    (enc): Sequential(
+      (0): Linear(in_features=50, out_features=50, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=50, out_features=50, bias=True)
+      (3): ReLU()
+    )
+    (enc_mean): Sequential(
+      (0): Linear(in_features=50, out_features=2, bias=True)
+    )
+    (enc_logvar): Sequential(
+      (0): Linear(in_features=50, out_features=2, bias=True)
+      (1): ReLU()
+    )
+    (prior): Sequential(
+      (0): Linear(in_features=50, out_features=50, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=50, out_features=50, bias=True)
+    )
+    (prior_mean): Sequential(
+      (0): Linear(in_features=50, out_features=2, bias=True)
+    )
+    (prior_logvar): Sequential(
+      (0): Linear(in_features=50, out_features=2, bias=True)
+      (1): ReLU()
+    )
+    (dec): Sequential(
+      (0): Linear(in_features=50, out_features=50, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=50, out_features=50, bias=True)
+    )
+    (dec_mean): Sequential(
+      (0): Linear(in_features=50, out_features=1, bias=True)
+    )
+    (dec_logvar): Sequential(
+      (0): Linear(in_features=50, out_features=1, bias=True)
+      (1): ReLU()
+    )
+    (rnn_gen): GRU(100, 50, bias=False)
+    (rnn_inf): GRU(50, 50, bias=False)
+  )
+)

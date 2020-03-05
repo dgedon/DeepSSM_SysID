@@ -119,9 +119,9 @@ def run_main_single(options, path_general, file_name_general):
 if __name__ == "__main__":
     # set (high level) options dictionary
     options = {
-        'dataset': 'wiener_hammerstein',  # 'f16gvt', 'cascaded_tank', 'narendra_li', 'toy_lgssm', 'wiener_hammerstein'
+        'dataset': 'toy_lgssm',  # 'f16gvt', 'cascaded_tank', 'narendra_li', 'toy_lgssm', 'wiener_hammerstein'
         'model': 'STORN',
-        'do_train': True,
+        'do_train': False,
         'do_test': True,
         'logdir': 'single',
         'normalize': True,
