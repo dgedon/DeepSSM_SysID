@@ -58,7 +58,7 @@ options = {
 
 # values for grid search
 gridvalues = {
-    'h_values': [40],  # [10, 20, 30, 40, 50, 60, 70, 80],
+    'h_values': [60],  # [10, 20, 30, 40, 50, 60, 70, 80],
     'z_values': [20],
     'n_values': [1],
 }

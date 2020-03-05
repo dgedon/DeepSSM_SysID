@@ -17,7 +17,7 @@ def run_test(options, loaders, df, path_general, file_name_general, **kwargs):
 
     # Compute normalizers (here just used for initialization, real values loaded below)
     if options["normalize"]:
-        normalizer_input, normalizer_output = compute_normalizer(loaders['test'])
+        normalizer_input, normalizer_output = compute_normalizer(loaders['train'])
     else:
         normalizer_input = normalizer_output = None
 

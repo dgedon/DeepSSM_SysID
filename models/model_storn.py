@@ -85,6 +85,11 @@ class STORN(nn.Module):
         h = torch.zeros(self.n_layers, batch_size, self.h_dim, device=self.device)
         d = torch.zeros(self.n_layers, batch_size, self.d_dim, device=self.device)
 
+        # constant so can be outside of loop
+        # prior: z_t ~ N(0,1) (for KLD loss)
+        prior_mean_t = torch.zeros([batch_size, self.z_dim], device=self.device)
+        prior_logvar_t = torch.zeros([batch_size, self.z_dim], device=self.device)
+
         # for all time steps
         for t in range(seq_len):
             # feature extraction: y_t
@@ -99,10 +104,6 @@ class STORN(nn.Module):
             enc_t = self.enc(d[-1])
             enc_mean_t = self.enc_mean(enc_t)
             enc_logvar_t = self.enc_logvar(enc_t)
-
-            # prior: z_t ~ N(0,1) (for KLD loss)
-            prior_mean_t = torch.zeros_like(enc_mean_t)
-            prior_logvar_t = torch.zeros_like(enc_mean_t)
 
             # sampling and reparameterization: get a new z_t
             temp = tdist.Normal(enc_mean_t, enc_logvar_t.exp().sqrt())
@@ -142,14 +143,15 @@ class STORN(nn.Module):
 
         h = torch.zeros(self.n_layers, batch_size, self.h_dim, device=self.device)
 
+        # constnt so can be outside of loop
+        # prior: z_t ~ N(0,1)
+        prior_mean_t = torch.zeros([batch_size, self.z_dim], device=self.device)
+        prior_logvar_t = torch.zeros([batch_size, self.z_dim], device=self.device)
+
         # for all time steps
         for t in range(seq_len):
             # feature extraction: u_t+1
             phi_u_t = self.phi_u(u[:, :, t])
-
-            # prior: z_t ~ N(0,1)
-            prior_mean_t = torch.zeros([batch_size, self.z_dim], device=self.device)
-            prior_logvar_t = torch.zeros([batch_size, self.z_dim], device=self.device)
 
             # sampling and reparameterization: get new z_t
             temp = tdist.Normal(prior_mean_t, prior_logvar_t.exp().sqrt())

@@ -6,6 +6,7 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
+
 os.chdir('../')
 sys.path.append(os.getcwd())
 # import user-written files
@@ -27,7 +28,7 @@ from models.model_state import ModelState
 # set (high level) options dictionary
 options = {
     'dataset': 'toy_lgssm',
-    'model': 'STORN',
+    'model': 'VAE-RNN',
     'do_train': False,
     'do_test': True,  # ALWAYS
     'logdir': 'final',
@@ -35,14 +36,14 @@ options = {
     'seed': 1234,
     'optim': 'Adam',
     'showfig': True,
-    'savefig': False,
+    'savefig': True,
     'MCsamples': 50,
 }
 
 # get saving path
 path_general = os.getcwd() + '/log_Server/{}/{}/{}/'.format(options['logdir'],
-                                                           options['dataset'],
-                                                           options['model'], )
+                                                            options['dataset'],
+                                                            options['model'], )
 
 # %%
 if __name__ == "__main__":
@@ -65,8 +66,8 @@ if __name__ == "__main__":
     options['test_options'] = train_params.get_test_options()
 
     # optimal model parameters
-    h_opt = 60  # 60
-    z_opt = 5  # 5
+    h_opt = 80  # 60
+    z_opt = 10  # 5
     n_opt = 1
     options['model_options'].h_dim = h_opt
     options['model_options'].z_dim = z_opt
