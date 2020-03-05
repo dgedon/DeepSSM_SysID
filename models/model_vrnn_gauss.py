@@ -131,10 +131,10 @@ class VRNN_Gauss(nn.Module):
         seq_len = u.shape[-1]
 
         # allocation
-        sample = torch.zeros(batch_size, self.y_dim, seq_len)
-        sample_mu = torch.zeros(batch_size, self.y_dim, seq_len)
-        sample_sigma = torch.zeros(batch_size, self.y_dim, seq_len)
-        h = torch.zeros(self.n_layers, batch_size, self.h_dim).to(self.device)
+        sample = torch.zeros(batch_size, self.y_dim, seq_len, device=self.device)
+        sample_mu = torch.zeros(batch_size, self.y_dim, seq_len, device=self.device)
+        sample_sigma = torch.zeros(batch_size, self.y_dim, seq_len, device=self.device)
+        h = torch.zeros(self.n_layers, batch_size, self.h_dim, device=self.device)
 
         # for all time steps
         for t in range(seq_len):

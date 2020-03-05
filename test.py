@@ -61,13 +61,13 @@ def run_test(options, loaders, df, path_general, file_name_general, **kwargs):
         u_test = u_test.to(options['device'])
         y_sample, y_sample_mu, y_sample_sigma = modelstate.model.generate(u_test)
 
-        # convert to numpy for evaluation
+        # convert to cpu and to numpy for evaluation
         # samples data
-        y_sample_mu = y_sample_mu.detach().numpy()
-        y_sample_sigma = y_sample_sigma.detach().numpy()
+        y_sample_mu = y_sample_mu.cpu().detach().numpy()
+        y_sample_sigma = y_sample_sigma.cpu().detach().numpy()
         # test data
-        y_test = y_test.detach().numpy()
-        y_sample = y_sample.detach().numpy()
+        y_test = y_test.cpu().detach().numpy()
+        y_sample = y_sample.cpu().detach().numpy()
 
     # get noisy test data for narendra_li
     if options['dataset'] == 'narendra_li':

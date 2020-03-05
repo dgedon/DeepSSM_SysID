@@ -28,7 +28,7 @@ from models.model_state import ModelState
 # set (high level) options dictionary
 options = {
     'dataset': 'toy_lgssm',
-    'model': 'VAE-RNN',
+    'model': 'VRNN-GMM-I',
     'do_train': False,
     'do_test': True,  # ALWAYS
     'logdir': 'final',
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     options['test_options'] = train_params.get_test_options()
 
     # optimal model parameters
-    h_opt = 80  # 60
+    h_opt = 70  # 60
     z_opt = 10  # 5
     n_opt = 1
     options['model_options'].h_dim = h_opt

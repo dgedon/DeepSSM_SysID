@@ -45,7 +45,7 @@ path_general = os.getcwd() + '/log_Server/{}/{}/{}/'.format(options['logdir'],
 if __name__ == "__main__":
     print('Run file: final_toy_lgssm.py')
 
-    # get correct computing device
+    # get correct computing dev
     if torch.cuda.is_available():
         device = torch.device('cuda')
     else:
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     options['model_options'].n_layers = n_opt
 
     path = path_general + 'data/'
-    it_chosen = 17
+    it_chosen = 9
     file_name_general = 'toy_lgssm_h60_z5_n1_MC{}'.format(it_chosen)
 
     # select parameters for toy lgssm

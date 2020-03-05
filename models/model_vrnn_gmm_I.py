@@ -137,16 +137,16 @@ class VRNN_GMM_I(nn.Module):
         seq_len = u.shape[-1]
 
         # allocation
-        sample = torch.zeros(batch_size, self.y_dim, seq_len)
-        sample_mu = torch.zeros(batch_size, self.y_dim, seq_len)
-        sample_sigma = torch.zeros(batch_size, self.y_dim, seq_len)
+        sample = torch.zeros(batch_size, self.y_dim, seq_len, device=self.device)
+        sample_mu = torch.zeros(batch_size, self.y_dim, seq_len, device=self.device)
+        sample_sigma = torch.zeros(batch_size, self.y_dim, seq_len, device=self.device)
 
         h = torch.zeros(self.n_layers, batch_size, self.h_dim, device=self.device)
 
         # constant so can be outside of loop
         # prior: z_t ~ N(0,1)
-        prior_mean_t = torch.zeros([batch_size, self.z_dim])
-        prior_logvar_t = torch.zeros([batch_size, self.z_dim])
+        prior_mean_t = torch.zeros([batch_size, self.z_dim], device=self.device)
+        prior_logvar_t = torch.zeros([batch_size, self.z_dim], device=self.device)
 
         # for all time steps
         for t in range(seq_len):

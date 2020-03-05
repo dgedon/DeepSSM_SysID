@@ -121,7 +121,7 @@ if __name__ == "__main__":
     options = {
         'dataset': 'toy_lgssm',  # 'f16gvt', 'cascaded_tank', 'narendra_li', 'toy_lgssm', 'wiener_hammerstein'
         'model': 'STORN',
-        'do_train': True,
+        'do_train': False,
         'do_test': True,
         'logdir': 'single',
         'normalize': True,

@@ -132,9 +132,9 @@ class VAE_RNN_narli(nn.Module):
         seq_len = u.shape[-1]
 
         # allocation
-        sample = torch.zeros(batch_size, self.y_dim, seq_len)
-        sample_mu = torch.zeros(batch_size, self.y_dim, seq_len)
-        sample_sigma = torch.zeros(batch_size, self.y_dim, seq_len)
+        sample = torch.zeros(batch_size, self.y_dim, seq_len, device=self.device)
+        sample_mu = torch.zeros(batch_size, self.y_dim, seq_len, device=self.device)
+        sample_sigma = torch.zeros(batch_size, self.y_dim, seq_len, device=self.device)
 
         h = torch.zeros(self.n_layers, batch_size, self.h_dim, device=self.device)
 

@@ -61,10 +61,6 @@ class DynamicModel(nn.Module):
 
         y_sample, y_sample_mu, y_sample_sigma = self.m.generate(u)
 
-        y_sample = y_sample.detach().to('cpu')
-        y_sample_mu = y_sample_mu.detach().to('cpu')
-        y_sample_sigma = y_sample_sigma.detach().to('cpu')
-
         if self.normalizer_output is not None:
             y_sample = self.normalizer_output.unnormalize(y_sample)
         if self.normalizer_output is not None:
