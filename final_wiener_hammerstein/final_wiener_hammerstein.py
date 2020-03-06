@@ -62,10 +62,10 @@ options = {
     'gridvalues': {
         'h_values': [60],  # [10, 20, 30, 40, 50, 60, 70, 80],
         'z_values': [10],
-        'n_values': [1], },
+        'n_values': [2], },
 }
 
-addlog = 'run_0306_1024'
+addlog = 'run_0306_64_2'
 # get saving path
 path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],
@@ -223,7 +223,7 @@ if __name__ == "__main__":
     # get saving path
     path = path_general + 'data/'
     # filename
-    file_name = '{}_final.pt'.format(options['dataset'])
+    file_name = '{}.pt'.format(options['dataset'])
     # check if path exists and create otherwise
     if not os.path.exists(path):
         os.makedirs(path)

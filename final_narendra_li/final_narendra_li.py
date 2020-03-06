@@ -43,9 +43,9 @@ options = {
     'optim': 'Adam',
     'showfig': False,
     'savefig': True,
-    'MCsamples': 5,  #10,
+    'MCsamples': 5,
     'vary_data': {
-        'k_max_train_values': [50000,],  # 2000, 5000, 10000, 20000, 30000, 40000, 50000, 75000],
+        'k_max_train_values': [2000, 5000, 10000, 20000, 30000, 40000, 50000, 60000],
         'k_max_val_values': [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, ],
         'k_max_test_values': [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, ], },
     'optValue': {
@@ -54,7 +54,7 @@ options = {
         'n_opt': 1, },
 }
 
-addpath = 'run_0306'
+addpath = 'run_0306_full_seq2000'
 
 # get saving path
 path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],

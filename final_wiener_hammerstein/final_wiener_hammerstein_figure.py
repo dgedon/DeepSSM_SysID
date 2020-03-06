@@ -33,9 +33,11 @@ options = {
 }
 
 # get saving path
-path_general = os.getcwd() + '/log/{}/{}/{}/'.format(options['logdir'],
-                                                     options['dataset'],
-                                                     options['model'], )
+addlog = 'run_0306_2048'
+path_general = os.getcwd() + '/log_Server/{}/{}/{}/{}/'.format(options['logdir'],
+                                                               options['dataset'],
+                                                               addlog,
+                                                               options['model'], )
 
 # %%
 if __name__ == "__main__":
@@ -58,7 +60,7 @@ if __name__ == "__main__":
 
     # optimal model parameters
     h_opt = 60  # 60
-    z_opt = 20  # 5
+    z_opt = 10  # 5
     n_opt = 1
     options['model_options'].h_dim = h_opt
     options['model_options'].z_dim = z_opt
@@ -66,8 +68,11 @@ if __name__ == "__main__":
 
     path = path_general + 'data/'
     MC_chosen = 0
-    file_name_general = '{}_h{}_z{}_n{}'.format(options['dataset'], h_opt, z_opt, n_opt)
+    file_name_general = '{}_h{}_z{}_n{}_MC{}'.format(options['dataset'], h_opt, z_opt, n_opt, MC_chosen)
 
+    # sampling period
+    fs = 78125
+    maxN = 4000
     kwargs = {'test_set': 'sweptsine'}  # 'sweptsine', 'multisine'
 
     # Specifying datasets
@@ -108,6 +113,8 @@ if __name__ == "__main__":
         for i, (u_test, y_test) in enumerate(loaders['test']):
             # getting output distribution parameter only implemented for selected models
             u_test = u_test.to(options['device'])
+            u_test = u_test[:, :, :maxN]
+            y_test = y_test[:, :, :maxN]
             y_sample, y_sample_mu, y_sample_sigma = modelstate.model.generate(u_test)
 
             # convert to numpy for evaluation
@@ -123,15 +130,15 @@ if __name__ == "__main__":
         # plot resulting prediction
         plt.figure(1, figsize=(6, 5))
         length = y_test.shape[-1]
-        x = np.linspace(0, length - 1, length)
+        x = np.linspace(0, length - 1, length) / fs
         # ####### plot true output
-        plt.plot(y_test.squeeze(), label='{}'.format('Test Data, $\mu\pm3\sigma$'))
+        plt.plot(x, y_test.squeeze(), label='{}'.format('Test Data, $\mu\pm3\sigma$'))
 
         # ####### plot samples output with uncertainty
         mean = y_sample_mu.squeeze()
         std = y_sample_sigma.squeeze()
         # plot mean
-        plt.plot(mean, label='STORN, $\mu\pm3\sigma$')  # , color='r')
+        plt.plot(x, mean, label='STORN, $\mu\pm3\sigma$')  # , color='r')
         # plot 3std around
         plt.fill_between(x, mean, mean + 3 * std, alpha=0.3, facecolor='r')
         plt.fill_between(x, mean, mean - 3 * std, alpha=0.3, facecolor='r')
@@ -141,8 +148,8 @@ if __name__ == "__main__":
         plt.ylabel('$y(k)$')
         plt.xlabel('time steps $k$')
         plt.legend()
-        plt.xlim([0, 4000])
-        #plt.ylim([-9, 9])
+        # plt.xlim([0, 0.055])
+        # plt.ylim([-9, 9])
 
         # storage path
         file_name = '4_WH_results_STORN_{}'.format(kwargs['test_set'])
@@ -171,14 +178,13 @@ if __name__ == "__main__":
         rmse = de.compute_rmse(y_test, y_sample_mu, doprint=True)
 
         # %% store simulation data in csv file
-        n = 4000
-        muTest = y_test.squeeze()[:n]
-        muModel = y_sample_mu.squeeze()[:n]
-        p3sigmaModel = muModel + 3 * y_sample_sigma.squeeze()[:n]
-        m3sigmaModel = muModel - 3 * y_sample_sigma.squeeze()[:n]
+        muTest = y_test.squeeze()
+        muModel = y_sample_mu.squeeze()
+        p3sigmaModel = muModel + 3 * y_sample_sigma.squeeze()
+        m3sigmaModel = muModel - 3 * y_sample_sigma.squeeze()
 
         data = {
-            'x': x[:n],
+            'x': x,
             'muTest': muTest,
             'muModel': muModel,
             'p3sigmaModel': p3sigmaModel,
