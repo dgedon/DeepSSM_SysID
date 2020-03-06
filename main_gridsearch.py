@@ -9,8 +9,8 @@ import utils.datavisualizer as dv
 # import user-written files
 import data.loader as loader
 from models.model_state import ModelState
-import train
-import test
+import training
+import testing
 from utils.utils import compute_normalizer
 from utils.logger import set_redirects
 
@@ -114,17 +114,17 @@ def run_main_gridsearch(options, kwargs, gridvalues, path_general, file_name_gen
 
                 if options['do_train']:
                     # train the model
-                    df = train.run_train(modelstate=modelstate,
-                                         loader_train=loaders['train'],
-                                         loader_valid=loaders['valid'],
-                                         options=options,
-                                         dataframe=df,
-                                         path_general=path_general,
-                                         file_name_general=file_name)
+                    df = training.run_train(modelstate=modelstate,
+                                            loader_train=loaders['train'],
+                                            loader_valid=loaders['valid'],
+                                            options=options,
+                                            dataframe=df,
+                                            path_general=path_general,
+                                            file_name_general=file_name)
 
                 if options['do_test']:
                     # test the model
-                    df = test.run_test(options, loaders, df, path_general, file_name)
+                    df = testing.run_test(options, loaders, df, path_general, file_name)
 
                 # store values
                 all_df[(i1, i2, i3)] = df

@@ -1,0 +1,95 @@
+Run file: final_narendra_li.py
+Thu Mar  5 15:15:55 2020
+Device: cpu
+
+	Model Type: VAE-RNN
+	Dynamic System: narendra_li
+
+Total number of data point sets: 8
+
+#####################
+MC ITERATION: 0
+#####################
+
+Python 3.7.6 (default, Jan  8 2020, 19:59:22) 
+[GCC 7.3.0] on linux
+[2000.0, 5000.0, 10000.0, 20000.0, 30000.0, 40000.0, 50000.0, 75000.0]
+<class 'list'>
+2000.0
+5000.0
+Traceback (most recent call last):
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/_pydevd_bundle/pydevd_exec2.py", line 3, in Exec
+    exec(exp, global_vars, local_vars)
+  File "<input>", line 1, in <module>
+TypeError: 'float' object is not subscriptable
+
+Current run: k_max_train=2000.0
+
+Traceback (most recent call last):
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/pydevd.py", line 1434, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/final_narendra_li/final_narendra_li.py", line 140, in <module>
+    "k_max_val": k_max_val_values[i],
+TypeError: 'float' object is not subscriptable
+Run file: final_narendra_li.py
+Thu Mar  5 15:25:27 2020
+Device: cpu
+
+	Model Type: VAE-RNN
+	Dynamic System: narendra_li
+
+Total number of data point sets: 8
+
+#####################
+MC ITERATION: 0
+#####################
+
+
+Current run: k_max_train=2000
+
+
+
+-----------------------------------------------------------------------------------------
+Exiting from training early
+-----------------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/pydevd.py", line 2127, in <module>
+    main()
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/pydevd.py", line 2118, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/pydevd.py", line 1427, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/pydevd.py", line 1434, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/final_narendra_li/final_narendra_li.py", line 176, in <module>
+    file_name_general=file_name, )
+  File "/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/train.py", line 70, in run_train
+    vloss = validate(loader_valid)
+UnboundLocalError: local variable 'start_time' referenced before assignment
+Run file: final_narendra_li.py
+Thu Mar  5 15:25:45 2020
+Device: cpu
+
+	Model Type: VAE-RNN
+	Dynamic System: narendra_li
+
+Total number of data point sets: 8
+
+#####################
+MC ITERATION: 0
+#####################
+
+
+Current run: k_max_train=2000
+
+Train Epoch: [    0/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 3.052
+Train Epoch: [    0/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 3.007	Val Loss: 3.115
+Train Epoch: [    1/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 3.009
+Train Epoch: [    2/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.966
+Train Epoch: [    3/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.908
+Train Epoch: [    4/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.856
+Train Epoch: [    5/  500], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.796

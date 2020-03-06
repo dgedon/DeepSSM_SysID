@@ -5,6 +5,7 @@ import torch
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
+
 os.chdir('../')
 sys.path.append(os.getcwd())
 # import user-written files
@@ -17,11 +18,10 @@ import options.dataset_options as dynsys_params
 import options.train_options as train_params
 from models.model_state import ModelState
 
-
 # set (high level) options dictionary
 options = {
     'dataset': 'narendra_li',
-    'model': 'VAE-RNN',
+    'model': 'STORN',
     'do_train': False,
     'do_test': True,  # ALWAYS
     'logdir': 'final',
@@ -32,12 +32,12 @@ options = {
     'savefig': False,
 }
 
-addlog = 'run_0304'
+addlog = 'run_0305'
 # get saving path
-path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
-                                                        options['dataset'],
-                                                        addlog,
-                                                        options['model'], )
+path_general = os.getcwd() + '/log_Server/{}/{}/{}/{}/'.format(options['logdir'],
+                                                               options['dataset'],
+                                                               addlog,
+                                                               options['model'], )
 
 # %%
 if __name__ == "__main__":
@@ -67,8 +67,8 @@ if __name__ == "__main__":
     options['model_options'].n_layers = n_opt
 
     path = path_general + 'data/'
-    k_max_chosen = 75000
-    MC_chosen = 0
+    k_max_chosen = 50000
+    MC_chosen = 5
     file_name_general = 'narendra_li_kmaxtrain_{}_MC{}'.format(k_max_chosen, MC_chosen)
 
     # select parameters for toy lgssm
@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
         # Compute normalizers
         if options["normalize"]:
-            normalizer_input, normalizer_output = compute_normalizer(loaders['test'])
+            normalizer_input, normalizer_output = compute_normalizer(loaders['train'])
         else:
             normalizer_input = normalizer_output = None
         # Define model
@@ -175,7 +175,6 @@ if __name__ == "__main__":
         if options['showfig']:
             plt.show()
 
-
         # %% test parameter
 
         print('Performance parameter of NN model:')
@@ -210,4 +209,3 @@ if __name__ == "__main__":
 
         path = os.getcwd() + '/final_narendra_li/' + 'narendra_li_data_timeeval.csv'
         df.to_csv(path, index=False)
-

@@ -224,3 +224,26 @@ Python 3.7.6 (default, Jan  8 2020, 19:59:22)
 torch.Size([32, 2])
 2
 torch.Size([32, 2])
+
+
+-----------------------------------------------------------------------------------------
+Exiting from training early
+-----------------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/pydevd.py", line 2127, in <module>
+    main()
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/pydevd.py", line 2118, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/pydevd.py", line 1427, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/pydevd.py", line 1434, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "/snap/pycharm-professional/183/plugins/python/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/main_single.py", line 142, in <module>
+    run_main_single(options, path_general, file_name_general)
+  File "/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/main_single.py", line 91, in run_main_single
+    file_name_general=file_name_general)
+  File "/home/daniel/05_PhD/00_Research/01_Projects/03_LearningDynamics/DeepSSM_SysID/train.py", line 70, in run_train
+    vloss = validate(loader_valid)
+UnboundLocalError: local variable 'start_time' referenced before assignment

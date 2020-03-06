@@ -12,13 +12,14 @@ sys.path.append(os.getcwd())
 # import user-written files
 import data.loader as loader
 import models.model_state
-import train
+import training
 import utils.dataevaluater as de
 import utils.datavisualizer as dv
 from utils.utils import get_n_params
 from utils.kalman_filter import run_kalman_filter
 from utils.utils import compute_normalizer
 from utils.logger import set_redirects
+from utils.utils import save_options
 # import options files
 import options.model_options as model_params
 import options.dataset_options as dynsys_params
@@ -28,7 +29,7 @@ from models.model_state import ModelState
 # set (high level) options dictionary
 options = {
     'dataset': 'toy_lgssm',
-    'model': 'VRNN-GMM-I',
+    'model': 'STORN',
     'do_train': False,
     'do_test': True,  # ALWAYS
     'logdir': 'final',
@@ -38,6 +39,10 @@ options = {
     'showfig': True,
     'savefig': True,
     'MCsamples': 50,
+    'optValue': {
+        'h_opt': 60,
+        'z_opt': 5,
+        'n_opt': 1, },
 }
 
 # get saving path
@@ -47,8 +52,16 @@ path_general = os.getcwd() + '/log_Server/{}/{}/{}/'.format(options['logdir'],
 
 # %%
 if __name__ == "__main__":
+    path = path_general + 'data/'
+    # check if path exists and create otherwise
+    if not os.path.exists(path):
+        os.makedirs(path)
+    # set logger
+    set_redirects(path, options['dataset'] + '_runlog')
+
     start_time = time.time()
     print('Run file: final_toy_lgssm.py')
+    print(time.strftime("%c"))
 
     # get correct computing device
     if torch.cuda.is_available():
@@ -66,12 +79,12 @@ if __name__ == "__main__":
     options['test_options'] = train_params.get_test_options()
 
     # optimal model parameters
-    h_opt = 70  # 60
-    z_opt = 10  # 5
-    n_opt = 1
-    options['model_options'].h_dim = h_opt
-    options['model_options'].z_dim = z_opt
-    options['model_options'].n_layers = n_opt
+    options['model_options'].h_dim = options['optValue']['h_opt']
+    options['model_options'].z_dim = options['optValue']['z_opt']
+    options['model_options'].n_layers = options['optValue']['n_opt']
+
+    # save the options
+    save_options(options, path_general, 'options.txt')
 
     # allocation
     rmse_all = np.zeros([options['MCsamples']])
@@ -89,18 +102,11 @@ if __name__ == "__main__":
                                                 options['model_options'].z_dim,
                                                 options['model_options'].n_layers)
 
-    path = path_general + 'data/'
-    # check if path exists and create otherwise
-    if not os.path.exists(path):
-        os.makedirs(path)
-    # set logger
-    set_redirects(path, file_name_general)
-
     # %% Monte Carlo runs
 
     for mcIter in range(options['MCsamples']):
         print('\n#####################')
-        print('MC ITERATION: {}'.format(mcIter))
+        print('MC ITERATION: {}/{}'.format(mcIter+1, options['MCsamples']))
         print('#####################\n')
 
         # set the correct device to run on
@@ -138,13 +144,13 @@ if __name__ == "__main__":
         df = {}
         if options['do_train']:
             # %% train the model
-            df = train.run_train(modelstate=modelstate,
-                                 loader_train=loaders['train'],
-                                 loader_valid=loaders['valid'],
-                                 options=options,
-                                 dataframe={},
-                                 path_general=path_general,
-                                 file_name_general=file_name_general_it)
+            df = training.run_train(modelstate=modelstate,
+                                    loader_train=loaders['train'],
+                                    loader_valid=loaders['valid'],
+                                    options=options,
+                                    dataframe={},
+                                    path_general=path_general,
+                                    file_name_general=file_name_general_it)
 
         if options['do_test']:
             # %% test the model
@@ -155,7 +161,7 @@ if __name__ == "__main__":
 
             # Compute normalizers
             if options["normalize"]:
-                normalizer_input, normalizer_output = compute_normalizer(loaders['test'])
+                normalizer_input, normalizer_output = compute_normalizer(loaders['train'])
             else:
                 normalizer_input = normalizer_output = None
             # Define model
@@ -315,3 +321,4 @@ if __name__ == "__main__":
     min = time_el // 60 - hours * 60
     sec = time_el - min * 60 - hours * 3600
     print('Total ime of file execution: {}:{:2.0f}:{:2.0f} [h:min:sec]'.format(hours, min, sec))
+    print(time.strftime("%c"))

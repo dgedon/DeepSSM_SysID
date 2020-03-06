@@ -174,15 +174,14 @@ class VRNN_GMM_I(nn.Module):
 
         return sample, sample_mu, sample_sigma
 
-    @staticmethod
-    def _reparameterized_sample_gmm(mu, logvar, pi):
+    def _reparameterized_sample_gmm(self, mu, logvar, pi):
 
         # select the mixture indices
         alpha = torch.distributions.Categorical(pi).sample()
 
         # select the mixture indices
         idx = logvar.shape[-1]
-        raveled_index = torch.arange(len(alpha.flatten())) * idx + alpha.flatten()
+        raveled_index = torch.arange(len(alpha.flatten()), device=self.device) * idx + alpha.flatten()
         logvar_sel = logvar.flatten()[raveled_index]
         mu_sel = mu.flatten()[raveled_index]
 

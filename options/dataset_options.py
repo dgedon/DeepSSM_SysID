@@ -22,13 +22,13 @@ def get_dataset_options(dataset_name):
         dataset_parser.add_argument('--seq_len_val', type=int, default=2048, help='validation sequence length')
         dataset_options = dataset_parser.parse_args()
 
-    elif dataset_name == 'narendra_li':  # 512
+    elif dataset_name == 'narendra_li':  # 64
         dataset_parser = argparse.ArgumentParser(description='dynamic system parameter: narendra li')
         dataset_parser.add_argument('--y_dim', type=int, default=1, help='dimension of y')
         dataset_parser.add_argument('--u_dim', type=int, default=1, help='dimension of u')
-        dataset_parser.add_argument('--seq_len_train', type=int, default=64, help='training sequence length')
+        dataset_parser.add_argument('--seq_len_train', type=int, default=1000, help='training sequence length')
         dataset_parser.add_argument('--seq_len_test', type=int, default=None, help='test sequence length')
-        dataset_parser.add_argument('--seq_len_val', type=int, default=64, help='validation sequence length')  # 512
+        dataset_parser.add_argument('--seq_len_val', type=int, default=1000, help='validation sequence length')  # 512
         dataset_options = dataset_parser.parse_args()
 
     elif dataset_name == 'toy_lgssm':
@@ -44,9 +44,9 @@ def get_dataset_options(dataset_name):
         dataset_parser = argparse.ArgumentParser(description='dynamic system parameter: wiener hammerstein')
         dataset_parser.add_argument('--y_dim', type=int, default=1, help='dimension of y')
         dataset_parser.add_argument('--u_dim', type=int, default=1, help='dimension of u')
-        dataset_parser.add_argument('--seq_len_train', type=int, default=64, help='training sequence length')
+        dataset_parser.add_argument('--seq_len_train', type=int, default=1024, help='training sequence length')
         dataset_parser.add_argument('--seq_len_test', type=int, default=None, help='test sequence length')
-        dataset_parser.add_argument('--seq_len_val', type=int, default=64, help='validation sequence length')  # 512
+        dataset_parser.add_argument('--seq_len_val', type=int, default=1024, help='validation sequence length')  # 512
         dataset_options = dataset_parser.parse_args()
 
     return dataset_options

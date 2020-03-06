@@ -9,8 +9,8 @@ import time
 import utils.datavisualizer as dv
 import data.loader as loader
 import models.model_state
-import train
-import test
+import training
+import testing
 from utils.utils import compute_normalizer
 from utils.logger import set_redirects
 
@@ -114,17 +114,17 @@ def run_main_ndata(options, vary_data, path_general, file_name_general, params):
 
         if options['do_train']:
             # train the model
-            df = train.run_train(modelstate=modelstate,
-                                 loader_train=loaders['train'],
-                                 loader_valid=loaders['valid'],
-                                 options=options,
-                                 dataframe=df,
-                                 path_general=path_general,
-                                 file_name_general=file_name,)
+            df = training.run_train(modelstate=modelstate,
+                                    loader_train=loaders['train'],
+                                    loader_valid=loaders['valid'],
+                                    options=options,
+                                    dataframe=df,
+                                    path_general=path_general,
+                                    file_name_general=file_name, )
 
         if options['do_test']:
             # test the model
-            df = test.run_test(options, loaders, df, path_general, file_name)
+            df = testing.run_test(options, loaders, df, path_general, file_name)
 
         # store values
         all_df[i] = df
@@ -152,7 +152,7 @@ def run_main_ndata(options, vary_data, path_general, file_name_general, params):
     torch.save(all_likelihood, path_general + 'data/' + 'all_likelihood.pt')
 
     # plot performance
-    dv.plot_perf_varynumdata(k_max_train_values, all_vaf, all_rmse, all_likelihood, options, path_general)
+    dv.plot_perf_ndata(k_max_train_values, all_vaf, all_rmse, all_likelihood, options, path_general)
 
     # time output
     time_el = time.time() - start_time

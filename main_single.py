@@ -8,10 +8,11 @@ import matplotlib.pyplot as plt
 
 # import user-written files
 import data.loader as loader
-import train
-import test
+import training
+import testing
 from utils.utils import compute_normalizer
 from utils.logger import set_redirects
+from utils.utils import save_options
 # import options files
 import options.model_options as model_params
 import options.dataset_options as dynsys_params
@@ -25,6 +26,7 @@ from models.model_state import ModelState
 def run_main_single(options, path_general, file_name_general):
     start_time = time.time()
     print('Run file: main_single.py')
+    print(time.strftime("%c"))
 
     # get correct computing device
     if torch.cuda.is_available():
@@ -77,22 +79,24 @@ def run_main_single(options, path_general, file_name_general):
                             normalizer_output=normalizer_output)
     modelstate.model.to(options['device'])
 
+    # save the options
+    save_options(options, path_general, 'options.txt')
+
     # allocation
     df = {}
-
     if options['do_train']:
         # train the model
-        df = train.run_train(modelstate=modelstate,
-                             loader_train=loaders['train'],
-                             loader_valid=loaders['valid'],
-                             options=options,
-                             dataframe=df,
-                             path_general=path_general,
-                             file_name_general=file_name_general)
+        df = training.run_train(modelstate=modelstate,
+                                loader_train=loaders['train'],
+                                loader_valid=loaders['valid'],
+                                options=options,
+                                dataframe=df,
+                                path_general=path_general,
+                                file_name_general=file_name_general)
 
     if options['do_test']:
         # test the model
-        df = test.run_test(options, loaders, df, path_general, file_name_general)
+        df = testing.run_test(options, loaders, df, path_general, file_name_general)
 
     # save data
     # get saving path
@@ -113,6 +117,7 @@ def run_main_single(options, path_general, file_name_general):
     min = time_el // 60 - hours * 60
     sec = time_el - min * 60 - hours * 3600
     print('Total ime of file execution: {}:{:2.0f}:{:2.0f} [h:min:sec]'.format(hours, min, sec))
+    print(time.strftime("%c"))
 
 
 # %%

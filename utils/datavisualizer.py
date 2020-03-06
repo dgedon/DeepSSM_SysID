@@ -119,14 +119,14 @@ def plot_losscurve(df, options, path_general, file_name_general, removedata=True
 
 
 # plot performance over number of training points
-def plot_perf_varynumdata(k_max_train_values, all_vaf, all_rmse, all_likelihood, options, path_general):
+def plot_perf_ndata(k_max_train_values, all_vaf, all_rmse, all_likelihood, options, path_general):
     # plot the stuff
     plt.figure(1, figsize=(5 * 1, 5 * 3))
     x = k_max_train_values
 
     # vaf
-    mean = all_vaf.mean(0)
-    std = np.sqrt(all_vaf.var(0))
+    mean = all_vaf.mean(0).squeeze()
+    std = np.sqrt(all_vaf.var(0)).squeeze()
     plt.subplot(3, 1, 1)
     # plot mean
     plt.plot(x, mean, label='VAF $\mu\pm\sigma$')
@@ -140,8 +140,8 @@ def plot_perf_varynumdata(k_max_train_values, all_vaf, all_rmse, all_likelihood,
     plt.legend()
 
     # rmse
-    mean = all_rmse.mean(0)
-    std = np.sqrt(all_rmse.var(0))
+    mean = all_rmse.mean(0).squeeze()
+    std = np.sqrt(all_rmse.var(0)).squeeze()
     plt.subplot(3, 1, 2)
     # plot mean
     plt.plot(x, mean, label='RMSE $\mu\pm\sigma$')
@@ -155,8 +155,8 @@ def plot_perf_varynumdata(k_max_train_values, all_vaf, all_rmse, all_likelihood,
     plt.legend()
 
     # marg. likelihood
-    mean = -all_likelihood.mean(0)
-    std = np.sqrt((-all_likelihood).var(0))
+    mean = -all_likelihood.mean(0).squeeze()
+    std = np.sqrt((-all_likelihood).var(0)).squeeze()
     plt.subplot(3, 1, 3)
     # plot mean
     plt.plot(x, mean, label='NLL $\mu\pm\sigma$')
@@ -231,6 +231,71 @@ def plot_perf_gridsearch(all_vaf, all_rmse, all_likelihood, z_values, h_values, 
             os.makedirs(path)
         plt.savefig(path + file_name + '.png', format='png')
     # plot model
+    if options['showfig']:
+        plt.show()
+    plt.close(1)
+
+
+# plot performance over number of training points
+def plot_perf_sizes(h_values, all_vaf, all_rmse, all_likelihood, options, path_general):
+    plt.figure(1, figsize=(5 * 1, 5 * 3))
+    x = h_values
+
+    # vaf
+    mean = all_vaf.mean(0).squeeze()
+    std = np.sqrt(all_vaf.var(0)).squeeze()
+    plt.subplot(3, 1, 1)
+    # plot mean
+    plt.plot(x, mean, label='VAF $\mu\pm\sigma$')
+    # plot std
+    plt.fill_between(x, mean, mean + std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mean, mean - std, alpha=0.3, facecolor='b')
+    # plot settings
+    plt.title('VAF of {}'.format(options['dataset']))
+    plt.xlabel('Training Datapoints')
+    plt.ylabel('VAF [%]')
+    plt.legend()
+
+    # rmse
+    mean = all_rmse.mean(0).squeeze()
+    std = np.sqrt(all_rmse.var(0)).squeeze()
+    plt.subplot(3, 1, 2)
+    # plot mean
+    plt.plot(x, mean, label='RMSE $\mu\pm\sigma$')
+    # plot std
+    plt.fill_between(x, mean, mean + std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mean, mean - std, alpha=0.3, facecolor='b')
+    # plot settings
+    plt.title('RMSE of {}'.format(options['dataset']))
+    plt.xlabel('Training Datapoints')
+    plt.ylabel('RMSE [-]')
+    plt.legend()
+
+    # marg. likelihood
+    mean = -all_likelihood.mean(0).squeeze()
+    std = np.sqrt((-all_likelihood).var(0)).squeeze()
+    plt.subplot(3, 1, 3)
+    # plot mean
+    plt.plot(x, mean, label='NLL $\mu\pm\sigma$')
+    # plot std
+    plt.fill_between(x, mean, mean + std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mean, mean - std, alpha=0.3, facecolor='b')
+    # plot settings
+    plt.title('NLL of {}'.format(options['dataset']))
+    plt.xlabel('Training Datapoints')
+    plt.ylabel('p(yhat) [-]')
+    plt.legend()
+
+    # save figure
+    if options['savefig']:
+        path = path_general + 'performance/'
+        file_name = 'performanceEval'
+        # check if path exists and create otherwise
+        if not os.path.exists(path):
+            os.makedirs(path)
+        plt.savefig(path + file_name + '.png', format='png')
+
+    # show figure
     if options['showfig']:
         plt.show()
     plt.close(1)

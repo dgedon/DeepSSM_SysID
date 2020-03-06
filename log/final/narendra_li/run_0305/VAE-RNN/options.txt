@@ -1,0 +1,80 @@
+{
+ "dataset": "narendra_li",
+ "model": "VAE-RNN",
+ "do_train": true,
+ "do_test": true,
+ "logdir": "final",
+ "normalize": false,
+ "seed": 1234,
+ "optim": "Adam",
+ "showfig": false,
+ "savefig": true,
+ "MCsamples": 10,
+ "vary_data": {
+  "k_max_train_values": [
+   2000,
+   5000,
+   10000,
+   20000,
+   30000,
+   40000,
+   50000,
+   75000
+  ],
+  "k_max_val_values": [
+   5000,
+   5000,
+   5000,
+   5000,
+   5000,
+   5000,
+   5000,
+   5000
+  ],
+  "k_max_test_values": [
+   5000,
+   5000,
+   5000,
+   5000,
+   5000,
+   5000,
+   5000,
+   5000
+  ]
+ },
+ "optValue": {
+  "h_opt": 60,
+  "z_opt": 10,
+  "n_opt": 1
+ },
+ "device": "cpu",
+ "dataset_options": {
+  "y_dim": 1,
+  "u_dim": 1,
+  "seq_len_train": 64,
+  "seq_len_test": null,
+  "seq_len_val": 64
+ },
+ "model_options": {
+  "y_dim": 1,
+  "u_dim": 1,
+  "h_dim": 60,
+  "z_dim": 10,
+  "n_layers": 1
+ },
+ "train_options": {
+  "clip": 10,
+  "lr_scheduler_nstart": 10,
+  "print_every": 1,
+  "test_every": 5,
+  "n_epochs": 500,
+  "init_lr": 0.001,
+  "min_lr": 1e-06,
+  "lr_scheduler_nepochs": 5.0,
+  "lr_scheduler_factor": 10,
+  "batch_size": 128
+ },
+ "test_options": {
+  "batch_size": 32
+ }
+}

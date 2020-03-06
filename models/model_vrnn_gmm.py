@@ -38,36 +38,36 @@ class VRNN_GMM(nn.Module):
             nn.Linear(self.h_dim + self.h_dim, self.h_dim),
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),)
+            nn.ReLU(), )
         self.enc_mean = nn.Sequential(
             nn.Linear(self.h_dim, self.z_dim))
         self.enc_logvar = nn.Sequential(
             nn.Linear(self.h_dim, self.z_dim),
-            nn.ReLU(),)
+            nn.ReLU(), )
 
         # prior function (phi_prior) -> Prior
         self.prior = nn.Sequential(
             nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),)
+            nn.ReLU(), )
         self.prior_mean = nn.Sequential(
             nn.Linear(self.h_dim, self.z_dim))
         self.prior_logvar = nn.Sequential(
             nn.Linear(self.h_dim, self.z_dim),
-            nn.ReLU(),)
+            nn.ReLU(), )
 
         # decoder function (phi_dec) -> Generation
         self.dec = nn.Sequential(
             nn.Linear(self.h_dim + self.h_dim, self.h_dim),
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),)
+            nn.ReLU(), )
         self.dec_mean = nn.Sequential(
-            nn.Linear(self.h_dim, self.y_dim * self.n_mixtures),)
+            nn.Linear(self.h_dim, self.y_dim * self.n_mixtures), )
         self.dec_logvar = nn.Sequential(
             nn.Linear(self.h_dim, self.y_dim * self.n_mixtures),
-            nn.ReLU(),)
+            nn.ReLU(), )
         self.dec_pi = nn.Sequential(
             nn.Linear(self.h_dim, self.y_dim * self.n_mixtures),
             nn.Softmax(dim=1)
@@ -160,6 +160,7 @@ class VRNN_GMM(nn.Module):
             dec_mean_t = self.dec_mean(dec_t).view(batch_size, self.y_dim, self.n_mixtures)
             dec_logvar_t = self.dec_logvar(dec_t).view(batch_size, self.y_dim, self.n_mixtures)
             dec_pi_t = self.dec_pi(dec_t).view(batch_size, self.y_dim, self.n_mixtures)
+
             # store the samples
             sample[:, :, t], sample_mu[:, :, t], sample_sigma[:, :, t] = self._reparameterized_sample_gmm(dec_mean_t,
                                                                                                           dec_logvar_t,
@@ -170,15 +171,14 @@ class VRNN_GMM(nn.Module):
 
         return sample, sample_mu, sample_sigma
 
-    @staticmethod
-    def _reparameterized_sample_gmm(mu, logvar, pi):
+    def _reparameterized_sample_gmm(self, mu, logvar, pi):
 
         # select the mixture indices
         alpha = torch.distributions.Categorical(pi).sample()
 
         # select the mixture indices
         idx = logvar.shape[-1]
-        raveled_index = torch.arange(len(alpha.flatten())) * idx + alpha.flatten()
+        raveled_index = torch.arange(len(alpha.flatten()), device=self.device) * idx + alpha.flatten()
         logvar_sel = logvar.flatten()[raveled_index]
         mu_sel = mu.flatten()[raveled_index]
 

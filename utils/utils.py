@@ -1,6 +1,9 @@
 import torch
 import numpy as np
+import os
+import json
 from models.base import Normalizer1D
+
 
 
 # get the number of model parameters
@@ -41,3 +44,26 @@ def compute_normalizer(loader_train):
     y_normalizer = Normalizer1D(np.sqrt(y_var / total_batches) * variance_scaler, y_mean / total_batches)
 
     return u_normalizer, y_normalizer
+
+
+# save the options
+def save_options(options_in, path, file_name):
+    # copy options without reference to old object
+    options = dict(options_in)
+
+    # replace options['device]'
+    if 'device' in options:
+        options['device'] = options['device'].type
+
+    # namespaces to dictionary
+    if 'dataset_options' in options:
+        options['dataset_options'] = vars(options['dataset_options'])
+    if 'model_options' in options:
+        options['model_options'] = vars(options['model_options'])
+    if 'train_options' in options:
+        options['train_options'] = vars(options['train_options'])
+    if 'test_options' in options:
+        options['test_options'] = vars(options['test_options'])
+
+    with open(os.path.join(path, file_name), "w+") as f:
+        f.write(json.dumps(options, indent=1))
