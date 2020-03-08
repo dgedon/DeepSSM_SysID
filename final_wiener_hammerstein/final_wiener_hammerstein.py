@@ -49,7 +49,7 @@ def print_best_values(all_rmse, all_vaf, all_likelihood, h_values, z_values, n_v
 # set (high level) options dictionary
 options = {
     'dataset': 'wiener_hammerstein',
-    'model': 'STORN',
+    'model': 'STORN-narli',
     'do_train': True,
     'do_test': True,
     'logdir': 'final',
@@ -58,14 +58,14 @@ options = {
     'optim': 'Adam',
     'showfig': False,
     'savefig': True,
-    'MCsamples': 5,
+    'MCsamples': 4,
     'gridvalues': {
         'h_values': [60],  # [10, 20, 30, 40, 50, 60, 70, 80],
-        'z_values': [10],
-        'n_values': [2], },
+        'z_values': [5],
+        'n_values': [3], },
 }
 
-addlog = 'run_0306_64_2'
+addlog = 'run_0308_big_h60z5n3'
 # get saving path
 path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],
@@ -197,10 +197,12 @@ if __name__ == "__main__":
                         # test the model
                         print('\nTest: Multisine')
                         kwargs = {'file_name_add': 'Multisine_'}
+                        df_multisine = {}
                         df_multisine = testing.run_test(options, loaders_multisine, df, path_general, file_name,
                                                         **kwargs)
                         print('\nTest: Sweptsine')
                         kwargs = {'file_name_add': 'Sweptsine_'}
+                        df_sweptsine = {}
                         df_sweptsine = testing.run_test(options, loaders_sweptsine, df, path_general, file_name,
                                                         **kwargs)
 

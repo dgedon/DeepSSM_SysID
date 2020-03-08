@@ -26,16 +26,16 @@ class STORN_narli(nn.Module):
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
+            # nn.Linear(self.h_dim, self.h_dim),
+            # nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(), )
         self.phi_u = nn.Sequential(
             nn.Linear(self.u_dim, self.h_dim),
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
+            # nn.ReLU(),
+            # nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(), )
@@ -43,8 +43,8 @@ class STORN_narli(nn.Module):
             nn.Linear(self.z_dim, self.h_dim),
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
+            # nn.ReLU(),
+            # nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(), )
@@ -55,8 +55,8 @@ class STORN_narli(nn.Module):
             nn.ReLU(),
             nn.Linear(self.d_dim, self.d_dim),
             nn.ReLU(),
-            nn.Linear(self.d_dim, self.d_dim),
-            nn.ReLU(),
+            # nn.Linear(self.d_dim, self.d_dim),
+            # nn.ReLU(),
             nn.Linear(self.d_dim, self.d_dim),
             nn.ReLU())
         self.enc_mean = nn.Sequential(
@@ -71,8 +71,8 @@ class STORN_narli(nn.Module):
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
+            # nn.Linear(self.h_dim, self.h_dim),
+            # nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(), )
         self.prior_mean = nn.Sequential(
@@ -87,8 +87,8 @@ class STORN_narli(nn.Module):
             nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU(),
-            nn.Linear(self.h_dim, self.h_dim),
-            nn.ReLU(),
+            # nn.Linear(self.h_dim, self.h_dim),
+            # nn.ReLU(),
             nn.Linear(self.h_dim, self.h_dim),
             nn.ReLU())
         self.dec_mean = nn.Sequential(
