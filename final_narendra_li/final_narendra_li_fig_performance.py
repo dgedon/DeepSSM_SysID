@@ -12,10 +12,10 @@ sys.path.append(os.getcwd())
 # set (high level) options dictionary
 dataset = 'narendra_li'
 logdir = 'final'
-addlog = 'run_0305'
+addlog = 'run_0306_full'
 model = ['VAE-RNN', 'VRNN-Gauss-I', 'VRNN-Gauss', 'VRNN-GMM-I', 'VRNN-GMM', 'STORN']
 
-ndata = np.array([2000, 5000, 10000, 20000, 30000, 40000, 50000, 75000])
+ndata = np.array([2000, 5000, 10000, 20000, 30000, 40000, 50000, 60000])
 rmse_all = []
 nll_all = []
 

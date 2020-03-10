@@ -49,7 +49,7 @@ def print_best_values(all_rmse, all_vaf, all_likelihood, h_values, z_values, n_v
 # set (high level) options dictionary
 options = {
     'dataset': 'wiener_hammerstein',
-    'model': 'STORN-narli',
+    'model': 'STORN',
     'do_train': True,
     'do_test': True,
     'logdir': 'final',
@@ -58,14 +58,14 @@ options = {
     'optim': 'Adam',
     'showfig': False,
     'savefig': True,
-    'MCsamples': 4,
+    'MCsamples': 3,
     'gridvalues': {
         'h_values': [60],  # [10, 20, 30, 40, 50, 60, 70, 80],
-        'z_values': [5],
+        'z_values': [1, 3, 5, 7],
         'n_values': [3], },
 }
 
-addlog = 'run_0308_big_h60z5n3'
+addlog = 'run_0310_zvar'
 # get saving path
 path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],
@@ -197,14 +197,14 @@ if __name__ == "__main__":
                         # test the model
                         print('\nTest: Multisine')
                         kwargs = {'file_name_add': 'Multisine_'}
-                        df_multisine = {}
-                        df_multisine = testing.run_test(options, loaders_multisine, df, path_general, file_name,
-                                                        **kwargs)
+                        df_multisine = df
+                        df_multisine = testing.run_test(options, loaders_multisine, df_multisine, path_general,
+                                                        file_name, **kwargs)
                         print('\nTest: Sweptsine')
                         kwargs = {'file_name_add': 'Sweptsine_'}
                         df_sweptsine = {}
-                        df_sweptsine = testing.run_test(options, loaders_sweptsine, df, path_general, file_name,
-                                                        **kwargs)
+                        df_sweptsine = testing.run_test(options, loaders_sweptsine, df_sweptsine, path_general,
+                                                        file_name, **kwargs)
 
                     # save performance values
                     vaf_all_multisine[mcIter, i1, i2, i3] = df_multisine['vaf']
@@ -239,13 +239,13 @@ if __name__ == "__main__":
     print_best_values(rmse_all_sweptsine, vaf_all_sweptsine, likelihood_all_sweptsine, h_values, z_values, n_values)
 
     # plot performance
-    dv.plot_perf_sizes(h_values, vaf_all_multisine, rmse_all_multisine, likelihood_all_multisine, options, path_general)
-    dv.plot_perf_sizes(h_values, vaf_all_sweptsine, rmse_all_sweptsine, likelihood_all_sweptsine, options, path_general)
+    dv.plot_perf_sizes(z_values, vaf_all_multisine, rmse_all_multisine, likelihood_all_multisine, options, path_general)
+    dv.plot_perf_sizes(z_values, vaf_all_sweptsine, rmse_all_sweptsine, likelihood_all_sweptsine, options, path_general)
 
     # time output
     time_el = time.time() - start_time
     hours = time_el // 3600
     min = time_el // 60 - hours * 60
     sec = time_el - min * 60 - hours * 3600
-    print('Total ime of file execution: {:2.0f}:{:2.0f}:{:2.0f} [h:min:sec]'.format(hours, min, sec))
+    print('\nTotal time of file execution: {:2.0f}:{:2.0f}:{:2.0f} [h:min:sec]'.format(hours, min, sec))
     print(time.strftime("%c"))

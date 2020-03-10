@@ -6,6 +6,7 @@ import os
 import numpy as np
 import time
 import sys
+
 os.chdir('../')
 sys.path.append(os.getcwd())
 # import user-written files
@@ -34,8 +35,8 @@ from models.model_state import ModelState
 # set (high level) options dictionary
 options = {
     'dataset': 'narendra_li',  # only use this dynamic system here!
-    'model': 'STORN-narli',
-    'do_train': True,
+    'model': 'STORN',
+    'do_train': False,
     'do_test': True,
     'logdir': 'final',
     'normalize': False,
@@ -54,10 +55,10 @@ options = {
         'n_opt': 1, },
 }
 
-addpath = 'run_0308_b_h60z5n1s2000'
+addpath = 'run_0308_h60z5n1s2000'  # 'run_0309_h60z5n2s2000'
 
 # get saving path
-path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
+path_general = os.getcwd() + '/log_Server/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],
                                                         addpath,
                                                         options['model'], )
@@ -121,7 +122,7 @@ if __name__ == "__main__":
 
     for mcIter in range(options['MCsamples']):
         print('\n#####################')
-        print('MC ITERATION: {}/{}'.format(mcIter+1, options['MCsamples']))
+        print('MC ITERATION: {}/{}'.format(mcIter + 1, options['MCsamples']))
         print('#####################\n')
 
         # set the correct device to run on
@@ -214,5 +215,5 @@ if __name__ == "__main__":
     hours = time_el // 3600
     min = time_el // 60 - hours * 60
     sec = time_el - min * 60 - hours * 3600
-    print('Total ime of file execution: {}:{:2.0f}:{:2.0f} [h:min:sec]'.format(hours, min, sec))
+    print('\nTotal time of file execution: {}:{:2.0f}:{:2.0f} [h:min:sec]'.format(hours, min, sec))
     print(time.strftime("%c"))

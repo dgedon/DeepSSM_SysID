@@ -29,25 +29,25 @@ def plot_time_sequence_uncertainty(data_y_true, data_y_sample, label_y, options,
         else:  # plot true mu /pm 3sigma
             length = len(data_y_true[0][batch_show, j, :])
             x = np.linspace(0, length - 1, length)
-            mean = data_y_true[0][batch_show, j, :].squeeze()
+            mu = data_y_true[0][batch_show, j, :].squeeze()
             std = data_y_true[1][batch_show, j, :].squeeze()
             # plot mean
-            plt.plot(mean, label='y_{}(k) {}'.format(j + 1, label_y[0]))
+            plt.plot(mu, label='y_{}(k) {}'.format(j + 1, label_y[0]))
             # plot 3std around
-            plt.fill_between(x, mean, mean + 3 * std, alpha=0.3, facecolor='b')
-            plt.fill_between(x, mean, mean - 3 * std, alpha=0.3, facecolor='b')
+            plt.fill_between(x, mu, mu + 3 * std, alpha=0.3, facecolor='b')
+            plt.fill_between(x, mu, mu - 3 * std, alpha=0.3, facecolor='b')
 
         # plot samples mu \pm 3sigma
         length = len(data_y_sample[0][batch_show, j, :])
         x = np.linspace(0, length - 1, length)
-        mean = data_y_sample[0][batch_show, j, :].squeeze()
+        mu = data_y_sample[0][batch_show, j, :].squeeze()
         std = data_y_sample[1][batch_show, j, :].squeeze()
 
         # plot mean
-        plt.plot(mean, label='y_{}(k) {}'.format(j + 1, label_y[1]))
+        plt.plot(mu, label='y_{}(k) {}'.format(j + 1, label_y[1]))
         # plot 3std around
-        plt.fill_between(x, mean, mean + 3 * std, alpha=0.3, facecolor='r')
-        plt.fill_between(x, mean, mean - 3 * std, alpha=0.3, facecolor='r')
+        plt.fill_between(x, mu, mu + 3 * std, alpha=0.3, facecolor='r')
+        plt.fill_between(x, mu, mu - 3 * std, alpha=0.3, facecolor='r')
 
         # plot settings
         plt.title('Output $y_{}(k)$, {} with (h,z,n)=({},{},{})'.format((j + 1),
@@ -125,14 +125,14 @@ def plot_perf_ndata(k_max_train_values, all_vaf, all_rmse, all_likelihood, optio
     x = k_max_train_values
 
     # vaf
-    mean = all_vaf.mean(0).squeeze()
-    std = np.sqrt(all_vaf.var(0)).squeeze()
+    mu = all_vaf.mean(0).squeeze().numpy()
+    std = np.sqrt(all_vaf.var(0)).squeeze().numpy()
     plt.subplot(3, 1, 1)
     # plot mean
-    plt.plot(x, mean, label='VAF $\mu\pm\sigma$')
+    plt.plot(x, mu, label='VAF $\mu\pm\sigma$')
     # plot std
-    plt.fill_between(x, mean, mean + std, alpha=0.3, facecolor='b')
-    plt.fill_between(x, mean, mean - std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu + std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu - std, alpha=0.3, facecolor='b')
     # plot settings
     plt.title('VAF of {}'.format(options['dataset']))
     plt.xlabel('Training Datapoints')
@@ -140,14 +140,14 @@ def plot_perf_ndata(k_max_train_values, all_vaf, all_rmse, all_likelihood, optio
     plt.legend()
 
     # rmse
-    mean = all_rmse.mean(0).squeeze()
-    std = np.sqrt(all_rmse.var(0)).squeeze()
+    mu = all_rmse.mean(0).squeeze().numpy()
+    std = np.sqrt(all_rmse.var(0)).squeeze().numpy()
     plt.subplot(3, 1, 2)
     # plot mean
-    plt.plot(x, mean, label='RMSE $\mu\pm\sigma$')
+    plt.plot(x, mu, label='RMSE $\mu\pm\sigma$')
     # plot std
-    plt.fill_between(x, mean, mean + std, alpha=0.3, facecolor='b')
-    plt.fill_between(x, mean, mean - std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu + std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu - std, alpha=0.3, facecolor='b')
     # plot settings
     plt.title('RMSE of {}'.format(options['dataset']))
     plt.xlabel('Training Datapoints')
@@ -155,14 +155,14 @@ def plot_perf_ndata(k_max_train_values, all_vaf, all_rmse, all_likelihood, optio
     plt.legend()
 
     # marg. likelihood
-    mean = -all_likelihood.mean(0).squeeze()
-    std = np.sqrt((-all_likelihood).var(0)).squeeze()
+    mu = -all_likelihood.mean(0).squeeze().numpy()
+    std = np.sqrt((-all_likelihood).var(0)).squeeze().numpy()
     plt.subplot(3, 1, 3)
     # plot mean
-    plt.plot(x, mean, label='NLL $\mu\pm\sigma$')
+    plt.plot(x, mu, label='NLL $\mu\pm\sigma$')
     # plot std
-    plt.fill_between(x, mean, mean + std, alpha=0.3, facecolor='b')
-    plt.fill_between(x, mean, mean - std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu + std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu - std, alpha=0.3, facecolor='b')
     # plot settings
     plt.title('NLL of {}'.format(options['dataset']))
     plt.xlabel('Training Datapoints')
@@ -242,14 +242,14 @@ def plot_perf_sizes(h_values, all_vaf, all_rmse, all_likelihood, options, path_g
     x = h_values
 
     # vaf
-    mean = all_vaf.mean(0).squeeze()
+    mu = all_vaf.mean(0).squeeze()
     std = np.sqrt(all_vaf.var(0)).squeeze()
     plt.subplot(3, 1, 1)
     # plot mean
-    plt.plot(x, mean, label='VAF $\mu\pm\sigma$')
+    plt.plot(x, mu, label='VAF $\mu\pm\sigma$')
     # plot std
-    plt.fill_between(x, mean, mean + std, alpha=0.3, facecolor='b')
-    plt.fill_between(x, mean, mean - std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu + std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu - std, alpha=0.3, facecolor='b')
     # plot settings
     plt.title('VAF of {}'.format(options['dataset']))
     plt.xlabel('Training Datapoints')
@@ -257,14 +257,14 @@ def plot_perf_sizes(h_values, all_vaf, all_rmse, all_likelihood, options, path_g
     plt.legend()
 
     # rmse
-    mean = all_rmse.mean(0).squeeze()
+    mu = all_rmse.mean(0).squeeze()
     std = np.sqrt(all_rmse.var(0)).squeeze()
     plt.subplot(3, 1, 2)
     # plot mean
-    plt.plot(x, mean, label='RMSE $\mu\pm\sigma$')
+    plt.plot(x, mu, label='RMSE $\mu\pm\sigma$')
     # plot std
-    plt.fill_between(x, mean, mean + std, alpha=0.3, facecolor='b')
-    plt.fill_between(x, mean, mean - std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu + std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu - std, alpha=0.3, facecolor='b')
     # plot settings
     plt.title('RMSE of {}'.format(options['dataset']))
     plt.xlabel('Training Datapoints')
@@ -272,14 +272,14 @@ def plot_perf_sizes(h_values, all_vaf, all_rmse, all_likelihood, options, path_g
     plt.legend()
 
     # marg. likelihood
-    mean = -all_likelihood.mean(0).squeeze()
+    mu = -all_likelihood.mean(0).squeeze()
     std = np.sqrt((-all_likelihood).var(0)).squeeze()
     plt.subplot(3, 1, 3)
     # plot mean
-    plt.plot(x, mean, label='NLL $\mu\pm\sigma$')
+    plt.plot(x, mu, label='NLL $\mu\pm\sigma$')
     # plot std
-    plt.fill_between(x, mean, mean + std, alpha=0.3, facecolor='b')
-    plt.fill_between(x, mean, mean - std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu + std, alpha=0.3, facecolor='b')
+    plt.fill_between(x, mu, mu - std, alpha=0.3, facecolor='b')
     # plot settings
     plt.title('NLL of {}'.format(options['dataset']))
     plt.xlabel('Training Datapoints')
