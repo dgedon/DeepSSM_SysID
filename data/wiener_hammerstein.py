@@ -12,6 +12,11 @@ def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_
     else:
         test_set = 'multisine'
 
+    if 'train_set' in kwargs:
+        train_set = kwargs['train_set']
+    else:
+        train_set = 'small'
+
     if 'MCiter' in kwargs:
         MCiter = kwargs['MCiter']
     else:
@@ -23,7 +28,11 @@ def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_
         test_idx = [3, 5]
 
     # data file direction and name
-    file_name_train = 'data/WienerHammersteinFiles/WH_SineSweepInput_meas.csv'
+    if train_set == 'small':
+        file_name_train = 'data/WienerHammersteinFiles/WH_MultisineFadeOut.csv'
+    elif train_set == 'big':
+        file_name_train = 'data/WienerHammersteinFiles/WH_SineSweepInput_meas.csv'
+    # file_name_train = 'data/WienerHammersteinFiles/WH_MultisineFadeOut.csv'  # 'WH_SineSweepInput_meas.csv'
     file_name_test = 'data/WienerHammersteinFiles/WH_TestDataset.csv'
 
     # initialization
@@ -46,12 +55,20 @@ def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_
                 # Extract combination of training / validation data
                 if file_name_train == 'data/WienerHammersteinFiles/WH_SineSweepInput_meas.csv':
                     idx = 100 + MCiter
-                elif file_name_train == 'data/WH_MultisineFadeOut':
+                    u.append(float(row[idx]))
+                    y.append(float(row[2 * idx]))
+                    u_val.append(float(row[idx + 1]))
+                    y_val.append(float(row[2 * idx + 1]))
+                elif file_name_train == 'data/WienerHammersteinFiles/WH_MultisineFadeOut.csv':
                     idx = 2
-                u.append(float(row[idx]))
-                y.append(float(row[2 * idx]))
-                u_val.append(float(row[idx + 1]))
-                y_val.append(float(row[2 * idx + 1]))
+                    if MCiter % 2:
+                        idx_add = 0
+                    else:
+                        idx_add = 1
+                    u.append(float(row[idx + idx_add]))
+                    y.append(float(row[2 * idx + idx_add]))
+                    u_val.append(float(row[idx + 1 - idx_add]))
+                    y_val.append(float(row[2 * idx + 1 - idx_add]))
 
     # read the file into variable
     with open(file_name_test, 'r') as csv_file:

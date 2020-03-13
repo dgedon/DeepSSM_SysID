@@ -58,14 +58,15 @@ options = {
     'optim': 'Adam',
     'showfig': False,
     'savefig': True,
-    'MCsamples': 3,
+    'MCsamples': 2,
     'gridvalues': {
-        'h_values': [60],  # [10, 20, 30, 40, 50, 60, 70, 80],
+        'h_values': [50],
         'z_values': [1, 3, 5, 7],
         'n_values': [3], },
+    'train_set': 'small',
 }
-
-addlog = 'run_0310_zvar'
+varying_param = 'z_varying'
+addlog = 'run_0313_zvar_test8192'
 # get saving path
 path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],
@@ -151,7 +152,7 @@ if __name__ == "__main__":
                     options['model_options'].n_layers = n_sel
 
                     # Specifying datasets (only matters for testing
-                    kwargs = {'test_set': 'multisine', 'MCiter': mcIter}
+                    kwargs = {'test_set': 'multisine', 'MCiter': mcIter, 'train_set': options['train_set']}
                     loaders_multisine = loader.load_dataset(dataset=options["dataset"],
                                                             dataset_options=options["dataset_options"],
                                                             train_batch_size=options["train_options"].batch_size,
@@ -239,8 +240,13 @@ if __name__ == "__main__":
     print_best_values(rmse_all_sweptsine, vaf_all_sweptsine, likelihood_all_sweptsine, h_values, z_values, n_values)
 
     # plot performance
-    dv.plot_perf_sizes(z_values, vaf_all_multisine, rmse_all_multisine, likelihood_all_multisine, options, path_general)
-    dv.plot_perf_sizes(z_values, vaf_all_sweptsine, rmse_all_sweptsine, likelihood_all_sweptsine, options, path_general)
+    if varying_param == 'h_varying':
+        temp = h_values
+    elif varying_param == 'z_varying':
+        temp = z_values
+
+    dv.plot_perf_sizes(temp, vaf_all_multisine, rmse_all_multisine, likelihood_all_multisine, options, path_general)
+    dv.plot_perf_sizes(temp, vaf_all_sweptsine, rmse_all_sweptsine, likelihood_all_sweptsine, options, path_general)
 
     # time output
     time_el = time.time() - start_time

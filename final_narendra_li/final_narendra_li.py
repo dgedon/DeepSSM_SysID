@@ -36,7 +36,7 @@ from models.model_state import ModelState
 options = {
     'dataset': 'narendra_li',  # only use this dynamic system here!
     'model': 'STORN',
-    'do_train': False,
+    'do_train': True,
     'do_test': True,
     'logdir': 'final',
     'normalize': False,
@@ -52,13 +52,13 @@ options = {
     'optValue': {
         'h_opt': 60,
         'z_opt': 5,
-        'n_opt': 1, },
+        'n_opt': 2, },
 }
 
-addpath = 'run_0308_h60z5n1s2000'  # 'run_0309_h60z5n2s2000'
+addpath = 'test'  # 'run_0309_h60z5n2s2000'
 
 # get saving path
-path_general = os.getcwd() + '/log_Server/{}/{}/{}/{}/'.format(options['logdir'],
+path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],
                                                         addpath,
                                                         options['model'], )
