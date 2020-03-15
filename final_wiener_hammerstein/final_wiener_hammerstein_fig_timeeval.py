@@ -21,7 +21,7 @@ from models.model_state import ModelState
 # set (high level) options dictionary
 options = {
     'dataset': 'wiener_hammerstein',
-    'model': 'STORN-narli',
+    'model': 'STORN',
     'do_train': False,
     'do_test': True,  # ALWAYS
     'logdir': 'final',
@@ -32,8 +32,9 @@ options = {
     'savefig': False,
 }
 
+test_set = 'sweptsine'
 # get saving path
-addlog = 'run_0308_big_h60z5n3'
+addlog = 'run_0310_hvar'
 path_general = os.getcwd() + '/log_Server/{}/{}/{}/{}/'.format(options['logdir'],
                                                                options['dataset'],
                                                                addlog,
@@ -59,7 +60,7 @@ if __name__ == "__main__":
     options['test_options'] = train_params.get_test_options()
 
     # optimal model parameters
-    h_opt = 60  # 60
+    h_opt = 50  # 60
     z_opt = 5  # 5
     n_opt = 3
     options['model_options'].h_dim = h_opt
@@ -67,13 +68,13 @@ if __name__ == "__main__":
     options['model_options'].n_layers = n_opt
 
     path = path_general + 'data/'
-    MC_chosen = 1
+    MC_chosen = 0
     file_name_general = '{}_h{}_z{}_n{}_MC{}'.format(options['dataset'], h_opt, z_opt, n_opt, MC_chosen)
 
     # sampling period
     fs = 78125
     maxN = 4000
-    kwargs = {'test_set': 'multisine'}  # 'sweptsine', 'multisine'
+    kwargs = {'test_set': test_set}
 
     # Specifying datasets
     loaders = loader.load_dataset(dataset=options["dataset"],

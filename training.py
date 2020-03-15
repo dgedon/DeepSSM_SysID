@@ -105,8 +105,8 @@ def run_train(modelstate, loader_train, loader_valid, options, dataframe, path_g
                                                   100., lr, loss, vloss))
 
                 # if no new best result in last 30 epochs, then break
-                if epoch - best_epoch >= 50:
-                    lr = 1e-7
+                # if epoch - best_epoch >= 50:
+                #     lr = 1e-7
 
                 # lr scheduler
                 if epoch >= train_options.lr_scheduler_nstart:

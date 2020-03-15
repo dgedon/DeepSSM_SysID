@@ -1,6 +1,6 @@
 import torch
 
-from models import DynamicModel  # myLSTM, STORN, VAE_RNN, VRNN_Gauss, VRNN_Gauss_I, VRNN_GMM,VRNN_GMM_I,VRNN_Gauss_new
+from models import DynamicModel
 import torch.optim as optim
 import os.path
 

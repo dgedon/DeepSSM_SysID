@@ -49,7 +49,7 @@ def print_best_values(all_rmse, all_vaf, all_likelihood, h_values, z_values, n_v
 # set (high level) options dictionary
 options = {
     'dataset': 'wiener_hammerstein',
-    'model': 'STORN',
+    'model': 'VAE-RNN',
     'do_train': True,
     'do_test': True,
     'logdir': 'final',
@@ -58,15 +58,15 @@ options = {
     'optim': 'Adam',
     'showfig': False,
     'savefig': True,
-    'MCsamples': 2,
+    'MCsamples': 30,
     'gridvalues': {
-        'h_values': [50],
-        'z_values': [1, 3, 5, 7],
+        'h_values': [30, 40, 50, 50, 70],
+        'z_values': [3],
         'n_values': [3], },
     'train_set': 'small',
 }
-varying_param = 'z_varying'
-addlog = 'run_0313_zvar_test8192'
+varying_param = 'h_varying'
+addlog = 'run_0315_hvar'
 # get saving path
 path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],

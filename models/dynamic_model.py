@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from . import STORN, VAE_RNN, VRNN_Gauss, VRNN_Gauss_I, VRNN_GMM, VRNN_GMM_I, VAE_RNN_narli, STORN_narli
+from . import STORN, VAE_RNN, VRNN_Gauss, VRNN_Gauss_I, VRNN_GMM, VRNN_GMM_I # , VAE_RNN_narli, STORN_narli
 # VRNN_Gauss_new
 
 
@@ -33,13 +33,15 @@ class DynamicModel(nn.Module):
             self.m = STORN(model_options, options['device'])
         elif model == 'VAE-RNN':
             self.m = VAE_RNN(model_options, options['device'])
-        # modified for narendra-li
+        else:
+            raise Exception("Unimplemented model")
+
+
+        """# modified for narendra-li
         elif model == 'VAE-RNN-narli':
             self.m = VAE_RNN_narli(model_options, options['device'])
         elif model == 'STORN-narli':
-            self.m = STORN_narli(model_options, options['device'])
-        else:
-            raise Exception("Unimplemented model")
+            self.m = STORN_narli(model_options, options['device'])"""
 
     @property
     def num_model_inputs(self):
