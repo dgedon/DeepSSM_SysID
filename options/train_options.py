@@ -37,11 +37,11 @@ def get_train_options(dataset_name):
         train_parser.add_argument('--lr_scheduler_nepochs', type=float, default=10/2, help='check learning rater after')
         train_parser.add_argument('--lr_scheduler_factor', type=float, default=10, help='adapt learning rate by')
 
-    elif dataset_name == 'wiener_hammerstein':
-        train_parser.add_argument('--n_epochs', type=int, default=2000, help='number of epochs')
+    elif dataset_name == 'wiener_hammerstein':  # 10/2
+        train_parser.add_argument('--n_epochs', type=int, default=700, help='number of epochs')
         train_parser.add_argument('--init_lr', type=float, default=1e-3, help='initial learning rate')
         train_parser.add_argument('--min_lr', type=float, default=1e-6, help='minimal learning rate')
-        train_parser.add_argument('--lr_scheduler_nepochs', type=float, default=10/2, help='check learning rater after')
+        train_parser.add_argument('--lr_scheduler_nepochs', type=float, default=7, help='check learning rater after')
         train_parser.add_argument('--lr_scheduler_factor', type=float, default=10, help='adapt learning rate by')
 
     # change batch size to higher value if trained on cuda device

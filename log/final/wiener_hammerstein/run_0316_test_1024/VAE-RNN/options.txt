@@ -1,0 +1,55 @@
+{
+ "dataset": "wiener_hammerstein",
+ "model": "VAE-RNN",
+ "do_train": true,
+ "do_test": true,
+ "logdir": "final",
+ "normalize": true,
+ "seed": 1234,
+ "optim": "Adam",
+ "showfig": false,
+ "savefig": true,
+ "MCsamples": 2,
+ "gridvalues": {
+  "h_values": [
+   30
+  ],
+  "z_values": [
+   3
+  ],
+  "n_values": [
+   3
+  ]
+ },
+ "train_set": "small",
+ "device": "cpu",
+ "dataset_options": {
+  "y_dim": 1,
+  "u_dim": 1,
+  "seq_len_train": 1024,
+  "seq_len_test": null,
+  "seq_len_val": 1024
+ },
+ "model_options": {
+  "y_dim": 1,
+  "u_dim": 1,
+  "h_dim": 10,
+  "z_dim": 10,
+  "n_layers": 2
+ },
+ "train_options": {
+  "clip": 10,
+  "lr_scheduler_nstart": 10,
+  "print_every": 1,
+  "test_every": 5,
+  "n_epochs": 2000,
+  "init_lr": 0.001,
+  "min_lr": 1e-06,
+  "lr_scheduler_nepochs": 8,
+  "lr_scheduler_factor": 10,
+  "batch_size": 128
+ },
+ "test_options": {
+  "batch_size": 32
+ }
+}

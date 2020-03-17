@@ -1,0 +1,835 @@
+Run file: final_wiener_hammerstein.py
+Mon Mar 16 10:39:19 2020
+Device: cpu
+
+	Model Type: STORN
+	Dynamic System: wiener_hammerstein
+
+Total number of evaluation points: 1
+
+#####################
+MC ITERATION: 1/2
+#####################
+
+
+Current run: h=30, z=3, n=3
+
+Train Epoch: [    0/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.849
+Train Epoch: [    0/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.820	Val Loss: 2.698
+Train Epoch: [    1/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.820
+Train Epoch: [    2/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.789
+Train Epoch: [    3/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.756
+Train Epoch: [    4/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.721
+Train Epoch: [    5/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.682
+Train Epoch: [    5/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.641	Val Loss: 2.534
+Train Epoch: [    6/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.641
+Train Epoch: [    7/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.595
+Train Epoch: [    8/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.545
+Train Epoch: [    9/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.492
+Train Epoch: [   10/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.438
+Train Epoch: [   10/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.382	Val Loss: 2.302
+Train Epoch: [   11/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.382
+Train Epoch: [   12/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.326
+Train Epoch: [   13/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.273
+Train Epoch: [   14/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.225
+Train Epoch: [   15/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.184
+Train Epoch: [   15/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.152	Val Loss: 2.103
+Train Epoch: [   16/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.152
+Train Epoch: [   17/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.130
+Train Epoch: [   18/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.117
+Train Epoch: [   19/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.113
+Train Epoch: [   20/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116
+Train Epoch: [   20/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.123	Val Loss: 2.095
+Train Epoch: [   21/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.124
+Train Epoch: [   22/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.133
+Train Epoch: [   23/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.141
+Train Epoch: [   24/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.147
+Train Epoch: [   25/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.150
+Train Epoch: [   25/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.150	Val Loss: 2.127
+Train Epoch: [   26/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.150
+Train Epoch: [   27/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.147
+Train Epoch: [   28/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.143
+Train Epoch: [   29/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.138
+Train Epoch: [   30/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.132
+Train Epoch: [   30/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.127	Val Loss: 2.099
+Train Epoch: [   31/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.127
+Train Epoch: [   32/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.122
+Train Epoch: [   33/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   34/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116
+Train Epoch: [   35/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115
+Train Epoch: [   35/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115	Val Loss: 2.080
+Train Epoch: [   36/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115
+Train Epoch: [   37/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115
+Train Epoch: [   38/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116
+Train Epoch: [   39/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.117
+Train Epoch: [   40/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118
+Train Epoch: [   40/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119	Val Loss: 2.080
+Train Epoch: [   41/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   42/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   43/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   44/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   45/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118
+Train Epoch: [   45/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118	Val Loss: 2.079
+Train Epoch: [   46/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118
+Train Epoch: [   47/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.117
+Train Epoch: [   48/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116
+Train Epoch: [   49/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115
+Train Epoch: [   50/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115
+Train Epoch: [   50/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114	Val Loss: 2.079
+Train Epoch: [   51/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   52/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   53/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   54/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   55/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   55/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114	Val Loss: 2.081
+Train Epoch: [   56/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   57/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   58/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   59/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   60/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   60/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114	Val Loss: 2.081
+Train Epoch: [   61/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   62/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   63/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.113
+Train Epoch: [   64/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.113
+Train Epoch: [   65/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.113
+Train Epoch: [   65/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.112	Val Loss: 2.079
+Train Epoch: [   66/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.112
+Train Epoch: [   67/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.112
+Train Epoch: [   68/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.112
+Train Epoch: [   69/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.112
+Train Epoch: [   70/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.112
+Train Epoch: [   70/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.111	Val Loss: 2.076
+Train Epoch: [   71/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.111
+Train Epoch: [   72/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.111
+Train Epoch: [   73/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.111
+Train Epoch: [   74/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.111
+Train Epoch: [   75/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.111
+Train Epoch: [   75/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.110	Val Loss: 2.075
+Train Epoch: [   76/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.110
+Train Epoch: [   77/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.110
+Train Epoch: [   78/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.109
+Train Epoch: [   79/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.109
+Train Epoch: [   80/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.109
+Train Epoch: [   80/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.108	Val Loss: 2.073
+Train Epoch: [   81/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.108
+Train Epoch: [   82/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.107
+Train Epoch: [   83/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.106
+Train Epoch: [   84/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.105
+Train Epoch: [   85/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.105
+Train Epoch: [   85/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.104	Val Loss: 2.069
+Train Epoch: [   86/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.104
+Train Epoch: [   87/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.103
+Train Epoch: [   88/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.102
+Train Epoch: [   89/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.100
+Train Epoch: [   90/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.099
+Train Epoch: [   90/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.097	Val Loss: 2.063
+Train Epoch: [   91/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.097
+Train Epoch: [   92/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.096
+Train Epoch: [   93/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.094
+Train Epoch: [   94/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.093
+Train Epoch: [   95/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.092
+Train Epoch: [   95/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.091	Val Loss: 2.056
+Train Epoch: [   96/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.090
+Train Epoch: [   97/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.090
+Train Epoch: [   98/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088
+Train Epoch: [   99/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088
+Train Epoch: [  100/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088
+Train Epoch: [  100/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088	Val Loss: 2.054
+Train Epoch: [  101/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088
+Train Epoch: [  102/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088
+Train Epoch: [  103/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.089
+Train Epoch: [  104/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088
+Train Epoch: [  105/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088
+Train Epoch: [  105/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088	Val Loss: 2.053
+Train Epoch: [  106/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088
+Train Epoch: [  107/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.087
+Train Epoch: [  108/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.087
+Train Epoch: [  109/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.087
+Train Epoch: [  110/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.086
+Train Epoch: [  110/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.086	Val Loss: 2.050
+Train Epoch: [  111/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.086
+Train Epoch: [  112/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.085
+Train Epoch: [  113/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.085
+Train Epoch: [  114/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.085
+Train Epoch: [  115/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  115/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084	Val Loss: 2.049
+Train Epoch: [  116/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  117/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  118/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  119/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.083
+Train Epoch: [  120/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.083
+Train Epoch: [  120/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.083	Val Loss: 2.047
+Train Epoch: [  121/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.083
+Train Epoch: [  122/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.082
+Train Epoch: [  123/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.081
+Train Epoch: [  124/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.081
+Train Epoch: [  125/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.081
+Train Epoch: [  125/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.079	Val Loss: 2.043
+Train Epoch: [  126/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.079
+Train Epoch: [  127/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.078
+Train Epoch: [  128/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.077
+Train Epoch: [  129/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.077
+Train Epoch: [  130/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.075
+Train Epoch: [  130/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.074	Val Loss: 2.038
+Train Epoch: [  131/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.073
+Train Epoch: [  132/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.072
+Train Epoch: [  133/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.069
+Train Epoch: [  134/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.068
+Train Epoch: [  135/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.065
+Train Epoch: [  135/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.061	Val Loss: 2.024
+Train Epoch: [  136/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.061
+Train Epoch: [  137/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.057
+Train Epoch: [  138/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.051
+Train Epoch: [  139/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.047
+Train Epoch: [  140/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.039
+Train Epoch: [  140/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.030	Val Loss: 1.994
+Train Epoch: [  141/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.031
+Train Epoch: [  142/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.020
+Train Epoch: [  143/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.007
+Train Epoch: [  144/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.992
+Train Epoch: [  145/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.973
+Train Epoch: [  145/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.952	Val Loss: 1.915
+Train Epoch: [  146/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.950
+Train Epoch: [  147/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.928
+Train Epoch: [  148/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.903
+Train Epoch: [  149/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.876
+Train Epoch: [  150/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.847
+Train Epoch: [  150/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.822	Val Loss: 1.791
+Train Epoch: [  151/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.817
+Train Epoch: [  152/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.795
+Train Epoch: [  153/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.766
+Train Epoch: [  154/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.765
+Train Epoch: [  155/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.737
+Train Epoch: [  155/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.721	Val Loss: 1.709
+Train Epoch: [  156/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.710
+Train Epoch: [  157/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.720
+Train Epoch: [  158/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.700
+Train Epoch: [  159/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.679
+Train Epoch: [  160/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.673
+Train Epoch: [  160/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.672	Val Loss: 1.700
+Train Epoch: [  161/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.664
+Train Epoch: [  162/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.646
+Train Epoch: [  163/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.643
+Train Epoch: [  164/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.632
+Train Epoch: [  165/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.618
+Train Epoch: [  165/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.620	Val Loss: 1.642
+Train Epoch: [  166/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.611
+Train Epoch: [  167/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.610
+Train Epoch: [  168/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.597
+Train Epoch: [  169/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.593
+Train Epoch: [  170/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.593
+Train Epoch: [  170/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.572	Val Loss: 1.608
+Train Epoch: [  171/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.579
+Train Epoch: [  172/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.576
+Train Epoch: [  173/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.545
+Train Epoch: [  174/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.550
+Train Epoch: [  175/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.546
+Train Epoch: [  175/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.537	Val Loss: 1.566
+Train Epoch: [  176/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.529
+Train Epoch: [  177/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.531
+Train Epoch: [  178/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.535
+Train Epoch: [  179/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.515
+Train Epoch: [  180/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.515
+Train Epoch: [  180/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.504	Val Loss: 1.534
+Train Epoch: [  181/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.497
+Train Epoch: [  182/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.487
+Train Epoch: [  183/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.487
+Train Epoch: [  184/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.498
+Train Epoch: [  185/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.494
+Train Epoch: [  185/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.486	Val Loss: 1.510
+Train Epoch: [  186/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.483
+Train Epoch: [  187/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.484
+Train Epoch: [  188/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.471
+Train Epoch: [  189/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.480
+Train Epoch: [  190/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.488
+Train Epoch: [  190/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.469	Val Loss: 1.501
+Train Epoch: [  191/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.478
+Train Epoch: [  192/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.460
+Train Epoch: [  193/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.459
+Train Epoch: [  194/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.457
+Train Epoch: [  195/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.452
+Train Epoch: [  195/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.456	Val Loss: 1.479
+Train Epoch: [  196/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.452
+Train Epoch: [  197/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.448
+Train Epoch: [  198/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.456
+Train Epoch: [  199/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.450
+Train Epoch: [  200/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.443
+Train Epoch: [  200/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.439	Val Loss: 1.474
+Train Epoch: [  201/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.441
+Train Epoch: [  202/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.433
+Train Epoch: [  203/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.429
+Train Epoch: [  204/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.435
+Train Epoch: [  205/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.432
+Train Epoch: [  205/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.425	Val Loss: 1.475
+Train Epoch: [  206/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.431
+Train Epoch: [  207/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.425
+Train Epoch: [  208/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.425
+Train Epoch: [  209/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.422
+Train Epoch: [  210/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.422
+Train Epoch: [  210/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.419	Val Loss: 1.480
+Train Epoch: [  211/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.416
+Train Epoch: [  212/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.414
+Train Epoch: [  213/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.414
+Train Epoch: [  214/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.420
+Train Epoch: [  215/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.418
+Train Epoch: [  215/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.419	Val Loss: 1.489
+Train Epoch: [  216/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.424
+Train Epoch: [  217/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.429
+Train Epoch: [  218/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.422
+Train Epoch: [  219/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.412
+Train Epoch: [  220/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.405
+Train Epoch: [  220/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.405	Val Loss: 1.492
+Train Epoch: [  221/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.407
+Train Epoch: [  222/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.413
+Train Epoch: [  223/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.399
+Train Epoch: [  224/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.398
+Train Epoch: [  225/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.405
+Train Epoch: [  225/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.398	Val Loss: 1.503
+Train Epoch: [  226/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.405
+Train Epoch: [  227/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.392
+Train Epoch: [  228/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.401
+Train Epoch: [  229/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.393
+Train Epoch: [  230/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.393
+Train Epoch: [  230/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.385	Val Loss: 1.507
+
+Learning rate adapted! New learning rate 1.000e-04
+
+Train Epoch: [  231/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.392
+Train Epoch: [  232/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.388
+Train Epoch: [  233/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.385
+Train Epoch: [  234/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.386
+Train Epoch: [  235/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.385
+Train Epoch: [  235/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.387	Val Loss: 1.504
+Train Epoch: [  236/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.391
+Train Epoch: [  237/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.384
+Train Epoch: [  238/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.387
+Train Epoch: [  239/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.390
+Train Epoch: [  240/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.390
+Train Epoch: [  240/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.385	Val Loss: 1.500
+Train Epoch: [  241/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.388
+Train Epoch: [  242/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.393
+Train Epoch: [  243/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.385
+Train Epoch: [  244/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.389
+Train Epoch: [  245/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.391
+Train Epoch: [  245/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.385	Val Loss: 1.507
+Train Epoch: [  246/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.386
+Train Epoch: [  247/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.382
+Train Epoch: [  248/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.385
+Train Epoch: [  249/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.387
+Train Epoch: [  250/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.386
+Train Epoch: [  250/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.380	Val Loss: 1.510
+
+Learning rate adapted! New learning rate 1.000e-05
+
+Train Epoch: [  251/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.384
+Train Epoch: [  252/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.383
+Train Epoch: [  253/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.388
+Train Epoch: [  254/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.382
+Train Epoch: [  255/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387
+Train Epoch: [  255/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.383	Val Loss: 1.507
+Train Epoch: [  256/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.384
+Train Epoch: [  257/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.386
+Train Epoch: [  258/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.381
+Train Epoch: [  259/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.389
+Train Epoch: [  260/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.384
+Train Epoch: [  260/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.383	Val Loss: 1.505
+Train Epoch: [  261/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387
+Train Epoch: [  262/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387
+Train Epoch: [  263/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.384
+Train Epoch: [  264/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.380
+Train Epoch: [  265/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.383
+Train Epoch: [  265/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.388	Val Loss: 1.503
+Train Epoch: [  266/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.384
+Train Epoch: [  267/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.385
+Train Epoch: [  268/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.385
+Train Epoch: [  269/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.383
+Train Epoch: [  270/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.383
+Train Epoch: [  270/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387	Val Loss: 1.506
+Train Epoch: [  271/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387
+Train Epoch: [  272/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387
+Train Epoch: [  273/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.384
+Train Epoch: [  274/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.388
+Train Epoch: [  275/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.386
+Train Epoch: [  275/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.382	Val Loss: 1.508
+Train Epoch: [  276/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387
+Train Epoch: [  277/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387
+Train Epoch: [  278/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.384
+Train Epoch: [  279/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.384
+Train Epoch: [  280/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.388
+Train Epoch: [  280/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387	Val Loss: 1.508
+Train Epoch: [  281/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.382
+Train Epoch: [  282/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.388
+Train Epoch: [  283/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.388
+Train Epoch: [  284/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387
+Train Epoch: [  285/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.387
+Train Epoch: [  285/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.389	Val Loss: 1.510
+
+Learning rate adapted! New learning rate 1.000e-06
+
+Train Epoch: [  286/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.386
+Train Epoch: [  287/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.386
+Train Epoch: [  288/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.388
+Train Epoch: [  289/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.387
+Train Epoch: [  290/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.381
+Train Epoch: [  290/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.382	Val Loss: 1.508
+Train Epoch: [  291/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.383
+Train Epoch: [  292/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.388
+Train Epoch: [  293/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.389
+Train Epoch: [  294/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.385
+Train Epoch: [  295/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.385
+Train Epoch: [  295/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.389	Val Loss: 1.508
+Train Epoch: [  296/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.386
+Train Epoch: [  297/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.386
+Train Epoch: [  298/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.382
+Train Epoch: [  299/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.388
+Train Epoch: [  300/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.388
+Train Epoch: [  300/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.386	Val Loss: 1.506
+Train Epoch: [  301/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.386
+Train Epoch: [  302/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.387
+Train Epoch: [  303/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.388
+Train Epoch: [  304/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.382
+Train Epoch: [  305/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.385
+Train Epoch: [  305/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.381	Val Loss: 1.509
+Train Epoch: [  306/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.387
+Train Epoch: [  307/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.381
+Train Epoch: [  308/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.384
+Train Epoch: [  309/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.386
+Train Epoch: [  310/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.384
+Train Epoch: [  310/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.385	Val Loss: 1.511
+
+Learning rate adapted! New learning rate 1.000e-07
+
+
+Test: Multisine
+Model parameters: 44144
+Marginal Likelihood / point = 1.505
+VAF = 93.348%
+RMSE y1 = 0.033
+
+Test: Sweptsine
+Model parameters: 44144
+Marginal Likelihood / point = 1.460
+VAF = 81.524%
+RMSE y1 = 0.034
+
+#####################
+MC ITERATION: 2/2
+#####################
+
+
+Current run: h=30, z=3, n=3
+
+Train Epoch: [    0/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.871
+Train Epoch: [    0/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.842	Val Loss: 2.975
+Train Epoch: [    1/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.841
+Train Epoch: [    2/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.810
+Train Epoch: [    3/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.777
+Train Epoch: [    4/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.741
+Train Epoch: [    5/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.702
+Train Epoch: [    5/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.660	Val Loss: 2.776
+Train Epoch: [    6/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.660
+Train Epoch: [    7/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.614
+Train Epoch: [    8/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.563
+Train Epoch: [    9/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.509
+Train Epoch: [   10/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.454
+Train Epoch: [   10/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.397	Val Loss: 2.485
+Train Epoch: [   11/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.397
+Train Epoch: [   12/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.340
+Train Epoch: [   13/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.285
+Train Epoch: [   14/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.235
+Train Epoch: [   15/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.193
+Train Epoch: [   15/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.159	Val Loss: 2.213
+Train Epoch: [   16/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.160
+Train Epoch: [   17/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.136
+Train Epoch: [   18/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.123
+Train Epoch: [   19/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118
+Train Epoch: [   20/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.121
+Train Epoch: [   20/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.128	Val Loss: 2.159
+Train Epoch: [   21/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.128
+Train Epoch: [   22/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.138
+Train Epoch: [   23/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.147
+Train Epoch: [   24/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.153
+Train Epoch: [   25/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.156
+Train Epoch: [   25/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.156	Val Loss: 2.181
+Train Epoch: [   26/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.156
+Train Epoch: [   27/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.153
+Train Epoch: [   28/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.149
+Train Epoch: [   29/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.143
+Train Epoch: [   30/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.137
+Train Epoch: [   30/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.131	Val Loss: 2.161
+Train Epoch: [   31/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.131
+Train Epoch: [   32/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.127
+Train Epoch: [   33/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.123
+Train Epoch: [   34/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.121
+Train Epoch: [   35/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.120
+Train Epoch: [   35/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.120	Val Loss: 2.157
+Train Epoch: [   36/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.120
+Train Epoch: [   37/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.120
+Train Epoch: [   38/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.121
+Train Epoch: [   39/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.122
+Train Epoch: [   40/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.123
+Train Epoch: [   40/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.124	Val Loss: 2.166
+Train Epoch: [   41/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.124
+Train Epoch: [   42/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.124
+Train Epoch: [   43/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.124
+Train Epoch: [   44/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.124
+Train Epoch: [   45/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.124
+Train Epoch: [   45/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.123	Val Loss: 2.165
+Train Epoch: [   46/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.123
+Train Epoch: [   47/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.122
+Train Epoch: [   48/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.121
+Train Epoch: [   49/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.120
+Train Epoch: [   50/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.120
+Train Epoch: [   50/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119	Val Loss: 2.158
+Train Epoch: [   51/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   52/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   53/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   54/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   55/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   55/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119	Val Loss: 2.155
+Train Epoch: [   56/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   57/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   58/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   59/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   60/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   60/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119	Val Loss: 2.155
+Train Epoch: [   61/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   62/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.119
+Train Epoch: [   63/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118
+Train Epoch: [   64/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118
+Train Epoch: [   65/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118
+Train Epoch: [   65/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118	Val Loss: 2.155
+Train Epoch: [   66/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.118
+Train Epoch: [   67/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.117
+Train Epoch: [   68/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.117
+Train Epoch: [   69/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.117
+Train Epoch: [   70/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.117
+Train Epoch: [   70/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.117	Val Loss: 2.155
+Train Epoch: [   71/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.117
+Train Epoch: [   72/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116
+Train Epoch: [   73/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116
+Train Epoch: [   74/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116
+Train Epoch: [   75/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116
+Train Epoch: [   75/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116	Val Loss: 2.155
+Train Epoch: [   76/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.116
+Train Epoch: [   77/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115
+Train Epoch: [   78/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115
+Train Epoch: [   79/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115
+Train Epoch: [   80/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.115
+Train Epoch: [   80/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114	Val Loss: 2.153
+Train Epoch: [   81/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   82/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.114
+Train Epoch: [   83/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.113
+Train Epoch: [   84/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.113
+Train Epoch: [   85/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.112
+Train Epoch: [   85/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.112	Val Loss: 2.150
+Train Epoch: [   86/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.112
+Train Epoch: [   87/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.111
+Train Epoch: [   88/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.110
+Train Epoch: [   89/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.110
+Train Epoch: [   90/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.109
+Train Epoch: [   90/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.108	Val Loss: 2.146
+Train Epoch: [   91/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.108
+Train Epoch: [   92/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.106
+Train Epoch: [   93/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.105
+Train Epoch: [   94/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.104
+Train Epoch: [   95/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.102
+Train Epoch: [   95/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.101	Val Loss: 2.141
+Train Epoch: [   96/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.101
+Train Epoch: [   97/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.099
+Train Epoch: [   98/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.098
+Train Epoch: [   99/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.096
+Train Epoch: [  100/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.094
+Train Epoch: [  100/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.092	Val Loss: 2.133
+Train Epoch: [  101/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.092
+Train Epoch: [  102/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.090
+Train Epoch: [  103/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.088
+Train Epoch: [  104/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.087
+Train Epoch: [  105/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.085
+Train Epoch: [  105/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.085	Val Loss: 2.127
+Train Epoch: [  106/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  107/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  108/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  109/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  110/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  110/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084	Val Loss: 2.130
+Train Epoch: [  111/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.083
+Train Epoch: [  112/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.083
+Train Epoch: [  113/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.084
+Train Epoch: [  114/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.082
+Train Epoch: [  115/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.081
+Train Epoch: [  115/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.081	Val Loss: 2.130
+Train Epoch: [  116/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.081
+Train Epoch: [  117/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.080
+Train Epoch: [  118/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.079
+Train Epoch: [  119/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.078
+Train Epoch: [  120/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.077
+Train Epoch: [  120/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.076	Val Loss: 2.127
+Train Epoch: [  121/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.077
+Train Epoch: [  122/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.076
+Train Epoch: [  123/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.075
+Train Epoch: [  124/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.075
+Train Epoch: [  125/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.073
+Train Epoch: [  125/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.072	Val Loss: 2.126
+Train Epoch: [  126/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.072
+Train Epoch: [  127/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.071
+Train Epoch: [  128/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.069
+Train Epoch: [  129/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.067
+Train Epoch: [  130/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.066
+Train Epoch: [  130/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.064	Val Loss: 2.121
+Train Epoch: [  131/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.063
+Train Epoch: [  132/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.061
+Train Epoch: [  133/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.058
+Train Epoch: [  134/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.053
+Train Epoch: [  135/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.049
+Train Epoch: [  135/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.044	Val Loss: 2.108
+Train Epoch: [  136/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.044
+Train Epoch: [  137/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.038
+Train Epoch: [  138/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.032
+Train Epoch: [  139/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.023
+Train Epoch: [  140/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.014
+Train Epoch: [  140/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.004	Val Loss: 2.075
+Train Epoch: [  141/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 2.003
+Train Epoch: [  142/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.990
+Train Epoch: [  143/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.977
+Train Epoch: [  144/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.960
+Train Epoch: [  145/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.942
+Train Epoch: [  145/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.922	Val Loss: 1.994
+Train Epoch: [  146/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.921
+Train Epoch: [  147/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.897
+Train Epoch: [  148/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.873
+Train Epoch: [  149/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.849
+Train Epoch: [  150/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.826
+Train Epoch: [  150/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.798	Val Loss: 1.856
+Train Epoch: [  151/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.802
+Train Epoch: [  152/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.780
+Train Epoch: [  153/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.762
+Train Epoch: [  154/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.756
+Train Epoch: [  155/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.737
+Train Epoch: [  155/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.724	Val Loss: 1.772
+Train Epoch: [  156/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.721
+Train Epoch: [  157/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.710
+Train Epoch: [  158/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.704
+Train Epoch: [  159/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.701
+Train Epoch: [  160/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.692
+Train Epoch: [  160/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.709	Val Loss: 1.753
+Train Epoch: [  161/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.707
+Train Epoch: [  162/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.667
+Train Epoch: [  163/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.663
+Train Epoch: [  164/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.638
+Train Epoch: [  165/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.639
+Train Epoch: [  165/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.629	Val Loss: 1.686
+Train Epoch: [  166/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.635
+Train Epoch: [  167/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.620
+Train Epoch: [  168/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.598
+Train Epoch: [  169/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.601
+Train Epoch: [  170/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.591
+Train Epoch: [  170/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.583	Val Loss: 1.665
+Train Epoch: [  171/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.587
+Train Epoch: [  172/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.569
+Train Epoch: [  173/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.577
+Train Epoch: [  174/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.547
+Train Epoch: [  175/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.551
+Train Epoch: [  175/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.528	Val Loss: 1.633
+Train Epoch: [  176/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.532
+Train Epoch: [  177/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.524
+Train Epoch: [  178/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.519
+Train Epoch: [  179/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.512
+Train Epoch: [  180/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.517
+Train Epoch: [  180/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.499	Val Loss: 1.616
+Train Epoch: [  181/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.493
+Train Epoch: [  182/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.491
+Train Epoch: [  183/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.484
+Train Epoch: [  184/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.481
+Train Epoch: [  185/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.469
+Train Epoch: [  185/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.460	Val Loss: 1.599
+Train Epoch: [  186/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.468
+Train Epoch: [  187/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.459
+Train Epoch: [  188/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.458
+Train Epoch: [  189/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.452
+Train Epoch: [  190/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.437
+Train Epoch: [  190/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.443	Val Loss: 1.582
+Train Epoch: [  191/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.443
+Train Epoch: [  192/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.437
+Train Epoch: [  193/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.443
+Train Epoch: [  194/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.435
+Train Epoch: [  195/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.437
+Train Epoch: [  195/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.430	Val Loss: 1.593
+Train Epoch: [  196/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.422
+Train Epoch: [  197/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.422
+Train Epoch: [  198/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.418
+Train Epoch: [  199/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.425
+Train Epoch: [  200/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.415
+Train Epoch: [  200/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.414	Val Loss: 1.597
+Train Epoch: [  201/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.413
+Train Epoch: [  202/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.421
+Train Epoch: [  203/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.406
+Train Epoch: [  204/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.402
+Train Epoch: [  205/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.409
+Train Epoch: [  205/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.405	Val Loss: 1.588
+Train Epoch: [  206/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.407
+Train Epoch: [  207/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.402
+Train Epoch: [  208/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.408
+Train Epoch: [  209/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.401
+Train Epoch: [  210/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.395
+Train Epoch: [  210/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.400	Val Loss: 1.589
+Train Epoch: [  211/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.393
+Train Epoch: [  212/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.398
+Train Epoch: [  213/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.396
+Train Epoch: [  214/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.394
+Train Epoch: [  215/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.389
+Train Epoch: [  215/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.394	Val Loss: 1.594
+Train Epoch: [  216/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.391
+Train Epoch: [  217/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.386
+Train Epoch: [  218/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.387
+Train Epoch: [  219/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.393
+Train Epoch: [  220/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.386
+Train Epoch: [  220/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.389	Val Loss: 1.592
+Train Epoch: [  221/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.386
+Train Epoch: [  222/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.391
+Train Epoch: [  223/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.380
+Train Epoch: [  224/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.382
+Train Epoch: [  225/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.379
+Train Epoch: [  225/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.384	Val Loss: 1.582
+Train Epoch: [  226/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.385
+Train Epoch: [  227/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.379
+Train Epoch: [  228/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.379
+Train Epoch: [  229/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.381
+Train Epoch: [  230/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.379
+Train Epoch: [  230/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.376	Val Loss: 1.586
+Train Epoch: [  231/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.376
+Train Epoch: [  232/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.378
+Train Epoch: [  233/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.373
+Train Epoch: [  234/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.372
+Train Epoch: [  235/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.371
+Train Epoch: [  235/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.372	Val Loss: 1.589
+Train Epoch: [  236/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.370
+Train Epoch: [  237/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.370
+Train Epoch: [  238/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.372
+Train Epoch: [  239/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.368
+Train Epoch: [  240/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.365
+Train Epoch: [  240/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.370	Val Loss: 1.593
+Train Epoch: [  241/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.368
+Train Epoch: [  242/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.371
+Train Epoch: [  243/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.369
+Train Epoch: [  244/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.369
+Train Epoch: [  245/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.362
+Train Epoch: [  245/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.359	Val Loss: 1.593
+Train Epoch: [  246/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.368
+Train Epoch: [  247/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.366
+Train Epoch: [  248/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.362
+Train Epoch: [  249/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.359
+Train Epoch: [  250/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.369
+Train Epoch: [  250/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.358	Val Loss: 1.593
+Train Epoch: [  251/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.364
+Train Epoch: [  252/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.361
+Train Epoch: [  253/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.356
+Train Epoch: [  254/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.366
+Train Epoch: [  255/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.359
+Train Epoch: [  255/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-03	Loss: 1.354	Val Loss: 1.598
+
+Learning rate adapted! New learning rate 1.000e-04
+
+Train Epoch: [  256/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.360
+Train Epoch: [  257/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.351
+Train Epoch: [  258/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.357
+Train Epoch: [  259/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.357
+Train Epoch: [  260/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.359
+Train Epoch: [  260/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.359	Val Loss: 1.596
+Train Epoch: [  261/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.352
+Train Epoch: [  262/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.353
+Train Epoch: [  263/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.356
+Train Epoch: [  264/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.357
+Train Epoch: [  265/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.358
+Train Epoch: [  265/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-04	Loss: 1.356	Val Loss: 1.601
+
+Learning rate adapted! New learning rate 1.000e-05
+
+Train Epoch: [  266/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  267/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.350
+Train Epoch: [  268/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.358
+Train Epoch: [  269/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.356
+Train Epoch: [  270/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.353
+Train Epoch: [  270/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.356	Val Loss: 1.592
+Train Epoch: [  271/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  272/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.352
+Train Epoch: [  273/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.351
+Train Epoch: [  274/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.352
+Train Epoch: [  275/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354
+Train Epoch: [  275/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.353	Val Loss: 1.590
+Train Epoch: [  276/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354
+Train Epoch: [  277/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354
+Train Epoch: [  278/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  279/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.359
+Train Epoch: [  280/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.357
+Train Epoch: [  280/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.359	Val Loss: 1.597
+Train Epoch: [  281/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.357
+Train Epoch: [  282/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.350
+Train Epoch: [  283/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354
+Train Epoch: [  284/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  285/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.353
+Train Epoch: [  285/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.356	Val Loss: 1.598
+Train Epoch: [  286/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  287/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  288/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  289/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.350
+Train Epoch: [  290/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  290/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.356	Val Loss: 1.592
+Train Epoch: [  291/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.352
+Train Epoch: [  292/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.359
+Train Epoch: [  293/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.358
+Train Epoch: [  294/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.361
+Train Epoch: [  295/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.359
+Train Epoch: [  295/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.353	Val Loss: 1.596
+Train Epoch: [  296/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.358
+Train Epoch: [  297/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354
+Train Epoch: [  298/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.353
+Train Epoch: [  299/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.359
+Train Epoch: [  300/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.353
+Train Epoch: [  300/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354	Val Loss: 1.595
+Train Epoch: [  301/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  302/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.353
+Train Epoch: [  303/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.356
+Train Epoch: [  304/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.353
+Train Epoch: [  305/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354
+Train Epoch: [  305/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.358	Val Loss: 1.591
+Train Epoch: [  306/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.360
+Train Epoch: [  307/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.360
+Train Epoch: [  308/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354
+Train Epoch: [  309/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354
+Train Epoch: [  310/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.353
+Train Epoch: [  310/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.349	Val Loss: 1.597
+Train Epoch: [  311/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  312/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.361
+Train Epoch: [  313/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.355
+Train Epoch: [  314/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.359
+Train Epoch: [  315/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354
+Train Epoch: [  315/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-05	Loss: 1.354	Val Loss: 1.599
+
+Learning rate adapted! New learning rate 1.000e-06
+
+Train Epoch: [  316/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.353
+Train Epoch: [  317/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.352
+Train Epoch: [  318/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.354
+Train Epoch: [  319/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.354
+Train Epoch: [  320/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.354
+Train Epoch: [  320/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.356	Val Loss: 1.596
+Train Epoch: [  321/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.355
+Train Epoch: [  322/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.353
+Train Epoch: [  323/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.355
+Train Epoch: [  324/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.355
+Train Epoch: [  325/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.353
+Train Epoch: [  325/ 2000], Batch [     1/     1 (100%)]	Learning rate: 1.00e-06	Loss: 1.357	Val Loss: 1.600
+
+Learning rate adapted! New learning rate 1.000e-07
+
+
+Test: Multisine
+Model parameters: 44144
+Marginal Likelihood / point = 1.310
+VAF = 77.016%
+RMSE y1 = 0.062
+
+Test: Sweptsine
+Model parameters: 44144

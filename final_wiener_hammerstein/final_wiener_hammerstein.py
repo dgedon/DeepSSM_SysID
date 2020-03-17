@@ -60,13 +60,13 @@ options = {
     'savefig': True,
     'MCsamples': 30,
     'gridvalues': {
-        'h_values': [30, 40, 50, 50, 70],
+        'h_values': [30, 40, 50, 60, 70],
         'z_values': [3],
         'n_values': [3], },
     'train_set': 'small',
 }
 varying_param = 'h_varying'
-addlog = 'run_0315_hvar'
+addlog = 'run_0317'
 # get saving path
 path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],

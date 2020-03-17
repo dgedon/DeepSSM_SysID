@@ -46,7 +46,7 @@ def run_train(modelstate, loader_train, loader_valid, options, dataframe, path_g
             modelstate.optimizer.step()
 
             # grad norm clipping, only in pytorch version >= 1.10
-            nn.utils.clip_grad_norm_(modelstate.model.parameters(), train_options.clip)
+            #nn.utils.clip_grad_norm_(modelstate.model.parameters(), train_options.clip)
 
             total_batches += u.size()[0]
             total_points += np.prod(u.shape)
