@@ -49,7 +49,7 @@ def print_best_values(all_rmse, all_vaf, all_likelihood, h_values, z_values, n_v
 # set (high level) options dictionary
 options = {
     'dataset': 'wiener_hammerstein',
-    'model': 'VAE-RNN',
+    'model': 'VRNN-GMM',
     'do_train': True,
     'do_test': True,
     'logdir': 'final',
@@ -66,9 +66,9 @@ options = {
     'train_set': 'small',
 }
 varying_param = 'h_varying'
-addlog = 'run_0317'
+addlog = 'run_0317_hvar_new'
 # get saving path
-path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
+path_general = os.getcwd() + '/log_Server/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],
                                                         addlog,
                                                         options['model'], )
@@ -135,6 +135,11 @@ if __name__ == "__main__":
 
         # set the correct device to run on
         options['device'] = device
+
+        # update seed in each iteration since only 2 datasets are available
+        # if not updated, then only 2 different results will be obtained
+        if options['train_set'] == 'small':
+            options['seed'] = options['seed'] + 1
 
         for i1, h_sel in enumerate(h_values):
             for i2, z_sel in enumerate(z_values):
