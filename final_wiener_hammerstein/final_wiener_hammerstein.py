@@ -49,7 +49,7 @@ def print_best_values(all_rmse, all_vaf, all_likelihood, h_values, z_values, n_v
 # set (high level) options dictionary
 options = {
     'dataset': 'wiener_hammerstein',
-    'model': 'VRNN-GMM',
+    'model': 'VRNN-Gauss',
     'do_train': True,
     'do_test': True,
     'logdir': 'final',
@@ -58,15 +58,15 @@ options = {
     'optim': 'Adam',
     'showfig': False,
     'savefig': True,
-    'MCsamples': 30,
+    'MCsamples': 20,
     'gridvalues': {
-        'h_values': [30, 40, 50, 60, 70],
+        'h_values': [30, 40, 50, 60],
         'z_values': [3],
         'n_values': [3], },
     'train_set': 'small',
 }
 varying_param = 'h_varying'
-addlog = 'run_0317_hvar_new'
+addlog = 'run_0326_hvar'
 # get saving path
 path_general = os.getcwd() + '/log_Server/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],

@@ -29,7 +29,7 @@ def get_perf_results(path_general, model_name):
         'optim': 'Adam',
         'showfig': False,
         'savefig': False,
-        'MCsamples': 1,
+        'MCsamples': 20,
         'gridvalues': {
             'h_values': [30, 40, 50, 60, 70],
             'z_values': [3],
@@ -165,7 +165,7 @@ if __name__ == "__main__":
     # set (high level) options dictionary
     dataset = 'wiener_hammerstein'
     logdir = 'final'
-    addlog = 'run_0317_hvar_new'
+    addlog = 'run_9999_final'  # 'run_0317_hvar_new'
     model = ['VAE-RNN', 'VRNN-Gauss-I', 'VRNN-Gauss', 'VRNN-GMM-I', 'VRNN-GMM', 'STORN']
     varying_param = 'hvary'
 
@@ -243,14 +243,14 @@ if __name__ == "__main__":
         mean_rmse_multisine = rmse_all_multisine[i].mean(0).squeeze()
         mean_rmse_multisine_idx = np.argmin(mean_rmse_multisine)
 
-        mean_rmse_swepsine = rmse_all_sweptsine[i].mean(0).squeeze()
-        mean_rmse_swepsine_idx = np.argmin(mean_rmse_swepsine)
+        mean_rmse_sweptsine = rmse_all_sweptsine[i].mean(0).squeeze()
+        mean_rmse_sweptsine_idx = np.argmin(mean_rmse_sweptsine)
 
         print(model_sel)
         print('\tmin Multisine: RMSE={} at x={}'.format(mean_rmse_multisine[mean_rmse_multisine_idx],
                                                         x_values[mean_rmse_multisine_idx]))
-        print('\tmin Sweptsine RMSE={} at x={}\n'.format(mean_rmse_swepsine[mean_rmse_swepsine_idx],
-                                                         x_values[mean_rmse_swepsine_idx]))
+        print('\tmin Sweptsine RMSE={} at x={}\n'.format(mean_rmse_sweptsine[mean_rmse_sweptsine_idx],
+                                                         x_values[mean_rmse_sweptsine_idx]))
 
     # %% save data for pgfplots
 

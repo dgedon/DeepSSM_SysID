@@ -32,9 +32,9 @@ options = {
     'savefig': False,
 }
 
-test_set = 'sweptsine'
+test_set = 'multisine'
 # get saving path
-addlog = 'run_0310_hvar'
+addlog = 'run_9999_final'
 path_general = os.getcwd() + '/log_Server/{}/{}/{}/{}/'.format(options['logdir'],
                                                                options['dataset'],
                                                                addlog,
@@ -60,15 +60,15 @@ if __name__ == "__main__":
     options['test_options'] = train_params.get_test_options()
 
     # optimal model parameters
-    h_opt = 50  # 60
-    z_opt = 5  # 5
+    h_opt = 40  # 60
+    z_opt = 3  # 5
     n_opt = 3
     options['model_options'].h_dim = h_opt
     options['model_options'].z_dim = z_opt
     options['model_options'].n_layers = n_opt
 
     path = path_general + 'data/'
-    MC_chosen = 0
+    MC_chosen = 8
     file_name_general = '{}_h{}_z{}_n{}_MC{}'.format(options['dataset'], h_opt, z_opt, n_opt, MC_chosen)
 
     # sampling period
