@@ -5,10 +5,7 @@ Official repository for the PyTorch implementation of the paper: \
 Paper available on [[arXiv]](https://arxiv.org/pdf/2003.14162.pdf) with implemented [[code]](https://github.com/dgedon/DeepSSM_SysID/tree/master/). \
 Authors: [Daniel Gedon](https://katalog.uu.se/profile/?id=N19-1795), [Niklas Wahlström](https://katalog.uu.se/profile/?id=N16-250), [Thomas B. Schön](http://user.it.uu.se/~thosc112/), [Lennart Ljung](http://users.isy.liu.se/rt/ljung/).
 
-In this work we use six new deep State-Space Models (SSMs) developed from various authors in previous work and apply them
-for the field of nonlinear system identification. The available code provides a reimplementation of the six different 
-methods in PyTorch with a common interface. A toy problem and two established nonlinear benchmarks are used.
-The chosen methods benefit besides the identification of the system dynamics also from uncertainty quantification.     
+In this work we use six new deep State-Space Models (SSMs) developed from various authors in previous work and apply them for the field of nonlinear system identification. The available code provides a reimplementation of the six different models in PyTorch as a unified framework for these models. A toy problem and two established nonlinear benchmarks are used. The chosen methods benefit besides the identification of the system dynamics also from uncertainty quantification.     
 
 
 If you find this work useful, please consider citing:
