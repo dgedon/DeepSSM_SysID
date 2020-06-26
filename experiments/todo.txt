@@ -1,1 +1,0 @@
-add os.changedir('../') before creating the general path
