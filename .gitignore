@@ -2,14 +2,22 @@
 __pycache__/
 .git/
 .idea/
+# logging
+log/
 log_Server/
 # data which are too big or not used
 data/cascaded_tank.py
-data/CascadedTanksFiles/*
+data/CascadedTanksFiles/
 data/f16gvt.py
-data/F16GVT_Files/*
+data/F16GVT_Files/
 data/WienerHammersteinFiles/data/
 data/WienerHammersteinFiles/WH_SineSweepInput_meas.csv
 data/WienerHammersteinFiles/WH_MultisineFadeOut.csv
 data/WienerHammersteinFiles/WH_TestDataset.csv
 data/Toy_LGSSM/old/
+# "final" files
+final_toy_lgssm/toy_identifiedsystem.mat
+final_toy_lgssm/toy_identifiedsystem_PEM.mat
+final_toy_lgssm/toy_lgssm_data_timeeval.csv
+final_narendra_li/narendra_li_data_performance.csv
+final_narendra_li/narendra_li_data_timeeval.csv

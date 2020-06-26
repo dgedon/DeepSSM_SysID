@@ -25,7 +25,7 @@ def run_train(modelstate, loader_train, loader_valid, options, dataframe, path_g
 
         return total_vloss / total_points  # total_batches
 
-    def train(epoch):  # (modelstate, train_options, loader_train, optimizer, epoch, lr):
+    def train(epoch):
         # model in training mode
         modelstate.model.train()
         # initialization
@@ -44,9 +44,6 @@ def run_train(modelstate, loader_train, loader_valid, options, dataframe, path_g
             # NN optimization
             loss_.backward()
             modelstate.optimizer.step()
-
-            # grad norm clipping, only in pytorch version >= 1.10
-            #nn.utils.clip_grad_norm_(modelstate.model.parameters(), train_options.clip)
 
             total_batches += u.size()[0]
             total_points += np.prod(u.shape)
@@ -103,10 +100,6 @@ def run_train(modelstate, loader_train, loader_valid, options, dataframe, path_g
                 print('Train Epoch: [{:5d}/{:5d}], Batch [{:6d}/{:6d} ({:3.0f}%)]\tLearning rate: {:.2e}\tLoss: {:.3f}'
                       '\tVal Loss: {:.3f}'.format(epoch, train_options.n_epochs, len(loader_train), len(loader_train),
                                                   100., lr, loss, vloss))
-
-                # if no new best result in last 30 epochs, then break
-                # if epoch - best_epoch >= 50:
-                #     lr = 1e-7
 
                 # lr scheduler
                 if epoch >= train_options.lr_scheduler_nstart:

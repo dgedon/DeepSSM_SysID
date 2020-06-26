@@ -5,8 +5,12 @@ import pandas as pd
 import os
 import numpy as np
 import time
-import utils.datavisualizer as dv
+import sys
+
+os.chdir('../')
+sys.path.append(os.getcwd())
 # import user-written files
+import utils.datavisualizer as dv
 import data.loader as loader
 from models.model_state import ModelState
 import training
@@ -31,7 +35,6 @@ def run_main_gridsearch(options, kwargs, gridvalues, path_general, file_name_gen
         device = torch.device('cuda')
     else:
         device = torch.device('cpu')
-    # device = torch.device('cpu')
     print('Device: {}'.format(device))
 
     # get the options
@@ -67,7 +70,6 @@ def run_main_gridsearch(options, kwargs, gridvalues, path_general, file_name_gen
     all_likelihood = torch.zeros([len(h_values), len(z_values), len(n_values)])
     all_df = {}
 
-    # MISSING: Loop over all models
     for i1, h_sel in enumerate(h_values):
         for i2, z_sel in enumerate(z_values):
             for i3, n_sel in enumerate(n_values):
@@ -75,17 +77,13 @@ def run_main_gridsearch(options, kwargs, gridvalues, path_general, file_name_gen
                 # output current choice
                 print('\nCurrent run: h={}, z={}, n={}\n'.format(h_sel, z_sel, n_sel))
 
-                # get curren file names
+                # get current file names
                 file_name = file_name_general + '_h{}_z{}_n{}'.format(h_sel, z_sel, n_sel)
 
                 # set new values in options
                 options['model_options'].h_dim = h_sel
                 options['model_options'].z_dim = z_sel
                 options['model_options'].n_layers = n_sel
-
-                """# get the non-trained model
-                model = models.model_state.get_model(options)
-                model = model.to(options['device'])"""
 
                 # Specifying datasets
                 loaders = loader.load_dataset(dataset=options["dataset"],
@@ -187,7 +185,7 @@ def run_main_gridsearch(options, kwargs, gridvalues, path_general, file_name_gen
 if __name__ == "__main__":
     # set (high level) options dictionary
     options = {
-        'dataset': 'narendra_li',  # 'f16gvt', 'cascaded_tank', 'narendra_li'
+        'dataset': 'narendra_li',
         'model': 'VRNN-Gauss',
         'do_train': True,
         'do_test': True,
@@ -206,9 +204,9 @@ if __name__ == "__main__":
 
     # values for grid search
     gridvalues = {
-        'h_values': [10, 20, 30, 40, 50, 60, 70, 80],  # [40, 50]  # [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-        'z_values': [1, 2, 5, 10],  # [2]  # [1, 2, 5, 10, 15, 20]
-        'n_values': [1],  # [1]  # [1, 2, 5, 10]
+        'h_values': [10, 20, 30, 40, 50, 60, 70, 80],
+        'z_values': [1, 2, 5, 10],
+        'n_values': [1],
     }
 
     # get saving path

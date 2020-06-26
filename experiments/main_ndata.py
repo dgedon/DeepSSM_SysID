@@ -5,6 +5,10 @@ import pandas as pd
 import os
 import numpy as np
 import time
+import sys
+
+os.chdir('../')
+sys.path.append(os.getcwd())
 # import user-written files
 import utils.datavisualizer as dv
 import data.loader as loader
@@ -32,7 +36,6 @@ def run_main_ndata(options, vary_data, path_general, file_name_general, params):
         device = torch.device('cuda')
     else:
         device = torch.device('cpu')
-    # device = torch.device('cpu')
     print('Device: {}'.format(device))
 
     # get the options
@@ -73,7 +76,6 @@ def run_main_ndata(options, vary_data, path_general, file_name_general, params):
     all_likelihood = torch.zeros([len(k_max_train_values)])
     all_df = {}
 
-    # MISSING: Loop over all models!!!
     for i, _ in enumerate(k_max_train_values):
 
         # output current choice
@@ -167,7 +169,7 @@ def run_main_ndata(options, vary_data, path_general, file_name_general, params):
 if __name__ == "__main__":
     # set (high level) options dictionary
     options = {
-        'dataset': 'narendra_li',  # only use this dynamic system here!
+        'dataset': 'narendra_li',
         'model': 'VRNN-Gauss',
         'do_train': True,
         'do_test': True,
@@ -195,7 +197,7 @@ if __name__ == "__main__":
 
     # chosen values for evaluation
     params = {
-        'h_best': 80,
+        'h_best': 60,
         'z_best': 10,
         'n_best': 1,
     }

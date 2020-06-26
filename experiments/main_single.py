@@ -4,8 +4,11 @@ import pandas as pd
 import os
 import torch
 import time
+import sys
 import matplotlib.pyplot as plt
 
+os.chdir('../')
+sys.path.append(os.getcwd())
 # import user-written files
 import data.loader as loader
 import training
@@ -33,7 +36,6 @@ def run_main_single(options, path_general, file_name_general):
         device = torch.device('cuda')
     else:
         device = torch.device('cpu')
-    # device = torch.device('cpu')
     print('Device: {}'.format(device))
 
     # get the options
@@ -124,9 +126,9 @@ def run_main_single(options, path_general, file_name_general):
 if __name__ == "__main__":
     # set (high level) options dictionary
     options = {
-        'dataset': 'toy_lgssm',  # 'f16gvt', 'cascaded_tank', 'narendra_li', 'toy_lgssm', 'wiener_hammerstein'
+        'dataset': 'toy_lgssm',  # options: 'narendra_li', 'toy_lgssm', 'wiener_hammerstein'
         'model': 'STORN',
-        'do_train': False,
+        'do_train': True,
         'do_test': True,
         'logdir': 'single',
         'normalize': True,
