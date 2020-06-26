@@ -59,8 +59,8 @@ if __name__ == "__main__":
     options['test_options'] = train_params.get_test_options()
 
     # optimal model parameters
-    h_opt = 60  # 60
-    z_opt = 10  # 5
+    h_opt = 60
+    z_opt = 10
     n_opt = 1
     options['model_options'].h_dim = h_opt
     options['model_options'].z_dim = z_opt

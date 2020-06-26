@@ -44,19 +44,18 @@ options = {
     'optim': 'Adam',
     'showfig': False,
     'savefig': True,
-    'MCsamples': 3,
+    'MCsamples': 30,
     'vary_data': {
         'k_max_train_values': [2000, 5000, 10000, 20000, 30000, 40000, 50000, 60000],
-        'k_max_val_values': [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, ],
-        'k_max_test_values': [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, ], },
+        'k_max_val_values': [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000],
+        'k_max_test_values': [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000], },
     'optValue': {
         'h_opt': 60,
-        'z_opt': 5,
-        'n_opt': 2, },
+        'z_opt': 10,
+        'n_opt': 1, },
 }
 
-addpath = 'test'  # 'run_0309_h60z5n2s2000'
-
+addpath = 'test'
 # get saving path
 path_general = os.getcwd() + '/log/{}/{}/{}/{}/'.format(options['logdir'],
                                                         options['dataset'],
