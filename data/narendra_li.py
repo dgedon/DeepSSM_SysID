@@ -5,7 +5,7 @@ from data.base import IODataset
 
 
 def run_narendra_li_sim(u):
-    # see andreas work "A flexible state-space model for learning nonlinear dynamical systems"
+    # see andreas lindholm's work "A flexible state-space model for learning nonlinear dynamical systems"
 
     # get length of input
     k_max = u.shape[-1]
@@ -42,9 +42,9 @@ def create_narendra_li_datasets(seq_len_train=None, seq_len_val=None, seq_len_te
         k_max_test = kwargs['k_max_test']
     else:
         # Default option
-        k_max_train = 50000  # 50000
-        k_max_val = 5000  # 5000
-        k_max_test = 5000  # 5000
+        k_max_train = 50000
+        k_max_val = 5000
+        k_max_test = 5000
 
     # training / validation set input
     u_train = (np.random.rand(1, k_max_train) - 0.5) * 5
@@ -54,14 +54,6 @@ def create_narendra_li_datasets(seq_len_train=None, seq_len_val=None, seq_len_te
     test_data = np.load(file_path)
     u_test = test_data['u_test'][0:k_max_test]
     y_test = test_data['y_test'][0:k_max_test]
-
-    # old way with simulating a new dataset everytime. Now I load the test data set!
-    """u_test = np.zeros([1, k_max_test])
-    for k in range(k_max_test):
-        u_test[:, k] = np.sin(2 * np.pi * k / 10) + np.sin(2 * np.pi * k / 25)
-    y_test = run_narendra_li_sim(u_test)  # no noise here since it will be tested with mean /pm 3std
-    u_test = u_test.transpose(1, 0)
-    y_test = y_test.transpose(1, 0)"""
 
     # get the outputs
     y_train = run_narendra_li_sim(u_train) + sigma_out * np.random.randn(1, k_max_train)

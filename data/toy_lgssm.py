@@ -58,20 +58,11 @@ def create_toy_lgssm_datasets(seq_len_train=None, seq_len_val=None, seq_len_test
     u_test = test_data['u_test'][0:k_max_test]
     y_test = test_data['y_test'][0:k_max_test]
 
-    # old way with simulating a new dataset everytime. Now I load the test data set!
-    """u_test = np.zeros([1, k_max_test])
-    for k in range(k_max_test):
-        u_test[:, k] = np.sin(2 * np.pi * k / 10) + np.sin(2 * np.pi * k / 25)
-    y_test = run_toy_lgssm_sim(u_test)  # no noise here since it will be tested with mean /pm 3std
-    u_test = u_test.transpose(1, 0)
-    y_test = y_test.transpose(1, 0)"""
-
     # get the outputs
     y_train = run_toy_lgssm_sim(u_train, A, B, C, sigma_state, 0) + sigma_out * np.random.randn(1, k_max_train)
     y_val = run_toy_lgssm_sim(u_val, A, B, C, sigma_state, 0) + sigma_out * np.random.randn(1, k_max_val)
 
     # get correct dimensions
-
     u_train = u_train.transpose(1, 0)
     y_train = y_train.transpose(1, 0)
     u_val = u_val.transpose(1, 0)

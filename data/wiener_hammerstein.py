@@ -32,7 +32,6 @@ def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_
         file_name_train = 'data/WienerHammersteinFiles/WH_MultisineFadeOut.csv'
     elif train_set == 'big':
         file_name_train = 'data/WienerHammersteinFiles/WH_SineSweepInput_meas.csv'
-    # file_name_train = 'data/WienerHammersteinFiles/WH_MultisineFadeOut.csv'  # 'WH_SineSweepInput_meas.csv'
     file_name_test = 'data/WienerHammersteinFiles/WH_TestDataset.csv'
 
     # initialization
@@ -90,17 +89,6 @@ def create_wienerhammerstein_datasets(seq_len_train=None, seq_len_val=None, seq_
     y_val = np.asarray(y_val)
     u_test = np.asarray(u_test)
     y_test = np.asarray(y_test)
-
-    """# number of test data points
-    p = 28*256  # 8192 - 4 * 256 (28 batches of training and 4 batch of validation)
-
-    # Extract training data
-    u_train = u[0:p]
-    y_train = y[0:p]
-
-    # Extract validation data
-    u_val = u[p:]
-    y_val = y[p:]"""
 
     # get correct dimensions
     u_test = u_test[..., None]
