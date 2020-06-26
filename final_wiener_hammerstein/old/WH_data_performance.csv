@@ -1,5 +1,0 @@
-x,mu_rmse_ms_VRNN-Gauss,pstd_rmse_ms_VRNN-Gauss,mstd_rmse_ms_VRNN-Gauss,mu_rmse_ss_VRNN-Gauss,pstd_rmse_ss_VRNN-Gauss,mstd_rmse_ss_VRNN-Gauss
-30,0.17791595,,,0.17791595,,
-40,0.24754943,,,0.24754943,,
-50,0.15914732,,,0.15914732,,
-60,0.13147296,,,0.13147296,,
