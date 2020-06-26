@@ -127,7 +127,7 @@ if __name__ == "__main__":
     # set (high level) options dictionary
     options = {
         'dataset': 'toy_lgssm',  # options: 'narendra_li', 'toy_lgssm', 'wiener_hammerstein'
-        'model': 'STORN',
+        'model': 'STORN', # options: 'VAE-RNN', 'VRNN-Gauss', 'VRNN-Gauss-I', 'VRNN-GMM', 'VRNN-GMM-I', 'STORN'
         'do_train': True,
         'do_test': True,
         'logdir': 'single',
