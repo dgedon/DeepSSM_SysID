@@ -2,18 +2,14 @@
 __pycache__/
 .git/
 .idea/
-other/
 log_Server/
-data/CascadedTanksFiles/fromKoen
-data/CascadedTanksFiles/PicsVideo
-data/CascadedTanksFiles/TanksBenchmark.pdf
-data/F16GVT_Files/
-data/F16GVT_Files/F16GVT_Files.zip
-data/F16GVT_Files/Figures/
-data/F16GVT_Files/BenchmarkData/
-data/F16GVT_Files/F16Benchmark.pdf
-data/WienerHammersteinFiles/
+# data which are too big or not used
+data/cascaded_tank.py
+data/CascadedTanksFiles/*
+data/f16gvt.py
+data/F16GVT_Files/*
 data/WienerHammersteinFiles/data/
 data/WienerHammersteinFiles/WH_SineSweepInput_meas.csv
+data/WienerHammersteinFiles/WH_MultisineFadeOut.csv
+data/WienerHammersteinFiles/WH_TestDataset.csv
 data/Toy_LGSSM/old/
-other/model_old/
