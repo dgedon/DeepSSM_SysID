@@ -3,8 +3,8 @@ import argparse
 
 def get_dataset_options(dataset_name):
 
-
-    if dataset_name == 'cascaded_tank':
+    """Not used datasets"""
+    """if dataset_name == 'cascaded_tank':
         dataset_parser = argparse.ArgumentParser(description='dynamic system parameter: cascaded tank')
         dataset_parser.add_argument('--y_dim', type=int, default=1, help='dimension of y')
         dataset_parser.add_argument('--u_dim', type=int, default=1, help='dimension of u')
@@ -20,9 +20,9 @@ def get_dataset_options(dataset_name):
         dataset_parser.add_argument('--seq_len_train', type=int, default=2048, help='training sequence length')
         dataset_parser.add_argument('--seq_len_test', type=int, default=2048, help='test sequence length')
         dataset_parser.add_argument('--seq_len_val', type=int, default=2048, help='validation sequence length')
-        dataset_options = dataset_parser.parse_args()
+        dataset_options = dataset_parser.parse_args()"""
 
-    elif dataset_name == 'narendra_li':
+    if dataset_name == 'narendra_li':
         dataset_parser = argparse.ArgumentParser(description='dynamic system parameter: narendra li')
         dataset_parser.add_argument('--y_dim', type=int, default=1, help='dimension of y')
         dataset_parser.add_argument('--u_dim', type=int, default=1, help='dimension of u')

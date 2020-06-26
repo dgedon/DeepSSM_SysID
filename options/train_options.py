@@ -9,7 +9,8 @@ def get_train_options(dataset_name):
     train_parser.add_argument('--print_every', type=int, default=1, help='output print of training')
     train_parser.add_argument('--test_every', type=int, default=5, help='test during training after every n epoch')
 
-    if dataset_name == 'cascaded_tank':
+    """Not used datasets"""
+    """if dataset_name == 'cascaded_tank':
         train_parser.add_argument('--n_epochs', type=int, default=500, help='number of epochs')
         train_parser.add_argument('--init_lr', type=float, default=1e-3, help='initial learning rate')
         train_parser.add_argument('--min_lr', type=float, default=1e-6, help='minimal learning rate')
@@ -21,9 +22,9 @@ def get_train_options(dataset_name):
         train_parser.add_argument('--init_lr', type=float, default=1e-3, help='initial learning rate')
         train_parser.add_argument('--min_lr', type=float, default=1e-6, help='minimal learning rate')
         train_parser.add_argument('--lr_scheduler_nepochs', type=float, default=10/2, help='check learning rater after')
-        train_parser.add_argument('--lr_scheduler_factor', type=float, default=10, help='adapt learning rate by')
+        train_parser.add_argument('--lr_scheduler_factor', type=float, default=10, help='adapt learning rate by')"""
 
-    elif dataset_name == 'narendra_li':
+    if dataset_name == 'narendra_li':
         train_parser.add_argument('--n_epochs', type=int, default=500, help='number of epochs')
         train_parser.add_argument('--init_lr', type=float, default=1e-3, help='initial learning rate')
         train_parser.add_argument('--min_lr', type=float, default=1e-6, help='minimal learning rate')
@@ -37,7 +38,7 @@ def get_train_options(dataset_name):
         train_parser.add_argument('--lr_scheduler_nepochs', type=float, default=10/2, help='check learning rater after')
         train_parser.add_argument('--lr_scheduler_factor', type=float, default=10, help='adapt learning rate by')
 
-    elif dataset_name == 'wiener_hammerstein':  # 7, 700
+    elif dataset_name == 'wiener_hammerstein':
         train_parser.add_argument('--n_epochs', type=int, default=750, help='number of epochs')
         train_parser.add_argument('--init_lr', type=float, default=1e-3, help='initial learning rate')
         train_parser.add_argument('--min_lr', type=float, default=1e-6, help='minimal learning rate')
