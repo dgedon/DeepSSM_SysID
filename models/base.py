@@ -3,10 +3,6 @@ import torch.nn as nn
 from enum import Enum
 import numpy as np
 
-"""class RunMode(str, Enum):
-    FREE_RUN_SIMULATION = 'free-run-simulation'
-    ONE_STEP_AHEAD = 'one-step-ahead'"""
-
 
 class Normalizer1D(nn.Module):
     _epsilon = 1e-16

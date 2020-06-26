@@ -8,5 +8,4 @@ from .model_vrnn_gmm_I import VRNN_GMM_I
 from .dynamic_model import DynamicModel
 from .model_state import ModelState
 
-__all__ = ['STORN', 'VAE_RNN', 'VRNN_Gauss', 'VRNN_Gauss_I', 'VRNN_GMM', 'VRNN_GMM_I', #, 'VAE_RNN_narli', 'STORN_narli',
-           'DynamicModel', 'ModelState']            #'VRNN_Gauss_new',
+__all__ = ['STORN', 'VAE_RNN', 'VRNN_Gauss', 'VRNN_Gauss_I', 'VRNN_GMM', 'VRNN_GMM_I', 'DynamicModel', 'ModelState']

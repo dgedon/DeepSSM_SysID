@@ -1,8 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from . import STORN, VAE_RNN, VRNN_Gauss, VRNN_Gauss_I, VRNN_GMM, VRNN_GMM_I # , VAE_RNN_narli, STORN_narli
-# VRNN_Gauss_new
+from . import STORN, VAE_RNN, VRNN_Gauss, VRNN_Gauss_I, VRNN_GMM, VRNN_GMM_I
 
 
 class DynamicModel(nn.Module):
@@ -22,7 +21,7 @@ class DynamicModel(nn.Module):
 
         # initialize the model
         if model == 'VRNN-Gauss':
-            self.m = VRNN_Gauss(model_options, options['device'])  # , normalizer_u, normalizer_y)
+            self.m = VRNN_Gauss(model_options, options['device'])
         elif model == 'VRNN-Gauss-I':
             self.m = VRNN_Gauss_I(model_options, options['device'])
         elif model == 'VRNN-GMM':
@@ -35,13 +34,6 @@ class DynamicModel(nn.Module):
             self.m = VAE_RNN(model_options, options['device'])
         else:
             raise Exception("Unimplemented model")
-
-
-        """# modified for narendra-li
-        elif model == 'VAE-RNN-narli':
-            self.m = VAE_RNN_narli(model_options, options['device'])
-        elif model == 'STORN-narli':
-            self.m = STORN_narli(model_options, options['device'])"""
 
     @property
     def num_model_inputs(self):

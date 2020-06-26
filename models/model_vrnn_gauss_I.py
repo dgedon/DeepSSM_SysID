@@ -67,7 +67,6 @@ class VRNN_Gauss_I(nn.Module):
         seq_len = y.shape[2]
         # allocation
         loss = 0
-        KLD_total = 0
         # initialization
         h = torch.zeros(self.n_layers, batch_size, self.h_dim, device=self.device)
 
@@ -88,14 +87,9 @@ class VRNN_Gauss_I(nn.Module):
             enc_mean_t = self.enc_mean(enc_t)
             enc_logvar_t = self.enc_logvar(enc_t)
 
-            """# prior: z_t ~ N(0,1) (for KLD loss)
-            prior_mean_t = torch.zeros_like(enc_mean_t)
-            prior_logvar_t = torch.zeros_like(enc_mean_t)"""
-
             # sampling and reparameterization: get a new z_t
             temp = tdist.Normal(enc_mean_t, enc_logvar_t.exp().sqrt())
             z_t = tdist.Normal.rsample(temp)
-            # z_t = self._reparameterized_sample(prior_mean_t, prior_logvar_t)
             # feature extraction: z_t
             phi_z_t = self.phi_z(z_t)
 
@@ -103,7 +97,6 @@ class VRNN_Gauss_I(nn.Module):
             dec_t = self.dec(torch.cat([phi_z_t, h[-1]], 1))
             dec_mean_t = self.dec_mean(dec_t)
             dec_logvar_t = self.dec_logvar(dec_t)
-            # sample = self._reparameterized_sample(dec_mean_t, dec_logvar_t)
             pred_dist = tdist.Normal(dec_mean_t, dec_logvar_t.exp().sqrt())
 
             # recurrence: u_t+1, z_t -> h_t+1
@@ -111,7 +104,6 @@ class VRNN_Gauss_I(nn.Module):
 
             # computing the loss
             KLD = self.kld_gauss(enc_mean_t, enc_logvar_t, prior_mean_t, prior_logvar_t)
-            # loss_pred = F.mse_loss(sample, y[t], reduction='sum')
             loss_pred = torch.sum(pred_dist.log_prob(y[:, :, t]))
             loss += - loss_pred + KLD
 
@@ -138,7 +130,7 @@ class VRNN_Gauss_I(nn.Module):
         # for all time steps
         for t in range(seq_len):
             # feature extraction: u_t+1
-            phi_u_t = self.phi_u(u[:, :, t])  # .unsqueeze(0).type(torch.float))
+            phi_u_t = self.phi_u(u[:, :, t])
 
             # sampling and reparameterization: get new z_t
             temp = tdist.Normal(prior_mean_t, prior_logvar_t.exp().sqrt())

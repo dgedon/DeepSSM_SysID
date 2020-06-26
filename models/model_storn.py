@@ -108,7 +108,6 @@ class STORN(nn.Module):
             # sampling and reparameterization: get a new z_t
             temp = tdist.Normal(enc_mean_t, enc_logvar_t.exp().sqrt())
             z_t = tdist.Normal.rsample(temp)
-            # z_t = self._reparameterized_sample(enc_mean_t, enc_logvar_t)
             # feature extraction: z_t
             phi_z_t = self.phi_z(z_t)
 
@@ -116,7 +115,6 @@ class STORN(nn.Module):
             dec_t = self.dec(h[-1])
             dec_mean_t = self.dec_mean(dec_t)
             dec_logvar_t = self.dec_logvar(dec_t)
-            # sample = self._reparameterized_sample(dec_mean_t, dec_logvar_t)
             pred_dist = tdist.Normal(dec_mean_t, dec_logvar_t.exp().sqrt())
 
             # recurrence: u_t+1, z_t, h_t -> h_t+1
@@ -124,7 +122,6 @@ class STORN(nn.Module):
 
             # computing the loss
             KLD = self.kld_gauss(enc_mean_t, enc_logvar_t, prior_mean_t, prior_logvar_t)
-            # loss_pred = torch.norm(sample - y[t]) ** 2
             loss_pred = torch.sum(pred_dist.log_prob(y[:, :, t]))
             loss += - loss_pred + KLD
 
@@ -156,7 +153,6 @@ class STORN(nn.Module):
             # sampling and reparameterization: get new z_t
             temp = tdist.Normal(prior_mean_t, prior_logvar_t.exp().sqrt())
             z_t = tdist.Normal.rsample(temp)
-            # z_t = self._reparameterized_sample(prior_mean_t, prior_logvar_t)
             # feature extraction: z_t
             phi_z_t = self.phi_z(z_t)
 
@@ -167,7 +163,6 @@ class STORN(nn.Module):
             # store the samples
             temp = tdist.Normal(dec_mean_t, dec_logvar_t.exp().sqrt())
             sample[:, :, t] = tdist.Normal.rsample(temp)
-            # sample[:, t] = self._reparameterized_sample(dec_mean_t, dec_logvar_t)
             # store mean and std
             sample_mu[:, :, t] = dec_mean_t
             sample_sigma[:, :, t] = dec_logvar_t.exp().sqrt()

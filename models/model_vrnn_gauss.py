@@ -78,9 +78,8 @@ class VRNN_Gauss(nn.Module):
         # allocation
         loss = 0
         # initialization
-        h = torch.zeros(self.n_layers, batch_size, self.h_dim, device=self.device)  # .to(self.device)
-        # initialization of output of RNN
-        # phi_h_t = self.init_rnn_output(batch_size, seq_len)
+        h = torch.zeros(self.n_layers, batch_size, self.h_dim, device=self.device)
+
 
         # for all time steps
         for t in range(seq_len):
@@ -102,7 +101,6 @@ class VRNN_Gauss(nn.Module):
             # sampling and reparameterization: get a new z_t
             temp = tdist.Normal(enc_mean_t, enc_logvar_t.exp().sqrt())
             z_t = tdist.Normal.rsample(temp)
-            # z_t = self._reparameterized_sample(enc_mean_t, enc_logvar_t)
             # feature extraction: z_t
             phi_z_t = self.phi_z(z_t)
 
@@ -110,7 +108,6 @@ class VRNN_Gauss(nn.Module):
             dec_t = self.dec(torch.cat([phi_z_t, h[-1]], 1))
             dec_mean_t = self.dec_mean(dec_t)
             dec_logvar_t = self.dec_logvar(dec_t)
-            # sample = self._reparameterized_sample(dec_mean_t, dec_logvar_t)  # dec_mean_t.data  #
             pred_dist = tdist.Normal(dec_mean_t, dec_logvar_t.exp().sqrt())
 
             # recurrence: u_t+1, z_t -> h_t+1
@@ -118,7 +115,6 @@ class VRNN_Gauss(nn.Module):
 
             # computing the loss
             KLD = self.kld_gauss(enc_mean_t, enc_logvar_t, prior_mean_t, prior_logvar_t)
-            # loss_pred = F.mse_loss(sample, y[t], reduction='sum')
             loss_pred = torch.sum(pred_dist.log_prob(y[:, :, t]))
             loss += - loss_pred + KLD
 
@@ -149,7 +145,6 @@ class VRNN_Gauss(nn.Module):
             # sampling and reparameterization: get new z_t
             temp = tdist.Normal(prior_mean_t, prior_logvar_t.exp().sqrt())
             z_t = tdist.Normal.rsample(temp)
-            # z_t = self._reparameterized_sample(prior_mean_t, prior_logvar_t)
             # feature extraction: z_t
             phi_z_t = self.phi_z(z_t)
 
@@ -160,7 +155,6 @@ class VRNN_Gauss(nn.Module):
             # store the samples
             temp = tdist.Normal(dec_mean_t, dec_logvar_t.exp().sqrt())
             sample[:, :, t] = tdist.Normal.rsample(temp)
-            # sample[:, :, t] = self._reparameterized_sample(dec_mean_t, dec_logvar_t)  # dec_mean_t.data  #
             # store mean and std
             sample_mu[:, :, t] = dec_mean_t
             sample_sigma[:, :, t] = dec_logvar_t.exp().sqrt()

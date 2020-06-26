@@ -100,12 +100,8 @@ class VRNN_GMM_I(nn.Module):
 
             # encoder: y_t, h_t -> z_t
             enc_t = self.enc(torch.cat([phi_y_t, h[-1]], 1))
-            enc_mean_t = self.enc_mean(enc_t)  # .view(batch_size, self.z_dim, self.n_mixtures)
-            enc_logvar_t = self.enc_logvar(enc_t)  # .view(batch_size, self.z_dim, self.n_mixtures)
-
-            """# prior: z_t ~ N(0,1) (for KLD loss)
-            prior_mean_t = torch.zeros_like(enc_mean_t)
-            prior_logvar_t = torch.zeros_like(enc_mean_t)"""
+            enc_mean_t = self.enc_mean(enc_t)
+            enc_logvar_t = self.enc_logvar(enc_t)
 
             # sampling and reparameterization: get a new z_t
             temp = tdist.Normal(enc_mean_t, enc_logvar_t.exp().sqrt())
@@ -124,7 +120,6 @@ class VRNN_GMM_I(nn.Module):
 
             # computing the loss
             KLD = self.kld_gauss(enc_mean_t, enc_logvar_t, prior_mean_t, prior_logvar_t)
-            # loss_pred = torch.sum(pred_dist.log_prob(y[t]))
             loss_pred = self.loglikelihood_gmm(y[:, :, t], dec_mean_t, dec_logvar_t, dec_pi_t)
             loss += - loss_pred + KLD
 
