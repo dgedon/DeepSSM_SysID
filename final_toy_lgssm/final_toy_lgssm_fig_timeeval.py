@@ -5,6 +5,7 @@ import torch
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
+
 os.chdir('../')
 sys.path.append(os.getcwd())
 # import user-written files
@@ -61,8 +62,8 @@ if __name__ == "__main__":
     options['test_options'] = train_params.get_test_options()
 
     # optimal model parameters
-    h_opt = 60  # 60
-    z_opt = 5  # 5
+    h_opt = 60
+    z_opt = 5
     n_opt = 1
     options['model_options'].h_dim = h_opt
     options['model_options'].z_dim = z_opt
@@ -87,7 +88,7 @@ if __name__ == "__main__":
     if options['do_test']:
         # %% test the model
 
-        # ##### Loading the model -> This needs to be changed to run for GPU as well!!
+        # ##### Loading the model
         # switch to cpu computations for testing
         options['device'] = 'cpu'
 
@@ -136,8 +137,6 @@ if __name__ == "__main__":
         Cid = mat['C']
         std_id = mat['std']
         y_id = mat['yid'].transpose()
-        # temp = u_test.numpy().squeeze(0)
-        #y_id = run_toy_lgssm_sim(temp, Aid, Bid, Cid, 0, 0)
 
         # %% plot time evaluation with uncertainty
 
@@ -158,7 +157,6 @@ if __name__ == "__main__":
         plt.fill_between(x, mean, mean - 3 * std, alpha=0.3, facecolor='b')
 
         # ####### plot identified system output
-        #plt.plot(x, y_id.squeeze(), label='linModel', linestyle='dashed', color='k')
         mean = y_id.squeeze()
         # plot mean
         plt.plot(mean, label='linModel', color='k', linestyle='dashed')
@@ -212,7 +210,6 @@ if __name__ == "__main__":
         # plot 3std around
         plt.fill_between(x, mean, mean + 3 * std, alpha=0.3, facecolor='k')
         plt.fill_between(x, mean, mean - 3 * std, alpha=0.3, facecolor='k')
-
 
         # ####### plot samples output with uncertainty
         mean = y_sample_mu.squeeze()
@@ -287,7 +284,7 @@ if __name__ == "__main__":
             'p3sigmaModel': p3sigmaModel,
             'm3sigmaModel': m3sigmaModel,
         }
-        df = pd.DataFrame(data) # , columns=['muTest', 'sigmaTest'])
+        df = pd.DataFrame(data)  # , columns=['muTest', 'sigmaTest'])
 
         path = os.getcwd() + '/final_toy_lgssm/' + 'toy_lgssm_data_timeeval.csv'
         df.to_csv(path, index=False)
