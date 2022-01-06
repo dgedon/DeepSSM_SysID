@@ -1,8 +1,12 @@
 # DeepSSM_SysID
 
 Official repository for the PyTorch implementation of the paper: \
-**Deep State Space Models for Nonlinear System Identification**, submitted to [CDC 2020](https://cdc2020.ieeecss.org/). \
-Paper available on [[arXiv]](https://arxiv.org/pdf/2003.14162.pdf) with implemented [[code]](https://github.com/dgedon/DeepSSM_SysID/tree/master/). \
+**Deep State Space Models for Nonlinear System Identification**, at the 
+[19th IFAC Symposium on System Identification (SYSID)](https://www.sysid2021.org).\
+Links: [[doi]](https://doi.org/10.1016/j.ifacol.2021.08.406)
+[[arXiv]](https://arxiv.org/abs/2003.14162)
+[[Code]](https://github.com/dgedon/DeepSSM_SysID)
+[[Slides]](https://dgedon.github.io/files/pdf/slides/210715_sysid_daniel_handout.pdf). \
 Authors: [Daniel Gedon](https://katalog.uu.se/profile/?id=N19-1795), [Niklas Wahlström](https://katalog.uu.se/profile/?id=N16-250), [Thomas B. Schön](http://user.it.uu.se/~thosc112/), [Lennart Ljung](http://users.isy.liu.se/rt/ljung/).
 
 In this work we use six new deep State-Space Models (SSMs) developed from various authors in previous work and apply them for the field of nonlinear system identification. The available code provides a reimplementation of the six different models in PyTorch as a unified framework for these models. A toy problem and two established nonlinear benchmarks are used. The chosen methods benefit besides the identification of the system dynamics also from uncertainty quantification.     
