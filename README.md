@@ -10,16 +10,14 @@ In this work we use six new deep State-Space Models (SSMs) developed from variou
 
 If you find this work useful, please consider citing:
 ```
-@article{gedonDeepStateSpace2020,
-  title = {Deep {{State Space Models}} for {{Nonlinear System Identification}}},
-  author = {Gedon, Daniel and Wahlstr{\"o}m, Niklas and Sch{\"o}n, Thomas B. and Ljung, Lennart},
-  year = {2020},
-  month = {March},
-  archivePrefix = {arXiv},
-  eprint = {2003.14162},
-  eprinttype = {arxiv},
-  journal = {arXiv:2003.14162 [cs, eess, stat]},
-} 
+@inproceedings{gedon2021deepssm,
+  author={Gedon, Daniel and Wahlstr{\"o}m, Niklas and Sch{\"o}n, Thomas B. and Ljung, Lennart},
+  title={Deep State Space Models for Nonlinear System Identification},
+  booktitle={Proceedings of the 19th IFAC Symposium on System Identification (SYSID)},
+  month={July},
+  year={2021},
+  note={online},
+}
 ```
 
 ## Repository overview
